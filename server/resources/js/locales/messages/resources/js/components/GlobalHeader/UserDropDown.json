@@ -1,0 +1,10 @@
+[
+  {
+    "id": "menu.account.settings",
+    "defaultMessage": "Account Settings"
+  },
+  {
+    "id": "menu.account.logout",
+    "defaultMessage": "Logout"
+  }
+]

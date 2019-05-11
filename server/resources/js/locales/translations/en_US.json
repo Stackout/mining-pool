@@ -1,0 +1,13 @@
+{
+  "algorithm": "Algorithm",
+  "app.content1": "To get started, edit",
+  "app.content2": "and save to reload.",
+  "app.description": "None",
+  "app.title": "Welcome to React",
+  "coin": "Coin",
+  "hashrate": "Hashrate",
+  "menu.account.logout": "Logout",
+  "menu.account.settings": "Account Settings",
+  "miner": "Miner",
+  "port": "Port"
+}

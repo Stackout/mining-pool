@@ -1,0 +1,14 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "Welcome to React"
+  },
+  {
+    "id": "app.content1",
+    "defaultMessage": "To get started, edit"
+  },
+  {
+    "id": "app.content2",
+    "defaultMessage": "and save to reload."
+  }
+]
