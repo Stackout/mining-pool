@@ -10,9 +10,7 @@ input RefreshTokenInput {
 
 type AuthPayload {
     access_token: String!
-    refresh_token: String!
-    expires_in: Int!
-    token_type: String!
+    expires_in: DateTime!
 }
 
 type LogoutResponse {
@@ -40,8 +38,22 @@ extend type Query {
     me: User @auth(guard: "api")
 }
 
+type LoginResponse {
+    permissions: [Permission]
+    roles: [Role]
+    token: AuthPayload
+}
+
+type Permission {
+    name: String
+}
+
+type Role {
+    name: String
+}
+
 extend type Mutation {
-    login(data: LoginInput): Boolean!
+    login(data: LoginInput): LoginResponse!
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
     logout: LogoutResponse! @protect(guards: ["api"]) @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Logout@resolve")
     forgotPassword(data: ForgotPasswordInput!): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve")

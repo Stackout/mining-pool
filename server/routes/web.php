@@ -12,6 +12,7 @@
 */
 
 Route::get('/{path?}', 'Home@index')->name('home');
+Route::get('/manage/{path?}', 'Home@index')->name('manage');
 
 Auth::routes();
 

@@ -212,3 +212,15 @@ export const getGravatar = (email, size) => {
 
   return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?s=' + size
 }
+
+export const transformResource = (data, properties) =>
+  data.reduce((carry, resource, index) => {
+    carry.push({
+      key: index,
+      ...properties.reduce((o, p) => {
+        o[p] = resource[p]
+        return o
+      }, {}),
+    })
+    return carry
+  }, [])

@@ -12,6 +12,7 @@ class GlobalHeader extends Component {
           background: '#fff',
           padding: '0 10px 0',
           boxShadow: ' 0 1px 4px rgba(0,21,41,.08)',
+          zIndex: 1,
         }}
       >
         <RightContent />

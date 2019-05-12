@@ -1,16 +1,12 @@
-import React, { Component, Suspense, lazy } from 'react'
-import { Layout } from 'antd'
+import React from 'react'
+import { Layout, PageHeader as AntDPageHeader } from 'antd'
 import Sider from '../Menu/Sider'
-import Routes from '@/components/Routes'
-import Spinner from '@/components/Spinner'
-import { Route } from 'react-router-dom'
 import { compose } from 'recompose'
 import { withLayoutConsumer } from './Context'
-const Login = lazy(() => import('@auth/Login'))
-import { withRouter } from 'react-router-dom'
 import GlobalHeader from '../GlobalHeader'
+import styled from '@emotion/styled'
 
-const { Header, Content, Footer } = Layout
+const { Content, Footer } = Layout
 
 export const BaseLayout = ({ collapsed, onCollapse, children }) => {
   return (
@@ -18,9 +14,9 @@ export const BaseLayout = ({ collapsed, onCollapse, children }) => {
       <Sider collapsed={collapsed} onCollapse={onCollapse} />
       <Layout>
         <GlobalHeader />
-        <Content style={{ margin: '0 16px' }}>{children}</Content>
+        <Content>{children}</Content>
         <Footer style={{ textAlign: 'center' }}>
-          DarkMatter Mining Pool &copy;2019; Created by HelixAlpha, Inc.
+          HelixAlpha Mining Pool &copy;2019; Created by HelixAlpha, Inc.
         </Footer>
       </Layout>
     </Layout>
@@ -28,3 +24,18 @@ export const BaseLayout = ({ collapsed, onCollapse, children }) => {
 }
 
 export default compose(withLayoutConsumer)(BaseLayout)
+
+const PageHeaderContainer = styled.div`
+  width: 100%;
+  background-color: #fff;
+`
+
+export const PageHeader = ({ title, breadcrumb, children }) => (
+  <PageHeaderContainer>
+    <AntDPageHeader title={title} breadcrumb={breadcrumb}>
+      <div className="wrap">
+        <div className="content">{children}</div>
+      </div>
+    </AntDPageHeader>
+  </PageHeaderContainer>
+)

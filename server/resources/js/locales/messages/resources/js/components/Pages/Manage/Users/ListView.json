@@ -1,0 +1,18 @@
+[
+  {
+    "id": "users.name",
+    "defaultMessage": "Name"
+  },
+  {
+    "id": "users.email",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "users.pages.title",
+    "defaultMessage": "Users"
+  },
+  {
+    "id": "users.pages.details",
+    "defaultMessage": "View, update, create and delete a users resource."
+  }
+]

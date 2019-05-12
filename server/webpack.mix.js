@@ -46,6 +46,7 @@ mix.react('resources/js/app.js', 'public/js')
           '@mining': __dirname + '/resources/js/components/Mining',
           '@modals': __dirname + '/resources/js/components/Modals',
           '@pages': __dirname + '/resources/js/components/Pages',
+          '@routes': __dirname + '/resources/js/components/Routes',
         },
       },
       module: {

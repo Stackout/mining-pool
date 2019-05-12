@@ -1,5 +1,16 @@
 mutation login($data: LoginInput) {
-  login(data: $data)
+  login(data: $data) {
+    roles {
+      name
+    }
+    permissions {
+      name
+    }
+    token {
+      access_token
+      expires_in
+    }
+  }
 }
 
 mutation logout { 

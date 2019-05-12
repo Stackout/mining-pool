@@ -4,6 +4,7 @@ import { Layout, Menu, Icon } from 'antd'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { compose } from 'recompose'
+import { withAuth } from '@auth'
 
 const Logo = styled.div`
   height: 32px;
@@ -13,13 +14,14 @@ const Logo = styled.div`
 const { Sider } = Layout
 const SubMenu = Menu.SubMenu
 
-export const BaseSider = ({ collapsed, onCollapse }) => (
+export const BaseSider = ({ collapsed, onCollapse, can }) => (
   <Sider
     collapsible
     collapsed={collapsed}
     onCollapse={onCollapse}
     style={{
       boxShadow: '2px 0 6px rgba(0,21,41,.35)',
+      zIndex: '2',
     }}
   >
     <Logo />
@@ -34,41 +36,38 @@ export const BaseSider = ({ collapsed, onCollapse }) => (
         <span>Wallet</span>
         <Link to="/wallet" />
       </Menu.Item>
-      <Menu.Item key="3">
-        <Icon type="desktop" />
-        <span>Option 2</span>
-      </Menu.Item>
-      <SubMenu
-        key="sub1"
-        title={
-          <span>
-            <Icon type="user" />
-            <span>User</span>
-          </span>
-        }
-      >
-        <Menu.Item key="4">Tom</Menu.Item>
-        <Menu.Item key="5">Bill</Menu.Item>
-        <Menu.Item key="6">Alex</Menu.Item>
-      </SubMenu>
-      <SubMenu
-        key="sub2"
-        title={
-          <span>
-            <Icon type="team" />
-            <span>Team</span>
-          </span>
-        }
-      >
-        <Menu.Item key="6">Team 1</Menu.Item>
-        <Menu.Item key="8">Team 2</Menu.Item>
-      </SubMenu>
-      <Menu.Item key="9">
-        <Icon type="file" />
-        <span>File</span>
-      </Menu.Item>
+      {can('update users') && (
+        <SubMenu
+          key="users"
+          title={
+            <span>
+              <Icon type="user" />
+              <span>Users</span>
+            </span>
+          }
+        >
+          <Menu.Item key="allUsers">
+            All Users
+            <Link to="/manage/users" />
+          </Menu.Item>
+          <Menu.Item key="createUser">
+            Create User
+            <Link to="/manage/users/create" />
+          </Menu.Item>
+          <Menu.Item key="userRoles">
+            Roles
+            <Link to="/manage/roles" />
+          </Menu.Item>
+          <Menu.Item key="userPermissions">
+            Permissions <Link to="/manage/permissions" />
+          </Menu.Item>
+        </SubMenu>
+      )}
     </Menu>
   </Sider>
 )
 
-export default compose(withRouter)(BaseSider)
+export default compose(
+  withRouter,
+  withAuth
+)(BaseSider)

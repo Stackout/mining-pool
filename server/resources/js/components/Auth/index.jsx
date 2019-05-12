@@ -43,10 +43,34 @@ export class AuthProvider extends Component {
     })
   }
 
+  can = permission => {
+    const { permissions } = this.state
+    return permissions.includes(permission)
+  }
+
+  hasRole = role => {
+    const { roles } = this.state
+    return roles.includes(role)
+  }
+
   setIsAuthenticated = isAuthenticated => {
     this.props.cookies.set('isAuthenticated', isAuthenticated)
     this.setState({
       isAuthenticated,
+    })
+  }
+
+  setAuthentication = payload => {
+    const { isAuthenticated, token, roles, permissions } = payload
+    this.props.cookies.set('isAuthenticated', isAuthenticated)
+    this.props.cookies.set('token', token)
+    this.props.cookies.set('roles', JSON.stringify(roles))
+    this.props.cookies.set('permissions', JSON.stringify(permissions))
+    this.setState({
+      isAuthenticated,
+      token,
+      roles,
+      permissions,
     })
   }
 
@@ -57,12 +81,23 @@ export class AuthProvider extends Component {
     setToken: this.setToken,
     setUser: this.setUser,
     setIsAuthenticated: this.setIsAuthenticated,
+    setAuthentication: this.setAuthentication,
+    can: this.can,
+    hasRole: this.hasRole,
   }
 
   componentDidMount() {
     const { cookies } = this.props
     if (cookies.get('isAuthenticated')) {
-      this.setIsAuthenticated(true)
+      this.setAuthentication({
+        isAuthenticated: true,
+        token: cookies.get('token'),
+        roles: cookies.get('roles'),
+        permissions: cookies.get('permissions'),
+      })
+    }
+
+    if (cookies.get('roles')) {
     }
   }
 

@@ -11,11 +11,11 @@ import { onError } from 'apollo-link-error'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { compose } from 'recompose'
 import { Global, css } from '@emotion/core'
-import Routes from './Routes'
+import { Root as Routes } from './Routes'
 import { withLayoutProvider } from '@layout/Context'
 import { BrowserRouter } from 'react-router-dom'
 import Layout from '@layout'
-import { CookiesProvider, withCookies } from 'react-cookie'
+import { CookiesProvider } from 'react-cookie'
 import AuthProvider, { AuthConsumer, AuthRoutes } from '@auth'
 import { IntlProvider, defineMessages, injectIntl } from 'react-intl'
 import { addAppLocaleData, LocaleProvider, LocaleConsumer } from '@locales'
@@ -37,7 +37,7 @@ const token = document.head.querySelector('meta[name="csrf-token"]').content
 
 //Sets the headers using Apollo Http Link
 const httpLink = new HttpLink({
-  uri: 'graphql',
+  uri: '/graphql',
   headers: {
     'X-CSRF-TOKEN': token,
     'X-Requested-With': 'XMLHttpRequest',
@@ -82,6 +82,9 @@ const global = css`
     font-size: 85%;
     margin: 0;
     padding: 0.2em 0.4em;
+  }
+  .anticon {
+    vertical-align: 0px;
   }
 `
 

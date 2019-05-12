@@ -55,13 +55,30 @@ class LoginForm extends React.Component {
           },
         })
           .then(response => {
-            // this.$router.push({name: 'dashboard'})
             const {
               data: { login },
             } = response
-            if (login) {
-              console.log(this.props)
-              this.props.setIsAuthenticated(true)
+
+            const permissions = login.permissions.reduce(
+              (carry, permission) => {
+                carry.push(permission.name)
+                return carry
+              },
+              []
+            )
+
+            let roles = login.roles.reduce((carry, permission) => {
+              carry.push(permission.name)
+              return carry
+            }, [])
+
+            if (roles) {
+              this.props.setAuthentication({
+                isAuthenticated: true,
+                token: login.token,
+                permissions,
+                roles,
+              })
             }
           })
           .catch(error => {

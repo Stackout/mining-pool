@@ -1,0 +1,10 @@
+[
+  {
+    "id": "actions.edit",
+    "defaultMessage": "Edit"
+  },
+  {
+    "id": "actions.delete",
+    "defaultMessage": "Delete"
+  }
+]

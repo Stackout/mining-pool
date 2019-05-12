@@ -1,0 +1,10 @@
+[
+  {
+    "id": "users.resource.title",
+    "defaultMessage": "Users"
+  },
+  {
+    "id": "users.resource.details",
+    "defaultMessage": "View, update, create and delete a users resource."
+  }
+]
