@@ -92,3 +92,13 @@ export const withModalConsumer = WrappedComponent => {
 
   return HOC
 }
+
+export function injectModalConsumer(Component) {
+  return function WrapperComponent(rest) {
+    return (
+      <ModalContext.Consumer>
+        {props => <Component {...props} {...rest} />}
+      </ModalContext.Consumer>
+    )
+  }
+}

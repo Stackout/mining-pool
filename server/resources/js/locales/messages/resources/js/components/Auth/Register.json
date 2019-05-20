@@ -1,0 +1,22 @@
+[
+  {
+    "id": "register.title",
+    "defaultMessage": "Create an Account"
+  },
+  {
+    "id": "field.name.required",
+    "defaultMessage": "Please enter your name."
+  },
+  {
+    "id": "field.name.placholder",
+    "defaultMessage": "Enter your full name."
+  },
+  {
+    "id": "register.success",
+    "defaultMessage": "You have successfully registerd an account. We sent you an activation link to your email. Please check your email for the activation link."
+  },
+  {
+    "id": "register.submit",
+    "defaultMessage": "Create Account"
+  }
+]

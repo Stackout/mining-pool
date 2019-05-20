@@ -21,7 +21,7 @@ class Logout
     public function resolve($rootValue, array $args, GraphQLContext $context = null, ResolveInfo $resolveInfo)
     {
         Auth::guard('api')->user()->token()->revoke();
-        Cookie::forget('_token');
+        Cookie::queue(Cookie::forget('_token'));
         return [
             'status' => 'TOKEN_REVOKED',
             'message' => 'Your session has been terminated.'

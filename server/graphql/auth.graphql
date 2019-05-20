@@ -9,8 +9,8 @@ input RefreshTokenInput {
 }
 
 type AuthPayload {
-    access_token: String!
-    expires_in: DateTime!
+    access_token: String
+    expires_in: DateTime
 }
 
 type LogoutResponse {
@@ -21,6 +21,18 @@ type LogoutResponse {
 type ForgotPasswordResponse {
     status: String!
     message: String
+}
+
+type RegisterResponse {
+    status: String!
+    message: String
+}
+
+input RegisterInput {
+    name: String @rules(apply: ["required"])
+    email: String @rules(apply: ["required", "email", "unique:users,email"])
+    password: String @rules(apply: ["required", "min:6", "confirmed"]) @bcrypt
+    password_confirmation: String @rules(apply: ["required"])
 }
 
 input ForgotPasswordInput {
@@ -45,19 +57,16 @@ type LoginResponse {
 }
 
 type Permission {
-    name: String
-}
-
-type Role {
+    id: ID
     name: String
 }
 
 extend type Mutation {
     login(data: LoginInput): LoginResponse!
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
-    logout: LogoutResponse! @protect(guards: ["api"]) @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\Logout@resolve")
+    logout: LogoutResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Resolvers\\Logout@resolve")
     forgotPassword(data: ForgotPasswordInput!): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve")
     updateForgottenPassword(data: NewPasswordWithCodeInput): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ResetPassword@resolve")
-    # register(data: RegisterInput!) : RegisterResponse! @field(resolver: "App\\GraphQL\\Resolvers\\RegisterResolver@resolve")
+    register(data: RegisterInput!): RegisterResponse! @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@registerUser")
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")
 }

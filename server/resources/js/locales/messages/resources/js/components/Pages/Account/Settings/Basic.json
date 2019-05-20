@@ -1,0 +1,10 @@
+[
+  {
+    "id": "accounts.settings.title",
+    "defaultMessage": "Basic Settings"
+  },
+  {
+    "id": "accounts.settings.avatarButton",
+    "defaultMessage": "Change Avatar"
+  }
+]

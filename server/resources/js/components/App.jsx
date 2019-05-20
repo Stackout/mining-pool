@@ -19,6 +19,7 @@ import { CookiesProvider } from 'react-cookie'
 import AuthProvider, { AuthConsumer, AuthRoutes } from '@auth'
 import { IntlProvider, defineMessages, injectIntl } from 'react-intl'
 import { addAppLocaleData, LocaleProvider, LocaleConsumer } from '@locales'
+import { DevRibbon } from '@layout/Ribbons'
 
 const messages = defineMessages({
   title: {
@@ -86,6 +87,15 @@ const global = css`
   .anticon {
     vertical-align: 0px;
   }
+  .anticon {
+    vertical-align: 0px;
+  }
+  .ant-menu-inline {
+    border: none;
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    font-weight: bold;
+  }
 `
 
 export class App extends Component {
@@ -111,6 +121,9 @@ export class App extends Component {
         <BrowserRouter>
           <ApolloProvider client={client} cache={cache}>
             <AuthProvider>
+              {window.node_environment == 'development' ? <div /> : <div />}
+
+              <DevRibbon />
               <Global styles={global} />
               <AuthConsumer>
                 {auth =>

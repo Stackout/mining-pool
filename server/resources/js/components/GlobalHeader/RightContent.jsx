@@ -32,7 +32,7 @@ const Action = ({ component: Component, ...props }) => (
 )
 
 export default () => (
-  <Query query={ME}>
+  <Query query={ME} fetchPolicy="network-only">
     {({ data, loading, error }) => (
       <RightContent>
         <ActionContainer>

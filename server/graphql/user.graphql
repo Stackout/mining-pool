@@ -3,30 +3,58 @@ type User {
     name: String
     email: String
     wallets: Wallet @hasMany
+    roles: [Role] @rename(attribute: "modelRoles")
+    permissions: [Permission] @rename(attribute: "modelPermissions")
     createdAt: DateTime! @rename(attribute: "created_at")
     updatedAt: DateTime! @rename(attribute: "updated_at")
 }
 
 extend type Query @group(middleware: ["auth:api"]) {
-  users(count: Int, page: Int): [User!]! @paginate(type: "paginator" model: "App\\Models\\User")
-  user(id: ID @eq): User @find(model: "App\\Models\\User")
+    users(count: Int, page: Int): [User!]! @paginate(type: "paginator" model: "App\\Models\\User")
+    user(id: ID @eq): User @find(model: "App\\Models\\User")
+}
+
+extend type Query {
+    emailExists(email: String!): Boolean
+}
+
+input UserCreateInput {
+    id: Int
+    name: String @rules(apply: ["required"])
+    email: String @rules(apply: ["required", "email", "unique:users,email"])
+    password: String @rules(apply: ["required", "min:6", "confirmed"]) @bcrypt
+    password_confirmation: String @rules(apply: ["required"])
+    permissions: [String]
+    roles: [Int]!
+}
+
+input UserUpdateInput {
+    name: String @rules(apply: ["required"])
+    email: String @rules(apply: ["required", "email"])
+    password: String @rules(apply: ["required_with:password_confirmation", "min:6", "confirmed"]) @bcrypt
+    password_confirmation: String @rules(apply: ["required_with:password"])
+    permissions: [String]
+    roles: [Int]!
+}
+
+type AccountManagementResponse {
+    user: User!
 }
 
 extend type Mutation @group(middleware: ["auth:api"]) {
     updateUser(
         id: ID @rules(apply: ["required"])
-        name: String
-        email: String @rules(apply: ["email"])
-    ): User @update(model: "App\\Models\\User")
-    deleteUser(
-        id: ID @rules(apply: ["required"])
-    ): User @delete(model: "App\\Models\\User")
-}
+        data: UserUpdateInput
+      ): AccountManagementResponse! 
+        @can(ability: "update", model: "App\\Models\\User")
+        @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@updateUser")
+      
+    deleteUser(id: ID!): User
+        @delete(model: "App\\Models\\User")
+        @can(ability: "delete", model: "App\\Models\\User")
 
-extend type Mutation {
-    createUser(
-        name: String @rules(apply: ["required"])
-        email: String @rules(apply: ["required", "email", "unique:users,email"])
-        password: String @rules(apply: ["required", "min:6"]) @bcrypt
-    ): User @create(model: "App\\Models\\User")
+    createUser(data: UserCreateInput): AccountManagementResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@createUser")
+        @can(ability: "create", model: "App\\Models\\User")
+        
 }

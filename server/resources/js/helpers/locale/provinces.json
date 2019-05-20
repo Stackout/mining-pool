@@ -1,0 +1,5398 @@
+[{
+   "US": [
+     {
+       "name": "Alabama",
+       "short": "AL"
+     },
+     {
+       "name": "Alaska",
+       "short": "AK"
+     },
+     {
+       "name": "Arizona",
+       "short": "AZ"
+     },
+     {
+       "name": "Arkansas",
+       "short": "AR"
+     },
+     {
+       "name": "California",
+       "short": "CA"
+     },
+     {
+       "name": "Colorado",
+       "short": "CO"
+     },
+     {
+       "name": "Connecticut",
+       "short": "CT"
+     },
+     {
+       "name": "District of Columbia",
+       "short": "DC"
+     },
+     {
+       "name": "Delaware",
+       "short": "DE"
+     },
+     {
+       "name": "Florida",
+       "short": "FL"
+     },
+     {
+       "name": "Georgia",
+       "short": "GA"
+     },
+     {
+       "name": "Hawaii",
+       "short": "HI"
+     },
+     {
+       "name": "Idaho",
+       "short": "ID"
+     },
+     {
+       "name": "Illinois",
+       "short": "IL"
+     },
+     {
+       "name": "Indiana",
+       "short": "IN"
+     },
+     {
+       "name": "Iowa",
+       "short": "IA"
+     },
+     {
+       "name": "Kansas",
+       "short": "KS"
+     },
+     {
+       "name": "Kentucky",
+       "short": "KY"
+     },
+     {
+       "name": "Louisiana",
+       "short": "LA"
+     },
+     {
+       "name": "Maine",
+       "short": "ME"
+     },
+     {
+       "name": "Maryland",
+       "short": "MD"
+     },
+     {
+       "name": "Massachusetts",
+       "short": "MA"
+     },
+     {
+       "name": "Michigan",
+       "short": "MI"
+     },
+     {
+       "name": "Minnesota",
+       "short": "MN"
+     },
+     {
+       "name": "Mississippi",
+       "short": "MS"
+     },
+     {
+       "name": "Missouri",
+       "short": "MO"
+     },
+     {
+       "name": "Montana",
+       "short": "MT"
+     },
+     {
+       "name": "Nebraska",
+       "short": "NE"
+     },
+     {
+       "name": "Nevada",
+       "short": "NV"
+     },
+     {
+       "name": "New Hampshire",
+       "short": "NH"
+     },
+     {
+       "name": "New Jersey",
+       "short": "NJ"
+     },
+     {
+       "name": "New Mexico",
+       "short": "NM"
+     },
+     {
+       "name": "New York",
+       "short": "NY"
+     },
+     {
+       "name": "North Carolina",
+       "short": "NC"
+     },
+     {
+       "name": "North Dakota",
+       "short": "ND"
+     },
+     {
+       "name": "Ohio",
+       "short": "OH"
+     },
+     {
+       "name": "Oklahoma",
+       "short": "OK"
+     },
+     {
+       "name": "Oregon",
+       "short": "OR"
+     },
+     {
+       "name": "Pennsylvania",
+       "short": "PA"
+     },
+     {
+       "name": "Rhode Island",
+       "short": "RI"
+     },
+     {
+       "name": "South Carolina",
+       "short": "SC"
+     },
+     {
+       "name": "South Dakota",
+       "short": "SD"
+     },
+     {
+       "name": "Tennessee",
+       "short": "TN"
+     },
+     {
+       "name": "Texas",
+       "short": "TX"
+     },
+     {
+       "name": "Utah",
+       "short": "UT"
+     },
+     {
+       "name": "Vermont",
+       "short": "VT"
+     },
+     {
+       "name": "Virginia",
+       "short": "VA"
+     },
+     {
+       "name": "Washington",
+       "short": "WA"
+     },
+     {
+       "name": "West Virginia",
+       "short": "WV"
+     },
+     {
+       "name": "Wisconsin",
+       "short": "WI"
+     },
+     {
+       "name": "Wyoming",
+       "short": "WY"
+     },
+     {
+       "name": "American Samoa",
+       "short": "AS"
+     },
+     {
+       "name": "Guam",
+       "short": "GU"
+     },
+     {
+       "name": "Northern Mariana Islands",
+       "short": "MP"
+     },
+     {
+       "name": "Puerto Rico",
+       "short": "PR"
+     },
+     {
+       "name": "United States Minor Outlying Islands",
+       "short": "UM"
+     },
+     {
+       "name": "Virgin Islands",
+       "short": "VI"
+     }
+   ],
+   "CA": [
+     {
+       "name": "Alberta",
+       "short": "AB"
+     },
+     {
+       "name": "British Columbia",
+       "short": "BC"
+     },
+     {
+       "name": "Manitoba",
+       "short": "MB"
+     },
+     {
+       "name": "New Brunswick",
+       "short": "NB"
+     },
+     {
+       "name": "Newfoundland and Labrador",
+       "short": "NL"
+     },
+     {
+       "name": "Nova Scotia",
+       "short": "NS"
+     },
+     {
+       "name": "Nunavut",
+       "short": "NU"
+     },
+     {
+       "name": "Northwest Territories",
+       "short": "NT"
+     },
+     {
+       "name": "Ontario",
+       "short": "ON"
+     },
+     {
+       "name": "Prince Edward Island",
+       "short": "PE"
+     },
+     {
+       "name": "Quebec",
+       "short": "QC"
+     },
+     {
+       "name": "Saskatchewan",
+       "short": "SK"
+     },
+     {
+       "name": "Yukon",
+       "short": "YT"
+     }
+   ],
+   "AU": [
+     {
+       "name": "Ashmore and Cartier Islands",
+       "short": null
+     },
+     {
+       "name": "Australian Antarctic Territory",
+       "short": null
+     },
+     {
+       "name": "Australian Capital Territory",
+       "short": "ACT"
+     },
+     {
+       "name": "Christmas Island",
+       "short": "CX"
+     },
+     {
+       "name": "Cocos Islands",
+       "short": "CC"
+     },
+     {
+       "name": "Coral Sea Islands",
+       "short": null
+     },
+     {
+       "name": "Heard Island and McDonald Islands",
+       "short": "HM"
+     },
+     {
+       "name": "Jervis Bay Territory",
+       "short": "JBT"
+     },
+     {
+       "name": "New South Wales",
+       "short": "NSW"
+     },
+     {
+       "name": "Norfolk Island",
+       "short": "NF"
+     },
+     {
+       "name": "Northern Territory",
+       "short": "NT"
+     },
+     {
+       "name": "Queensland",
+       "short": "QLD"
+     },
+     {
+       "name": "South Australia",
+       "short": "SA"
+     },
+     {
+       "name": "Tasmania",
+       "short": "TAS"
+     },
+     {
+       "name": "Victoria",
+       "short": "VIC"
+     },
+     {
+       "name": "Western Australia",
+       "short": "WA"
+     }
+   ],
+   "MX": [
+     {
+       "name": "Aguascalientes",
+       "short": "AG"
+     },
+     {
+       "name": "Baja California",
+       "short": "BC"
+     },
+     {
+       "name": "Baja California Sur",
+       "short": "BS"
+     },
+     {
+       "name": "Campeche",
+       "short": "CM"
+     },
+     {
+       "name": "Chiapas",
+       "short": "CS"
+     },
+     {
+       "name": "Chihuahua",
+       "short": "CH"
+     },
+     {
+       "name": "Coahuila",
+       "short": "MX"
+     },
+     {
+       "name": "Colima",
+       "short": "CL"
+     },
+     {
+       "name": "Federal District",
+       "short": "DF"
+     },
+     {
+       "name": "Durango",
+       "short": "DG"
+     },
+     {
+       "name": "Guanajuato",
+       "short": "GT"
+     },
+     {
+       "name": "Guerrero",
+       "short": "GR"
+     },
+     {
+       "name": "Hidalgo",
+       "short": "HG"
+     },
+     {
+       "name": "Jalisco",
+       "short": "JA"
+     },
+     {
+       "name": "Mexico",
+       "short": "ME"
+     },
+     {
+       "name": "Michoacán",
+       "short": "MI"
+     },
+     {
+       "name": "Morelos",
+       "short": "MO"
+     },
+     {
+       "name": "Nayarit",
+       "short": "NA"
+     },
+     {
+       "name": "Nuevo León",
+       "short": "NL"
+     },
+     {
+       "name": "Oaxaca",
+       "short": "OA"
+     },
+     {
+       "name": "Puebla",
+       "short": "PU"
+     },
+     {
+       "name": "Querétaro",
+       "short": "QE"
+     },
+     {
+       "name": "Quintana Roo",
+       "short": "QR"
+     },
+     {
+       "name": "San Luis Potosí",
+       "short": "SL"
+     },
+     {
+       "name": "Sinaloa",
+       "short": "SI"
+     },
+     {
+       "name": "Sonora",
+       "short": "SO"
+     },
+     {
+       "name": "Tabasco",
+       "short": "TB"
+     },
+     {
+       "name": "Tamaulipas",
+       "short": "TM"
+     },
+     {
+       "name": "Tlaxcala",
+       "short": "TL"
+     },
+     {
+       "name": "Veracruz",
+       "short": "VE"
+     },
+     {
+       "name": "Yucatán",
+       "short": "YU"
+     },
+     {
+       "name": "Zacatecas",
+       "short": "ZA"
+     }
+   ],
+   "CN": [
+     {
+       "name": "重庆",
+       "short": "渝"
+     },
+     {
+       "name": "黑龙江",
+       "short": "黑"
+     },
+     {
+       "name": "吉林",
+       "short": "吉"
+     },
+     {
+       "name": "海南",
+       "short": "琼"
+     },
+     {
+       "name": "北京",
+       "short": "京"
+     },
+     {
+       "name": "辽宁",
+       "short": "辽"
+     },
+     {
+       "name": "内蒙古",
+       "short": "蒙"
+     },
+     {
+       "name": "西藏",
+       "short": "藏"
+     },
+     {
+       "name": "青海",
+       "short": "青"
+     },
+     {
+       "name": "宁夏",
+       "short": "宁"
+     },
+     {
+       "name": "新疆",
+       "short": "新"
+     },
+     {
+       "name": "甘肃",
+       "short": "甘"
+     },
+     {
+       "name": "河北",
+       "short": "冀"
+     },
+     {
+       "name": "河南",
+       "short": "豫"
+     },
+     {
+       "name": "湖北",
+       "short": "鄂"
+     },
+     {
+       "name": "湖南",
+       "short": "湘"
+     },
+     {
+       "name": "山东",
+       "short": "鲁"
+     },
+     {
+       "name": "江苏",
+       "short": "苏"
+     },
+     {
+       "name": "安徽",
+       "short": "皖"
+     },
+     {
+       "name": "山西",
+       "short": "晋"
+     },
+     {
+       "name": "陕西",
+       "short": "陕"
+     },
+     {
+       "name": "四川",
+       "short": "川"
+     },
+     {
+       "name": "云南",
+       "short": "滇"
+     },
+     {
+       "name": "贵州",
+       "short": "黔"
+     },
+     {
+       "name": "浙江",
+       "short": "浙"
+     },
+     {
+       "name": "福建",
+       "short": "闽"
+     },
+     {
+       "name": "广西",
+       "short": "桂"
+     },
+     {
+       "name": "上海",
+       "short": "沪"
+     },
+     {
+       "name": "天津",
+       "short": "津"
+     },
+     {
+       "name": "香港",
+       "short": "港"
+     },
+     {
+       "name": "澳门",
+       "short": "澳"
+     },
+     {
+       "name": "台湾",
+       "short": "台"
+     },
+     {
+       "name": "江西",
+       "short": "赣"
+     },
+     {
+       "name": "广东",
+       "short": "粤"
+     }
+   ],
+   "GB": [
+     {
+       "name": "Avon",
+       "short": null
+     },
+     {
+       "name": "Bedfordshire",
+       "short": null
+     },
+     {
+       "name": "Berkshire",
+       "short": null
+     },
+     {
+       "name": "Borders",
+       "short": null
+     },
+     {
+       "name": "Bristol",
+       "short": null
+     },
+     {
+       "name": "Buckinghamshire",
+       "short": null
+     },
+     {
+       "name": "Cambridgeshire",
+       "short": null
+     },
+     {
+       "name": "Channel Islands",
+       "short": null
+     },
+     {
+       "name": "Cheshire",
+       "short": null
+     },
+     {
+       "name": "Cleveland",
+       "short": null
+     },
+     {
+       "name": "Cornwall",
+       "short": null
+     },
+     {
+       "name": "Cumbria",
+       "short": null
+     },
+     {
+       "name": "Derbyshire",
+       "short": null
+     },
+     {
+       "name": "Devon",
+       "short": null
+     },
+     {
+       "name": "Dorset",
+       "short": null
+     },
+     {
+       "name": "Durham",
+       "short": null
+     },
+     {
+       "name": "East Riding of Yorkshire",
+       "short": null
+     },
+     {
+       "name": "East Sussex",
+       "short": null
+     },
+     {
+       "name": "Essex",
+       "short": null
+     },
+     {
+       "name": "Gloucestershire",
+       "short": null
+     },
+     {
+       "name": "Greater Manchester",
+       "short": null
+     },
+     {
+       "name": "Hampshire",
+       "short": null
+     },
+     {
+       "name": "Herefordshire",
+       "short": null
+     },
+     {
+       "name": "Hertfordshire",
+       "short": null
+     },
+     {
+       "name": "Humberside",
+       "short": null
+     },
+     {
+       "name": "Isle of Man",
+       "short": null
+     },
+     {
+       "name": "Isle of Wight",
+       "short": null
+     },
+     {
+       "name": "Isles of Scilly",
+       "short": null
+     },
+     {
+       "name": "Kent",
+       "short": null
+     },
+     {
+       "name": "Lancashire",
+       "short": null
+     },
+     {
+       "name": "Leicestershire",
+       "short": null
+     },
+     {
+       "name": "Lincolnshire",
+       "short": null
+     },
+     {
+       "name": "London",
+       "short": null
+     },
+     {
+       "name": "Merseyside",
+       "short": null
+     },
+     {
+       "name": "Middlesex",
+       "short": null
+     },
+     {
+       "name": "Norfolk",
+       "short": null
+     },
+     {
+       "name": "North Yorkshire",
+       "short": null
+     },
+     {
+       "name": "Northamptonshire",
+       "short": null
+     },
+     {
+       "name": "Northumberland",
+       "short": null
+     },
+     {
+       "name": "Nottinghamshire",
+       "short": null
+     },
+     {
+       "name": "Oxfordshire",
+       "short": null
+     },
+     {
+       "name": "Rutland",
+       "short": null
+     },
+     {
+       "name": "Shropshire",
+       "short": null
+     },
+     {
+       "name": "Somerset",
+       "short": null
+     },
+     {
+       "name": "South Yorkshire",
+       "short": null
+     },
+     {
+       "name": "Staffordshire",
+       "short": null
+     },
+     {
+       "name": "Suffolk",
+       "short": null
+     },
+     {
+       "name": "Surrey",
+       "short": null
+     },
+     {
+       "name": "Tyne and Wear",
+       "short": null
+     },
+     {
+       "name": "Warwickshire",
+       "short": null
+     },
+     {
+       "name": "West Midlands",
+       "short": null
+     },
+     {
+       "name": "West Sussex",
+       "short": null
+     },
+     {
+       "name": "West Yorkshire",
+       "short": null
+     },
+     {
+       "name": "Wiltshire",
+       "short": null
+     },
+     {
+       "name": "Worcestershire",
+       "short": null
+     },
+     {
+       "name": "Antrim",
+       "short": null
+     },
+     {
+       "name": "Down",
+       "short": null
+     },
+     {
+       "name": "Fermanagh",
+       "short": null
+     },
+     {
+       "name": "Londonderry",
+       "short": null
+     },
+     {
+       "name": "Tyrone",
+       "short": null
+     },
+     {
+       "name": "Aberdeen City",
+       "short": null
+     },
+     {
+       "name": "Aberdeenshire",
+       "short": null
+     },
+     {
+       "name": "Angus",
+       "short": null
+     },
+     {
+       "name": "Argyll and Bute",
+       "short": null
+     },
+     {
+       "name": "Armagh",
+       "short": null
+     },
+     {
+       "name": "Carmarthenshire",
+       "short": null
+     },
+     {
+       "name": "Clackmannan",
+       "short": null
+     },
+     {
+       "name": "Dumfries and Galloway",
+       "short": null
+     },
+     {
+       "name": "East Ayrshire",
+       "short": null
+     },
+     {
+       "name": "East Dunbartonshire",
+       "short": null
+     },
+     {
+       "name": "East Lothian",
+       "short": null
+     },
+     {
+       "name": "East Renfrewshire",
+       "short": null
+     },
+     {
+       "name": "Edinburgh City",
+       "short": null
+     },
+     {
+       "name": "Falkirk",
+       "short": null
+     },
+     {
+       "name": "Fife",
+       "short": null
+     },
+     {
+       "name": "Glasgow",
+       "short": null
+     },
+     {
+       "name": "Highland",
+       "short": null
+     },
+     {
+       "name": "Inverclyde",
+       "short": null
+     },
+     {
+       "name": "Midlothian",
+       "short": null
+     },
+     {
+       "name": "Moray",
+       "short": null
+     },
+     {
+       "name": "North Ayrshire",
+       "short": null
+     },
+     {
+       "name": "North Lanarkshire",
+       "short": null
+     },
+     {
+       "name": "Orkney",
+       "short": null
+     },
+     {
+       "name": "Perthshire and Kinross",
+       "short": null
+     },
+     {
+       "name": "Renfrewshire",
+       "short": null
+     },
+     {
+       "name": "Roxburghshire",
+       "short": null
+     },
+     {
+       "name": "Shetland",
+       "short": null
+     },
+     {
+       "name": "South Ayrshire",
+       "short": null
+     },
+     {
+       "name": "South Lanarkshire",
+       "short": null
+     },
+     {
+       "name": "Stirling",
+       "short": null
+     },
+     {
+       "name": "West Dunbartonshire",
+       "short": null
+     },
+     {
+       "name": "West Lothian",
+       "short": null
+     },
+     {
+       "name": "Western Isles",
+       "short": null
+     },
+     {
+       "name": "Blaenau Gwent",
+       "short": null
+     },
+     {
+       "name": "Bridgend",
+       "short": null
+     },
+     {
+       "name": "Caerphilly",
+       "short": null
+     },
+     {
+       "name": "Cardiff",
+       "short": null
+     },
+     {
+       "name": "Ceredigion",
+       "short": null
+     },
+     {
+       "name": "Conwy",
+       "short": null
+     },
+     {
+       "name": "Denbighshire",
+       "short": null
+     },
+     {
+       "name": "Flintshire",
+       "short": null
+     },
+     {
+       "name": "Gwynedd",
+       "short": null
+     },
+     {
+       "name": "Isle of Anglesey",
+       "short": null
+     },
+     {
+       "name": "Merthyr Tydfil",
+       "short": null
+     },
+     {
+       "name": "Monmouthshire",
+       "short": null
+     },
+     {
+       "name": "Neath Port Talbot",
+       "short": null
+     },
+     {
+       "name": "Newport",
+       "short": null
+     },
+     {
+       "name": "Pembrokeshire",
+       "short": null
+     },
+     {
+       "name": "Powys",
+       "short": null
+     },
+     {
+       "name": "Rhondda Cynon Taff",
+       "short": null
+     },
+     {
+       "name": "Swansea",
+       "short": null
+     },
+     {
+       "name": "The Vale of Glamorgan",
+       "short": null
+     },
+     {
+       "name": "Torfaen",
+       "short": null
+     },
+     {
+       "name": "Wrexham",
+       "short": null
+     }
+   ],
+   "DE": [
+     {
+       "name": "Baden-Württemberg",
+       "short": "BW"
+     },
+     {
+       "name": "Bayern",
+       "short": "BY"
+     },
+     {
+       "name": "Berlin",
+       "short": "BE"
+     },
+     {
+       "name": "Brandenburg",
+       "short": "BB"
+     },
+     {
+       "name": "Bremen",
+       "short": "HB"
+     },
+     {
+       "name": "Hamburg",
+       "short": "HH"
+     },
+     {
+       "name": "Hessen",
+       "short": "HE"
+     },
+     {
+       "name": "Mecklenburg-Vorpommern",
+       "short": "MV"
+     },
+     {
+       "name": "Niedersachsen",
+       "short": "NI"
+     },
+     {
+       "name": "Nordrhein-Westfalen",
+       "short": "NW"
+     },
+     {
+       "name": "Rheinland-Pfalz",
+       "short": "RP"
+     },
+     {
+       "name": "Saarland",
+       "short": "SL"
+     },
+     {
+       "name": "Sachsen",
+       "short": "SN"
+     },
+     {
+       "name": "Sachsen-Anhalt",
+       "short": "ST"
+     },
+     {
+       "name": "Schleswig-Holstein",
+       "short": "SH"
+     },
+     {
+       "name": "Thüringen",
+       "short": "TH"
+     }
+   ],
+   "NL": [
+     {
+       "name": "Drenthe",
+       "short": "DR"
+     },
+     {
+       "name": "Flevoland",
+       "short": "FL"
+     },
+     {
+       "name": "Friesland",
+       "short": "FR"
+     },
+     {
+       "name": "Gelderland",
+       "short": "GD"
+     },
+     {
+       "name": "Groningen",
+       "short": "GR"
+     },
+     {
+       "name": "Limburg",
+       "short": "LB"
+     },
+     {
+       "name": "Noord-Brabant",
+       "short": "NB"
+     },
+     {
+       "name": "Noord-Holland",
+       "short": "NH"
+     },
+     {
+       "name": "Overijssel",
+       "short": "OV"
+     },
+     {
+       "name": "Utrecht",
+       "short": "UT"
+     },
+     {
+       "name": "Zuid-Holland",
+       "short": "ZH"
+     },
+     {
+       "name": "Zeeland",
+       "short": "ZL"
+     }
+   ],
+   "BE": [
+     {
+       "name": "Antwerpen",
+       "short": "ANT"
+     },
+     {
+       "name": "Henegouwen",
+       "short": "HAI"
+     },
+     {
+       "name": "Luik",
+       "short": "LIE"
+     },
+     {
+       "name": "Limburg",
+       "short": "LIM"
+     },
+     {
+       "name": "Luxemburg",
+       "short": "LUX"
+     },
+     {
+       "name": "Namen",
+       "short": "NAM"
+     },
+     {
+       "name": "Oost-Vlaanderen",
+       "short": "OVL"
+     },
+     {
+       "name": "Vlaams-Brabant",
+       "short": "VBR"
+     },
+     {
+       "name": "Waals-Brabant",
+       "short": "WBR"
+     },
+     {
+       "name": "West-Vlaanderen",
+       "short": "WVL"
+     }
+   ],
+   "DK": [
+     {
+       "name": "Hovedstaden",
+       "short": null
+     },
+     {
+       "name": "Midtjylland",
+       "short": null
+     },
+     {
+       "name": "Nordjylland",
+       "short": null
+     },
+     {
+       "name": "Sjælland",
+       "short": null
+     },
+     {
+       "name": "Syddanmark",
+       "short": null
+     }
+   ],
+   "TR": [
+     {
+       "name": "Adana",
+       "short": null
+     },
+     {
+       "name": "Adıyaman",
+       "short": null
+     },
+     {
+       "name": "Afyonkarahisar",
+       "short": null
+     },
+     {
+       "name": "Ağrı",
+       "short": null
+     },
+     {
+       "name": "Amasya",
+       "short": null
+     },
+     {
+       "name": "Ankara",
+       "short": null
+     },
+     {
+       "name": "Antalya",
+       "short": null
+     },
+     {
+       "name": "Artvin",
+       "short": null
+     },
+     {
+       "name": "Aydın",
+       "short": null
+     },
+     {
+       "name": "Balıkesir",
+       "short": null
+     },
+     {
+       "name": "Bilecik",
+       "short": null
+     },
+     {
+       "name": "Bingöl",
+       "short": null
+     },
+     {
+       "name": "Bitlis",
+       "short": null
+     },
+     {
+       "name": "Bolu",
+       "short": null
+     },
+     {
+       "name": "Burdur",
+       "short": null
+     },
+     {
+       "name": "Bursa",
+       "short": null
+     },
+     {
+       "name": "Çanakkale",
+       "short": null
+     },
+     {
+       "name": "Çankırı",
+       "short": null
+     },
+     {
+       "name": "Çorum",
+       "short": null
+     },
+     {
+       "name": "Denizli",
+       "short": null
+     },
+     {
+       "name": "Diyarbakır",
+       "short": null
+     },
+     {
+       "name": "Edirne",
+       "short": null
+     },
+     {
+       "name": "Elazığ",
+       "short": null
+     },
+     {
+       "name": "Erzincan",
+       "short": null
+     },
+     {
+       "name": "Erzurum",
+       "short": null
+     },
+     {
+       "name": "Eskişehir",
+       "short": null
+     },
+     {
+       "name": "Gaziantep",
+       "short": null
+     },
+     {
+       "name": "Giresun",
+       "short": null
+     },
+     {
+       "name": "Gümüşhane",
+       "short": null
+     },
+     {
+       "name": "Hakkâri",
+       "short": null
+     },
+     {
+       "name": "Hatay",
+       "short": null
+     },
+     {
+       "name": "Isparta",
+       "short": null
+     },
+     {
+       "name": "Mersin",
+       "short": null
+     },
+     {
+       "name": "Istanbul",
+       "short": null
+     },
+     {
+       "name": "İzmir",
+       "short": null
+     },
+     {
+       "name": "Kars",
+       "short": null
+     },
+     {
+       "name": "Kastamonu",
+       "short": null
+     },
+     {
+       "name": "Kayseri",
+       "short": null
+     },
+     {
+       "name": "Kırklareli",
+       "short": null
+     },
+     {
+       "name": "Kırşehir",
+       "short": null
+     },
+     {
+       "name": "Kocaeli",
+       "short": null
+     },
+     {
+       "name": "Konya",
+       "short": null
+     },
+     {
+       "name": "Kütahya",
+       "short": null
+     },
+     {
+       "name": "Malatya",
+       "short": null
+     },
+     {
+       "name": "Manisa",
+       "short": null
+     },
+     {
+       "name": "Kahramanmaraş",
+       "short": null
+     },
+     {
+       "name": "Mardin",
+       "short": null
+     },
+     {
+       "name": "Muğla",
+       "short": null
+     },
+     {
+       "name": "Muş",
+       "short": null
+     },
+     {
+       "name": "Nevşehir",
+       "short": null
+     },
+     {
+       "name": "Niğde",
+       "short": null
+     },
+     {
+       "name": "Ordu",
+       "short": null
+     },
+     {
+       "name": "Rize",
+       "short": null
+     },
+     {
+       "name": "Sakarya",
+       "short": null
+     },
+     {
+       "name": "Samsun",
+       "short": null
+     },
+     {
+       "name": "Siirt",
+       "short": null
+     },
+     {
+       "name": "Sinop",
+       "short": null
+     },
+     {
+       "name": "Sivas",
+       "short": null
+     },
+     {
+       "name": "Tekirdağ",
+       "short": null
+     },
+     {
+       "name": "Tokat",
+       "short": null
+     },
+     {
+       "name": "Trabzon",
+       "short": null
+     },
+     {
+       "name": "Tunceli",
+       "short": null
+     },
+     {
+       "name": "Şanlıurfa",
+       "short": null
+     },
+     {
+       "name": "Uşak",
+       "short": null
+     },
+     {
+       "name": "Van",
+       "short": null
+     },
+     {
+       "name": "Yozgat",
+       "short": null
+     },
+     {
+       "name": "Zonguldak",
+       "short": null
+     },
+     {
+       "name": "Aksaray",
+       "short": null
+     },
+     {
+       "name": "Bayburt",
+       "short": null
+     },
+     {
+       "name": "Karaman",
+       "short": null
+     },
+     {
+       "name": "Kırıkkale",
+       "short": null
+     },
+     {
+       "name": "Batman",
+       "short": null
+     },
+     {
+       "name": "Şırnak",
+       "short": null
+     },
+     {
+       "name": "Bartın",
+       "short": null
+     },
+     {
+       "name": "Ardahan",
+       "short": null
+     },
+     {
+       "name": "Iğdır",
+       "short": null
+     },
+     {
+       "name": "Yalova",
+       "short": null
+     },
+     {
+       "name": "Karabük",
+       "short": null
+     },
+     {
+       "name": "Kilis",
+       "short": null
+     },
+     {
+       "name": "Osmaniye",
+       "short": null
+     },
+     {
+       "name": "Düzce",
+       "short": null
+     }
+   ],
+   "ID": [
+     {
+       "name": "Special Region of Aceh",
+       "short": "ID-AC"
+     },
+     {
+       "name": "Bali",
+       "short": "ID-BA"
+     },
+     {
+       "name": "Bangka–Belitung Islands",
+       "short": "ID-BB"
+     },
+     {
+       "name": "Banten",
+       "short": "ID-BT"
+     },
+     {
+       "name": "Bengkulu",
+       "short": "ID-BE"
+     },
+     {
+       "name": "Central Java",
+       "short": "ID-JT"
+     },
+     {
+       "name": "Central Kalimantan",
+       "short": "ID-KT"
+     },
+     {
+       "name": "Central Sulawesi",
+       "short": "ID-ST"
+     },
+     {
+       "name": "East Java",
+       "short": "ID-JI"
+     },
+     {
+       "name": "East Kalimantan",
+       "short": "ID-KI"
+     },
+     {
+       "name": "East Nusa Tenggara",
+       "short": "ID-NT"
+     },
+     {
+       "name": "Gorontalo",
+       "short": "ID-GO"
+     },
+     {
+       "name": "Jakarta Special Capital Region",
+       "short": "ID-JK"
+     },
+     {
+       "name": "Jambi",
+       "short": "ID-JA"
+     },
+     {
+       "name": "Lampung",
+       "short": "ID-LA"
+     },
+     {
+       "name": "Maluku",
+       "short": "ID-MA"
+     },
+     {
+       "name": "North Kalimantan",
+       "short": "ID-KU"
+     },
+     {
+       "name": "North Maluku",
+       "short": "ID-MU"
+     },
+     {
+       "name": "North Sulawesi",
+       "short": "ID-SA"
+     },
+     {
+       "name": "North Sumatra",
+       "short": "ID-SU"
+     },
+     {
+       "name": "Special Region of Papua",
+       "short": "ID-PA"
+     },
+     {
+       "name": "Riau",
+       "short": "ID-RI"
+     },
+     {
+       "name": "Riau Islands",
+       "short": "ID-KR"
+     },
+     {
+       "name": "Southeast Sulawesi",
+       "short": "ID-SG"
+     },
+     {
+       "name": "South Kalimantan",
+       "short": "ID-KS"
+     },
+     {
+       "name": "South Sulawesi",
+       "short": "ID-SN"
+     },
+     {
+       "name": "South Sumatra",
+       "short": "ID-SS"
+     },
+     {
+       "name": "West Java",
+       "short": "ID-JB"
+     },
+     {
+       "name": "West Kalimantan",
+       "short": "ID-KB"
+     },
+     {
+       "name": "West Nusa Tenggara",
+       "short": "ID-NB"
+     },
+     {
+       "name": "Special Region of West Papua",
+       "short": "ID-PB"
+     },
+     {
+       "name": "West Sulawesi",
+       "short": "ID-SR"
+     },
+     {
+       "name": "West Sumatra",
+       "short": "ID-SB"
+     },
+     {
+       "name": "Special Region of Yogyakarta",
+       "short": "ID-YO"
+     }
+   ],
+   "JO": [
+     {
+       "name": "Irbid",
+       "short": null
+     },
+     {
+       "name": "Ajloun",
+       "short": null
+     },
+     {
+       "name": "Jerash",
+       "short": null
+     },
+     {
+       "name": "Mafraq",
+       "short": null
+     },
+     {
+       "name": "Balqa",
+       "short": null
+     },
+     {
+       "name": "Amman",
+       "short": null
+     },
+     {
+       "name": "Zarqa",
+       "short": null
+     },
+     {
+       "name": "Madaba",
+       "short": null
+     },
+     {
+       "name": "Karak",
+       "short": null
+     },
+     {
+       "name": "Tafilah",
+       "short": null
+     },
+     {
+       "name": "Ma'an",
+       "short": null
+     },
+     {
+       "name": "Aqaba",
+       "short": null
+     }
+   ],
+   "IN": [
+     {
+       "name": "Andhra Pradesh",
+       "short": "AP"
+     },
+     {
+       "name": "Arunachal Pradesh",
+       "short": "AR"
+     },
+     {
+       "name": "Assam",
+       "short": "AS"
+     },
+     {
+       "name": "Bihar",
+       "short": "BR"
+     },
+     {
+       "name": "Chhattisgarh",
+       "short": "CT"
+     },
+     {
+       "name": "Goa",
+       "short": "GA"
+     },
+     {
+       "name": "Gujarat",
+       "short": "GJ"
+     },
+     {
+       "name": "Haryana",
+       "short": "HR"
+     },
+     {
+       "name": "Himachal Pradesh",
+       "short": "HP"
+     },
+     {
+       "name": "Jammu and Kashmir",
+       "short": "JK"
+     },
+     {
+       "name": "Jharkhand",
+       "short": "JH"
+     },
+     {
+       "name": "Karnataka",
+       "short": "KA"
+     },
+     {
+       "name": "Kerala",
+       "short": "KL"
+     },
+     {
+       "name": "Madhya Pradesh",
+       "short": "MP"
+     },
+     {
+       "name": "Maharashtra",
+       "short": "MH"
+     },
+     {
+       "name": "Manipur",
+       "short": "MN"
+     },
+     {
+       "name": "Meghalaya",
+       "short": "ML"
+     },
+     {
+       "name": "Mizoram",
+       "short": "MZ"
+     },
+     {
+       "name": "Nagaland",
+       "short": "NL"
+     },
+     {
+       "name": "Odisha",
+       "short": "OR"
+     },
+     {
+       "name": "Punjab",
+       "short": "PB"
+     },
+     {
+       "name": "Rajasthan",
+       "short": "RJ"
+     },
+     {
+       "name": "Sikkim",
+       "short": "SK"
+     },
+     {
+       "name": "Tamil Nadu",
+       "short": "TN"
+     },
+     {
+       "name": "Telangana",
+       "short": "TG"
+     },
+     {
+       "name": "Tripura",
+       "short": "TR"
+     },
+     {
+       "name": "Uttar Pradesh",
+       "short": "UP"
+     },
+     {
+       "name": "Uttarakhand",
+       "short": "UT"
+     },
+     {
+       "name": "West Bengal",
+       "short": "WB"
+     },
+     {
+       "name": "Andaman and Nicobar Islands",
+       "short": "AN"
+     },
+     {
+       "name": "Chandigarh",
+       "short": "CH"
+     },
+     {
+       "name": "Dadra and Nagar Haveli",
+       "short": "DN"
+     },
+     {
+       "name": "Daman and Diu",
+       "short": "DD"
+     },
+     {
+       "name": "Lakshadweep",
+       "short": "LD"
+     },
+     {
+       "name": "National Capital Territory of Delhi",
+       "short": "DL"
+     },
+     {
+       "name": "Puducherry",
+       "short": "PY"
+     }
+   ],
+   "KH": [
+     {
+       "name": "ភ្នំពេញ",
+       "short": null
+     },
+     {
+       "name": "បន្ទាយមានជ័យ",
+       "short": null
+     },
+     {
+       "name": "បាត់ដំបង",
+       "short": null
+     },
+     {
+       "name": "កំពង់ចាម",
+       "short": null
+     },
+     {
+       "name": "កំពង់ឆ្នាំង",
+       "short": null
+     },
+     {
+       "name": "កំពង់ស្ពឺ",
+       "short": null
+     },
+     {
+       "name": "កំពង់ធំ",
+       "short": null
+     },
+     {
+       "name": "កំពត",
+       "short": null
+     },
+     {
+       "name": "កណ្តាល",
+       "short": null
+     },
+     {
+       "name": "កោះកុង",
+       "short": null
+     },
+     {
+       "name": "កែប",
+       "short": null
+     },
+     {
+       "name": "ក្រចេះ",
+       "short": null
+     },
+     {
+       "name": "មណ្ឌលគីរី",
+       "short": null
+     },
+     {
+       "name": "ឧត្តរមានជ័យ",
+       "short": null
+     },
+     {
+       "name": "បៃលិន",
+       "short": null
+     },
+     {
+       "name": "ព្រះសីហនុ",
+       "short": null
+     },
+     {
+       "name": "ព្រះវិហារ",
+       "short": null
+     },
+     {
+       "name": "ពោធិ៍សាត់",
+       "short": null
+     },
+     {
+       "name": "ព្រៃវែង",
+       "short": null
+     },
+     {
+       "name": "រតនគីរី",
+       "short": null
+     },
+     {
+       "name": "សៀមរាប",
+       "short": null
+     },
+     {
+       "name": "ស្ទឹងត្រែង",
+       "short": null
+     },
+     {
+       "name": "ស្វាយរៀង",
+       "short": null
+     },
+     {
+       "name": "តាកែវ",
+       "short": null
+     },
+     {
+       "name": "ត្បូងឃ្មុំ",
+       "short": null
+     }
+   ],
+   "ET": [
+     {
+       "name": "Addis Ababa",
+       "short": null
+     },
+     {
+       "name": "Afar Region",
+       "short": null
+     },
+     {
+       "name": "Amhara Region",
+       "short": null
+     },
+     {
+       "name": "Benishangul-Gumuz",
+       "short": null
+     },
+     {
+       "name": "Dire Dawa",
+       "short": null
+     },
+     {
+       "name": "Gambela",
+       "short": null
+     },
+     {
+       "name": "Harari",
+       "short": null
+     },
+     {
+       "name": "Oromia",
+       "short": null
+     },
+     {
+       "name": "Somali",
+       "short": null
+     },
+     {
+       "name": "Southern Nations, Nationalities, and Peoples' Region",
+       "short": null
+     },
+     {
+       "name": "Tigray Region",
+       "short": null
+     }
+   ],
+   "PE": [
+     {
+       "name": "Chachapoyas",
+       "short": null
+     },
+     {
+       "name": "Bagua",
+       "short": null
+     },
+     {
+       "name": "Bongará",
+       "short": null
+     },
+     {
+       "name": "Condorcanqui",
+       "short": null
+     },
+     {
+       "name": "Luya",
+       "short": null
+     },
+     {
+       "name": "Rodríguez de Mendoza",
+       "short": null
+     },
+     {
+       "name": "Utcubamba",
+       "short": null
+     },
+     {
+       "name": "Huaraz",
+       "short": null
+     },
+     {
+       "name": "Aija",
+       "short": null
+     },
+     {
+       "name": "Antonio Raymondi",
+       "short": null
+     },
+     {
+       "name": "Asunción",
+       "short": null
+     },
+     {
+       "name": "Bolognesi",
+       "short": null
+     },
+     {
+       "name": "Carhuaz",
+       "short": null
+     },
+     {
+       "name": "Carlos Fermín Fitzcarrald",
+       "short": null
+     },
+     {
+       "name": "Casma",
+       "short": null
+     },
+     {
+       "name": "Corongo",
+       "short": null
+     },
+     {
+       "name": "Huari",
+       "short": null
+     },
+     {
+       "name": "Huarmey",
+       "short": null
+     },
+     {
+       "name": "Huaylas",
+       "short": null
+     },
+     {
+       "name": "Mariscal Luzuriaga",
+       "short": null
+     },
+     {
+       "name": "Ocros",
+       "short": null
+     },
+     {
+       "name": "Pallasca",
+       "short": null
+     },
+     {
+       "name": "Pomabamba",
+       "short": null
+     },
+     {
+       "name": "Recuay",
+       "short": null
+     },
+     {
+       "name": "Santa",
+       "short": null
+     },
+     {
+       "name": "Sihuas",
+       "short": null
+     },
+     {
+       "name": "Yungay",
+       "short": null
+     },
+     {
+       "name": "Abancay",
+       "short": null
+     },
+     {
+       "name": "Andahuaylas",
+       "short": null
+     },
+     {
+       "name": "Antabamba",
+       "short": null
+     },
+     {
+       "name": "Aymaraes",
+       "short": null
+     },
+     {
+       "name": "Cotabambas",
+       "short": null
+     },
+     {
+       "name": "Chincheros",
+       "short": null
+     },
+     {
+       "name": "Grau",
+       "short": null
+     },
+     {
+       "name": "Arequipa",
+       "short": null
+     },
+     {
+       "name": "Camaná",
+       "short": null
+     },
+     {
+       "name": "Caravelí",
+       "short": null
+     },
+     {
+       "name": "Castilla",
+       "short": null
+     },
+     {
+       "name": "Caylloma",
+       "short": null
+     },
+     {
+       "name": "Condesuyos",
+       "short": null
+     },
+     {
+       "name": "Islay",
+       "short": null
+     },
+     {
+       "name": "La Unión",
+       "short": null
+     },
+     {
+       "name": "Huamanga",
+       "short": null
+     },
+     {
+       "name": "Cangallo",
+       "short": null
+     },
+     {
+       "name": "Huanca Sancos",
+       "short": null
+     },
+     {
+       "name": "Huanta",
+       "short": null
+     },
+     {
+       "name": "La Mar",
+       "short": null
+     },
+     {
+       "name": "Lucanas",
+       "short": null
+     },
+     {
+       "name": "Parinacochas",
+       "short": null
+     },
+     {
+       "name": "Páucar del Sara Sara",
+       "short": null
+     },
+     {
+       "name": "Sucre",
+       "short": null
+     },
+     {
+       "name": "Víctor Fajardo",
+       "short": null
+     },
+     {
+       "name": "Vilcas Huamán",
+       "short": null
+     },
+     {
+       "name": "Cajamarca",
+       "short": null
+     },
+     {
+       "name": "Cajabamba",
+       "short": null
+     },
+     {
+       "name": "Celendín",
+       "short": null
+     },
+     {
+       "name": "Chota",
+       "short": null
+     },
+     {
+       "name": "Contumazá",
+       "short": null
+     },
+     {
+       "name": "Cutervo",
+       "short": null
+     },
+     {
+       "name": "Hualgayoc",
+       "short": null
+     },
+     {
+       "name": "Jaén",
+       "short": null
+     },
+     {
+       "name": "San Ignacio",
+       "short": null
+     },
+     {
+       "name": "San Marcos",
+       "short": null
+     },
+     {
+       "name": "San Miguel",
+       "short": null
+     },
+     {
+       "name": "San Pablo",
+       "short": null
+     },
+     {
+       "name": "Santa Cruz",
+       "short": null
+     },
+     {
+       "name": "Callao",
+       "short": null
+     },
+     {
+       "name": "Cusco",
+       "short": null
+     },
+     {
+       "name": "Acomayo",
+       "short": null
+     },
+     {
+       "name": "Anta",
+       "short": null
+     },
+     {
+       "name": "Calca",
+       "short": null
+     },
+     {
+       "name": "Canas",
+       "short": null
+     },
+     {
+       "name": "Canchis",
+       "short": null
+     },
+     {
+       "name": "Chumbivilcas",
+       "short": null
+     },
+     {
+       "name": "Espinar",
+       "short": null
+     },
+     {
+       "name": "La Convención",
+       "short": null
+     },
+     {
+       "name": "Paruro",
+       "short": null
+     },
+     {
+       "name": "Paucartambo",
+       "short": null
+     },
+     {
+       "name": "Quispicanchi",
+       "short": null
+     },
+     {
+       "name": "Urubamba",
+       "short": null
+     },
+     {
+       "name": "Huancavelica",
+       "short": null
+     },
+     {
+       "name": "Acobamba",
+       "short": null
+     },
+     {
+       "name": "Angaraes",
+       "short": null
+     },
+     {
+       "name": "Castrovirreyna",
+       "short": null
+     },
+     {
+       "name": "Churcampa",
+       "short": null
+     },
+     {
+       "name": "Huaytará",
+       "short": null
+     },
+     {
+       "name": "Tayacaja",
+       "short": null
+     },
+     {
+       "name": "Huánuco",
+       "short": null
+     },
+     {
+       "name": "Ambo",
+       "short": null
+     },
+     {
+       "name": "Dos de Mayo",
+       "short": null
+     },
+     {
+       "name": "Huacaybamba",
+       "short": null
+     },
+     {
+       "name": "Huamalíes",
+       "short": null
+     },
+     {
+       "name": "Leoncio Prado",
+       "short": null
+     },
+     {
+       "name": "Marañón",
+       "short": null
+     },
+     {
+       "name": "Pachitea",
+       "short": null
+     },
+     {
+       "name": "Puerto Inca",
+       "short": null
+     },
+     {
+       "name": "Lauricocha",
+       "short": null
+     },
+     {
+       "name": "Yarowilca",
+       "short": null
+     },
+     {
+       "name": "Ica",
+       "short": null
+     },
+     {
+       "name": "Chincha",
+       "short": null
+     },
+     {
+       "name": "Nazca",
+       "short": null
+     },
+     {
+       "name": "Palpa",
+       "short": null
+     },
+     {
+       "name": "Pisco",
+       "short": null
+     },
+     {
+       "name": "Huancayo",
+       "short": null
+     },
+     {
+       "name": "Concepción",
+       "short": null
+     },
+     {
+       "name": "Chanchamayo",
+       "short": null
+     },
+     {
+       "name": "Jauja",
+       "short": null
+     },
+     {
+       "name": "Junín",
+       "short": null
+     },
+     {
+       "name": "Satipo",
+       "short": null
+     },
+     {
+       "name": "Tarma",
+       "short": null
+     },
+     {
+       "name": "Yauli",
+       "short": null
+     },
+     {
+       "name": "Chupaca",
+       "short": null
+     },
+     {
+       "name": "Trujillo",
+       "short": null
+     },
+     {
+       "name": "Ascope",
+       "short": null
+     },
+     {
+       "name": "Bolívar",
+       "short": null
+     },
+     {
+       "name": "Chepén",
+       "short": null
+     },
+     {
+       "name": "Julcán",
+       "short": null
+     },
+     {
+       "name": "Otuzco",
+       "short": null
+     },
+     {
+       "name": "Pacasmayo",
+       "short": null
+     },
+     {
+       "name": "Pataz",
+       "short": null
+     },
+     {
+       "name": "Sánchez Carrión",
+       "short": null
+     },
+     {
+       "name": "Santiago de Chuco",
+       "short": null
+     },
+     {
+       "name": "Gran Chimú",
+       "short": null
+     },
+     {
+       "name": "Virú",
+       "short": null
+     },
+     {
+       "name": "Chiclayo",
+       "short": null
+     },
+     {
+       "name": "Ferreñafe",
+       "short": null
+     },
+     {
+       "name": "Lambayeque",
+       "short": null
+     },
+     {
+       "name": "Lima",
+       "short": null
+     },
+     {
+       "name": "Huaura",
+       "short": null
+     },
+     {
+       "name": "Barranca",
+       "short": null
+     },
+     {
+       "name": "Cajatambo",
+       "short": null
+     },
+     {
+       "name": "Canta",
+       "short": null
+     },
+     {
+       "name": "Cañete",
+       "short": null
+     },
+     {
+       "name": "Huaral",
+       "short": null
+     },
+     {
+       "name": "Huarochirí",
+       "short": null
+     },
+     {
+       "name": "Oyón",
+       "short": null
+     },
+     {
+       "name": "Yauyos",
+       "short": null
+     },
+     {
+       "name": "Maynas",
+       "short": null
+     },
+     {
+       "name": "Alto Amazonas",
+       "short": null
+     },
+     {
+       "name": "Loreto",
+       "short": null
+     },
+     {
+       "name": "Mariscal Ramón Castilla",
+       "short": null
+     },
+     {
+       "name": "Putumayo",
+       "short": null
+     },
+     {
+       "name": "Requena",
+       "short": null
+     },
+     {
+       "name": "Ucayali",
+       "short": null
+     },
+     {
+       "name": "Datem del Marañón",
+       "short": null
+     },
+     {
+       "name": "Tambopata",
+       "short": null
+     },
+     {
+       "name": "Manú",
+       "short": null
+     },
+     {
+       "name": "Tahuamanu",
+       "short": null
+     },
+     {
+       "name": "Mariscal Nieto",
+       "short": null
+     },
+     {
+       "name": "General Sánchez Cerro",
+       "short": null
+     },
+     {
+       "name": "Ilo",
+       "short": null
+     },
+     {
+       "name": "Pasco",
+       "short": null
+     },
+     {
+       "name": "Daniel Alcídes Carrión",
+       "short": null
+     },
+     {
+       "name": "Oxapampa",
+       "short": null
+     },
+     {
+       "name": "Piura",
+       "short": null
+     },
+     {
+       "name": "Ayabaca",
+       "short": null
+     },
+     {
+       "name": "Huancabamba",
+       "short": null
+     },
+     {
+       "name": "Morropón",
+       "short": null
+     },
+     {
+       "name": "Paita",
+       "short": null
+     },
+     {
+       "name": "Sullana",
+       "short": null
+     },
+     {
+       "name": "Talara",
+       "short": null
+     },
+     {
+       "name": "Sechura",
+       "short": null
+     },
+     {
+       "name": "Puno",
+       "short": null
+     },
+     {
+       "name": "Azángaro",
+       "short": null
+     },
+     {
+       "name": "Carabaya",
+       "short": null
+     },
+     {
+       "name": "Chucuito",
+       "short": null
+     },
+     {
+       "name": "El Collao",
+       "short": null
+     },
+     {
+       "name": "Huancané",
+       "short": null
+     },
+     {
+       "name": "Lampa",
+       "short": null
+     },
+     {
+       "name": "Melgar",
+       "short": null
+     },
+     {
+       "name": "Moho",
+       "short": null
+     },
+     {
+       "name": "San Antonio de Putina",
+       "short": null
+     },
+     {
+       "name": "San Román",
+       "short": null
+     },
+     {
+       "name": "Sandia",
+       "short": null
+     },
+     {
+       "name": "Yunguyo",
+       "short": null
+     },
+     {
+       "name": "Moyobamba",
+       "short": null
+     },
+     {
+       "name": "Bellavista",
+       "short": null
+     },
+     {
+       "name": "El Dorado",
+       "short": null
+     },
+     {
+       "name": "Huallaga",
+       "short": null
+     },
+     {
+       "name": "Lamas",
+       "short": null
+     },
+     {
+       "name": "Mariscal Cáceres",
+       "short": null
+     },
+     {
+       "name": "Picota",
+       "short": null
+     },
+     {
+       "name": "Rioja",
+       "short": null
+     },
+     {
+       "name": "San Martín",
+       "short": null
+     },
+     {
+       "name": "Tocache",
+       "short": null
+     },
+     {
+       "name": "Tacna",
+       "short": null
+     },
+     {
+       "name": "Candarave",
+       "short": null
+     },
+     {
+       "name": "Jorge Basadre",
+       "short": null
+     },
+     {
+       "name": "Tarata",
+       "short": null
+     },
+     {
+       "name": "Tumbes",
+       "short": null
+     },
+     {
+       "name": "Contralmirante Villar",
+       "short": null
+     },
+     {
+       "name": "Zarumilla",
+       "short": null
+     },
+     {
+       "name": "Coronel Portillo",
+       "short": null
+     },
+     {
+       "name": "Atalaya",
+       "short": null
+     },
+     {
+       "name": "Padre Abad",
+       "short": null
+     },
+     {
+       "name": "Purús",
+       "short": null
+     }
+   ],
+   "CU": [
+     {
+       "name": "Camagüey",
+       "short": null
+     },
+     {
+       "name": "Ciego de Ávila",
+       "short": null
+     },
+     {
+       "name": "Cienfuegos",
+       "short": null
+     },
+     {
+       "name": "Havana",
+       "short": null
+     },
+     {
+       "name": "Bayamo",
+       "short": null
+     },
+     {
+       "name": "Guantánamo",
+       "short": null
+     },
+     {
+       "name": "Holguín",
+       "short": null
+     },
+     {
+       "name": "Nueva Gerona",
+       "short": null
+     },
+     {
+       "name": "Artemisa",
+       "short": null
+     },
+     {
+       "name": "Las Tunas",
+       "short": null
+     },
+     {
+       "name": "Matanzas",
+       "short": null
+     },
+     {
+       "name": "San José de las Lajas",
+       "short": null
+     },
+     {
+       "name": "Pinar del Río",
+       "short": null
+     },
+     {
+       "name": "Sancti Spíritus",
+       "short": null
+     },
+     {
+       "name": "Santiago de Cuba",
+       "short": null
+     },
+     {
+       "name": "Santa Clara",
+       "short": null
+     }
+   ],
+   "AR": [
+     {
+       "name": "Ciudad Autónoma de Buenos Aires",
+       "short": null
+     },
+     {
+       "name": "Buenos Aires",
+       "short": null
+     },
+     {
+       "name": "Catamarca",
+       "short": null
+     },
+     {
+       "name": "Chaco",
+       "short": null
+     },
+     {
+       "name": "Chubut",
+       "short": null
+     },
+     {
+       "name": "Córdoba",
+       "short": null
+     },
+     {
+       "name": "Corrientes",
+       "short": null
+     },
+     {
+       "name": "Entre Ríos",
+       "short": null
+     },
+     {
+       "name": "Formosa",
+       "short": null
+     },
+     {
+       "name": "Jujuy",
+       "short": null
+     },
+     {
+       "name": "La Pampa",
+       "short": null
+     },
+     {
+       "name": "La Rioja",
+       "short": null
+     },
+     {
+       "name": "Mendoza",
+       "short": null
+     },
+     {
+       "name": "Misiones",
+       "short": null
+     },
+     {
+       "name": "Neuquén",
+       "short": null
+     },
+     {
+       "name": "Río Negro",
+       "short": null
+     },
+     {
+       "name": "Salta",
+       "short": null
+     },
+     {
+       "name": "San Juan",
+       "short": null
+     },
+     {
+       "name": "San Luis",
+       "short": null
+     },
+     {
+       "name": "Santa Cruz",
+       "short": null
+     },
+     {
+       "name": "Santa Fe",
+       "short": null
+     },
+     {
+       "name": "Santiago del Estero",
+       "short": null
+     },
+     {
+       "name": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+       "short": null
+     },
+     {
+       "name": "Tucumán",
+       "short": null
+     }
+   ],
+   "CL": [
+     {
+       "name": "Arica",
+       "short": null
+     },
+     {
+       "name": "Parinacota",
+       "short": null
+     },
+     {
+       "name": "Iquique",
+       "short": null
+     },
+     {
+       "name": "Tamarugal",
+       "short": null
+     },
+     {
+       "name": "Antofagasta",
+       "short": null
+     },
+     {
+       "name": "El Loa",
+       "short": null
+     },
+     {
+       "name": "Tocopilla",
+       "short": null
+     },
+     {
+       "name": "Copiapó",
+       "short": null
+     },
+     {
+       "name": "Huasco",
+       "short": null
+     },
+     {
+       "name": "Chañaral",
+       "short": null
+     },
+     {
+       "name": "Elqui",
+       "short": null
+     },
+     {
+       "name": "Limarí",
+       "short": null
+     },
+     {
+       "name": "Choapa",
+       "short": null
+     },
+     {
+       "name": "Isla de Pascua",
+       "short": null
+     },
+     {
+       "name": "Los Andes",
+       "short": null
+     },
+     {
+       "name": "Marga Marga",
+       "short": null
+     },
+     {
+       "name": "Petorca",
+       "short": null
+     },
+     {
+       "name": "Quillota",
+       "short": null
+     },
+     {
+       "name": "San Antonio",
+       "short": null
+     },
+     {
+       "name": "San Felipe de Aconcagua",
+       "short": null
+     },
+     {
+       "name": "Valparaíso",
+       "short": null
+     },
+     {
+       "name": "Cachapoal",
+       "short": null
+     },
+     {
+       "name": "Colchagua",
+       "short": null
+     },
+     {
+       "name": "Cardenal Caro",
+       "short": null
+     },
+     {
+       "name": "Talca",
+       "short": null
+     },
+     {
+       "name": "Linares",
+       "short": null
+     },
+     {
+       "name": "Curicó",
+       "short": null
+     },
+     {
+       "name": "Cauquenes",
+       "short": null
+     },
+     {
+       "name": "Concepción",
+       "short": null
+     },
+     {
+       "name": "Ñuble",
+       "short": null
+     },
+     {
+       "name": "Biobío",
+       "short": null
+     },
+     {
+       "name": "Arauco",
+       "short": null
+     },
+     {
+       "name": "Cautin",
+       "short": null
+     },
+     {
+       "name": "Malleco",
+       "short": null
+     },
+     {
+       "name": "Valdivia",
+       "short": null
+     },
+     {
+       "name": "Ranco",
+       "short": null
+     },
+     {
+       "name": "Llanquihue",
+       "short": null
+     },
+     {
+       "name": "Osorno",
+       "short": null
+     },
+     {
+       "name": "Chiloe",
+       "short": null
+     },
+     {
+       "name": "Palena",
+       "short": null
+     },
+     {
+       "name": "Coihaique",
+       "short": null
+     },
+     {
+       "name": "Aisén",
+       "short": null
+     },
+     {
+       "name": "General Carrera",
+       "short": null
+     },
+     {
+       "name": "Capitan Prat",
+       "short": null
+     },
+     {
+       "name": "Magallanes",
+       "short": null
+     },
+     {
+       "name": "Ultima Esperanza",
+       "short": null
+     },
+     {
+       "name": "Tierra del Fuego",
+       "short": null
+     },
+     {
+       "name": "Antártica Chilena",
+       "short": null
+     },
+     {
+       "name": "Santiago",
+       "short": null
+     },
+     {
+       "name": "Cordillera",
+       "short": null
+     },
+     {
+       "name": "Maipo",
+       "short": null
+     },
+     {
+       "name": "Talagante",
+       "short": null
+     },
+     {
+       "name": "Melipilla",
+       "short": null
+     },
+     {
+       "name": "Chacabuco",
+       "short": null
+     }
+   ],
+   "BO": [
+     {
+       "name": "Cercado",
+       "short": null
+     },
+     {
+       "name": "Iténez",
+       "short": null
+     },
+     {
+       "name": "José Ballivián",
+       "short": null
+     },
+     {
+       "name": "Mamoré",
+       "short": null
+     },
+     {
+       "name": "Marbán",
+       "short": null
+     },
+     {
+       "name": "Moxos",
+       "short": null
+     },
+     {
+       "name": "Vaca Díez",
+       "short": null
+     },
+     {
+       "name": "Yacuma",
+       "short": null
+     },
+     {
+       "name": "Azurduy",
+       "short": null
+     },
+     {
+       "name": "Belisario Boeto",
+       "short": null
+     },
+     {
+       "name": "Hernando Siles",
+       "short": null
+     },
+     {
+       "name": "Jaime Zudáñez",
+       "short": null
+     },
+     {
+       "name": "Luis Calvo",
+       "short": null
+     },
+     {
+       "name": "Nor Cinti",
+       "short": null
+     },
+     {
+       "name": "Oropeza",
+       "short": null
+     },
+     {
+       "name": "Sud Cinti",
+       "short": null
+     },
+     {
+       "name": "Tomina",
+       "short": null
+     },
+     {
+       "name": "Yamparáez",
+       "short": null
+     },
+     {
+       "name": "Arani",
+       "short": null
+     },
+     {
+       "name": "Arque",
+       "short": null
+     },
+     {
+       "name": "Ayopaya",
+       "short": null
+     },
+     {
+       "name": "Capinota",
+       "short": null
+     },
+     {
+       "name": "Carrasco",
+       "short": null
+     },
+     {
+       "name": "Cercado",
+       "short": null
+     },
+     {
+       "name": "Chapare",
+       "short": null
+     },
+     {
+       "name": "Esteban Arce",
+       "short": null
+     },
+     {
+       "name": "Germán Jordán",
+       "short": null
+     },
+     {
+       "name": "Mizque",
+       "short": null
+     },
+     {
+       "name": "Campero",
+       "short": null
+     },
+     {
+       "name": "Punata",
+       "short": null
+     },
+     {
+       "name": "Quillacollo",
+       "short": null
+     },
+     {
+       "name": "Bolívar",
+       "short": null
+     },
+     {
+       "name": "Tapacarí",
+       "short": null
+     },
+     {
+       "name": "Tiraque",
+       "short": null
+     },
+     {
+       "name": "Abel Iturralde",
+       "short": null
+     },
+     {
+       "name": "Aroma",
+       "short": null
+     },
+     {
+       "name": "Bautista Saavedra",
+       "short": null
+     },
+     {
+       "name": "Caranavi",
+       "short": null
+     },
+     {
+       "name": "Eliodoro Camacho",
+       "short": null
+     },
+     {
+       "name": "Franz Tamayo",
+       "short": null
+     },
+     {
+       "name": "Gualberto Villarroel",
+       "short": null
+     },
+     {
+       "name": "Ingavi",
+       "short": null
+     },
+     {
+       "name": "Inquisivi",
+       "short": null
+     },
+     {
+       "name": "José Manuel Pando",
+       "short": null
+     },
+     {
+       "name": "Larecaja",
+       "short": null
+     },
+     {
+       "name": "Loayza",
+       "short": null
+     },
+     {
+       "name": "Los Andes",
+       "short": null
+     },
+     {
+       "name": "Manco Kapac",
+       "short": null
+     },
+     {
+       "name": "Muñecas",
+       "short": null
+     },
+     {
+       "name": "Nor Yungas",
+       "short": null
+     },
+     {
+       "name": "Omasuyos",
+       "short": null
+     },
+     {
+       "name": "Pacajes",
+       "short": null
+     },
+     {
+       "name": "Murillo",
+       "short": null
+     },
+     {
+       "name": "Sud Yungas",
+       "short": null
+     },
+     {
+       "name": "Atahuallpa",
+       "short": null
+     },
+     {
+       "name": "Carangas",
+       "short": null
+     },
+     {
+       "name": "Cercado",
+       "short": null
+     },
+     {
+       "name": "Eduardo Avaroa",
+       "short": null
+     },
+     {
+       "name": "Ladislao Cabrera",
+       "short": null
+     },
+     {
+       "name": "Litoral",
+       "short": null
+     },
+     {
+       "name": "Nor Carangas",
+       "short": null
+     },
+     {
+       "name": "Pantaléon Dalence",
+       "short": null
+     },
+     {
+       "name": "Poopó",
+       "short": null
+     },
+     {
+       "name": "Puerto de Mejillones",
+       "short": null
+     },
+     {
+       "name": "Sajama",
+       "short": null
+     },
+     {
+       "name": "San Pedro de Totora",
+       "short": null
+     },
+     {
+       "name": "Saucarí",
+       "short": null
+     },
+     {
+       "name": "Sebastián Pagador",
+       "short": null
+     },
+     {
+       "name": "Sud Carangas",
+       "short": null
+     },
+     {
+       "name": "Tomas Barrón",
+       "short": null
+     },
+     {
+       "name": "Abuná",
+       "short": null
+     },
+     {
+       "name": "Federico Román",
+       "short": null
+     },
+     {
+       "name": "Madre de Dios",
+       "short": null
+     },
+     {
+       "name": "Manuripi",
+       "short": null
+     },
+     {
+       "name": "Nicolás Suárez",
+       "short": null
+     },
+     {
+       "name": "Alonso de Ibáñez",
+       "short": null
+     },
+     {
+       "name": "Antonio Quijarro",
+       "short": null
+     },
+     {
+       "name": "Bernardino Bilbao",
+       "short": null
+     },
+     {
+       "name": "Charcas",
+       "short": null
+     },
+     {
+       "name": "Chayanta",
+       "short": null
+     },
+     {
+       "name": "Cornelio Saavedra",
+       "short": null
+     },
+     {
+       "name": "Daniel Campos",
+       "short": null
+     },
+     {
+       "name": "Enrique Baldivieso",
+       "short": null
+     },
+     {
+       "name": "José María Linares",
+       "short": null
+     },
+     {
+       "name": "Modesto Omiste",
+       "short": null
+     },
+     {
+       "name": "Nor Chichas",
+       "short": null
+     },
+     {
+       "name": "Nor Lípez",
+       "short": null
+     },
+     {
+       "name": "Rafael Bustillo",
+       "short": null
+     },
+     {
+       "name": "Sur Chichas",
+       "short": null
+     },
+     {
+       "name": "Sur Lípez",
+       "short": null
+     },
+     {
+       "name": "Tomás Frías",
+       "short": null
+     },
+     {
+       "name": "Andrés Ibáñez",
+       "short": null
+     },
+     {
+       "name": "Ángel Sandoval",
+       "short": null
+     },
+     {
+       "name": "Chiquitos",
+       "short": null
+     },
+     {
+       "name": "Cordillera",
+       "short": null
+     },
+     {
+       "name": "Florida",
+       "short": null
+     },
+     {
+       "name": "Germán Busch",
+       "short": null
+     },
+     {
+       "name": "Guarayos",
+       "short": null
+     },
+     {
+       "name": "Ichilo",
+       "short": null
+     },
+     {
+       "name": "Ignacio Warnes",
+       "short": null
+     },
+     {
+       "name": "José Miguel de Velasco",
+       "short": null
+     },
+     {
+       "name": "Manuel María Caballero",
+       "short": null
+     },
+     {
+       "name": "Ñuflo de Chávez",
+       "short": null
+     },
+     {
+       "name": "Obispo Santistevan",
+       "short": null
+     },
+     {
+       "name": "Sara",
+       "short": null
+     },
+     {
+       "name": "Vallegrande",
+       "short": null
+     },
+     {
+       "name": "Aniceto Arce",
+       "short": null
+     },
+     {
+       "name": "Burnet O'Connor",
+       "short": null
+     },
+     {
+       "name": "Cercado",
+       "short": null
+     },
+     {
+       "name": "Eustaquio Méndez",
+       "short": null
+     },
+     {
+       "name": "Gran Chaco",
+       "short": null
+     },
+     {
+       "name": "José María Avilés",
+       "short": null
+     }
+   ],
+   "ES": [
+     {
+       "name": "La Coruña",
+       "short": "C"
+     },
+     {
+       "name": "Lugo",
+       "short": "LU"
+     },
+     {
+       "name": "Vizcaya",
+       "short": "BI"
+     },
+     {
+       "name": "Guipúzcoa",
+       "short": "SS"
+     },
+     {
+       "name": "Huesca",
+       "short": "HU"
+     },
+     {
+       "name": "Lérida",
+       "short": "L"
+     },
+     {
+       "name": "Gerona",
+       "short": "GI"
+     },
+     {
+       "name": "Barcelona",
+       "short": "B"
+     },
+     {
+       "name": "Tarragona",
+       "short": "T"
+     },
+     {
+       "name": "Castellón",
+       "short": "CS"
+     },
+     {
+       "name": "Valencia",
+       "short": "V"
+     },
+     {
+       "name": "Alicante",
+       "short": "A"
+     },
+     {
+       "name": "Murcia",
+       "short": "MU"
+     },
+     {
+       "name": "Zaragoza",
+       "short": "Z"
+     },
+     {
+       "name": "Teruel",
+       "short": "TE"
+     },
+     {
+       "name": "Cuenca",
+       "short": "CU"
+     },
+     {
+       "name": "Albacete",
+       "short": "AB"
+     },
+     {
+       "name": "Almeria",
+       "short": "AL"
+     },
+     {
+       "name": "Granada",
+       "short": "GR"
+     },
+     {
+       "name": "Málaga",
+       "short": "MA"
+     },
+     {
+       "name": "Tenerife",
+       "short": "TF"
+     },
+     {
+       "name": "Cádiz",
+       "short": "CA"
+     },
+     {
+       "name": "Sevilla",
+       "short": "SE"
+     },
+     {
+       "name": "Huelva",
+       "short": "H"
+     },
+     {
+       "name": "Las Palmas",
+       "short": "GC"
+     },
+     {
+       "name": "Madrid",
+       "short": "M"
+     },
+     {
+       "name": "Badajoz",
+       "short": "BA"
+     },
+     {
+       "name": "Cáceres",
+       "short": "CC"
+     },
+     {
+       "name": "Toledo",
+       "short": "TO"
+     },
+     {
+       "name": "Ciudad Real",
+       "short": "CR"
+     },
+     {
+       "name": "Salamanca",
+       "short": "SA"
+     },
+     {
+       "name": "Córdoba",
+       "short": "CO"
+     },
+     {
+       "name": "Jaén",
+       "short": "J"
+     },
+     {
+       "name": "Ávila",
+       "short": "AV"
+     },
+     {
+       "name": "Valladolid",
+       "short": "VA"
+     },
+     {
+       "name": "Zamora",
+       "short": "ZA"
+     },
+     {
+       "name": "Álava",
+       "short": "VI"
+     },
+     {
+       "name": "Segovia",
+       "short": "SG"
+     },
+     {
+       "name": "Burgos",
+       "short": "BU"
+     },
+     {
+       "name": "Pontevedra",
+       "short": "PO"
+     },
+     {
+       "name": "León",
+       "short": "LE"
+     },
+     {
+       "name": "Orense",
+       "short": "OU"
+     },
+     {
+       "name": "Palencia",
+       "short": "P"
+     },
+     {
+       "name": "La Rioja",
+       "short": "LO"
+     },
+     {
+       "name": "Soria",
+       "short": "SO"
+     },
+     {
+       "name": "Guadalajara",
+       "short": "GU"
+     }
+   ],
+   "BD": [
+     {
+       "name": "বরগুনা",
+       "short": null
+     },
+     {
+       "name": "বরিশাল",
+       "short": null
+     },
+     {
+       "name": "ভোলা",
+       "short": null
+     },
+     {
+       "name": "ঝালকাঠি",
+       "short": null
+     },
+     {
+       "name": "পটুয়াখালী",
+       "short": null
+     },
+     {
+       "name": "পিরোজপুর",
+       "short": null
+     },
+     {
+       "name": "বান্দরবান",
+       "short": null
+     },
+     {
+       "name": "ব্রাহ্মণবাড়ীয়া",
+       "short": null
+     },
+     {
+       "name": "চাঁদপুর",
+       "short": null
+     },
+     {
+       "name": "চট্টগ্রাম",
+       "short": null
+     },
+     {
+       "name": "কুমিল্লা",
+       "short": null
+     },
+     {
+       "name": "কক্সবাজার",
+       "short": null
+     },
+     {
+       "name": "ফেনী",
+       "short": null
+     },
+     {
+       "name": "খাগড়াছড়ি",
+       "short": null
+     },
+     {
+       "name": "লক্ষীপুর",
+       "short": null
+     },
+     {
+       "name": "নোয়াখালী",
+       "short": null
+     },
+     {
+       "name": "রাঙ্গামাটি",
+       "short": null
+     },
+     {
+       "name": "ঢাকা",
+       "short": null
+     },
+     {
+       "name": "ফরিদপুর",
+       "short": null
+     },
+     {
+       "name": "গাজীপুর",
+       "short": null
+     },
+     {
+       "name": "গোপালগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "জামালপুর",
+       "short": null
+     },
+     {
+       "name": "কিশোরগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "মাদারীপুর",
+       "short": null
+     },
+     {
+       "name": "মানিকগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "মুন্সীগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "ময়মনসিংহ",
+       "short": null
+     },
+     {
+       "name": "নারায়ণগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "নরসিংদী",
+       "short": null
+     },
+     {
+       "name": "নেত্রকোনা",
+       "short": null
+     },
+     {
+       "name": "রাজবাড়ী",
+       "short": null
+     },
+     {
+       "name": "শরীয়তপুর",
+       "short": null
+     },
+     {
+       "name": "শেরপুর",
+       "short": null
+     },
+     {
+       "name": "টাঙ্গাইল",
+       "short": null
+     },
+     {
+       "name": "বাগেরহাট",
+       "short": null
+     },
+     {
+       "name": "চুয়াডাঙ্গা",
+       "short": null
+     },
+     {
+       "name": "যশোর",
+       "short": null
+     },
+     {
+       "name": "ঝিনাইদহ",
+       "short": null
+     },
+     {
+       "name": "খুলনা",
+       "short": null
+     },
+     {
+       "name": "কুষ্টিয়া",
+       "short": null
+     },
+     {
+       "name": "মাগুরা",
+       "short": null
+     },
+     {
+       "name": "মেহেরপুর",
+       "short": null
+     },
+     {
+       "name": "নড়াইল",
+       "short": null
+     },
+     {
+       "name": "সাতক্ষিরা",
+       "short": null
+     },
+     {
+       "name": "বগুড়া",
+       "short": null
+     },
+     {
+       "name": "জয়পুরহাট",
+       "short": null
+     },
+     {
+       "name": "নওগাঁ",
+       "short": null
+     },
+     {
+       "name": "নাটোর",
+       "short": null
+     },
+     {
+       "name": "নওয়াবগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "পাবনা",
+       "short": null
+     },
+     {
+       "name": "রাজশাহী",
+       "short": null
+     },
+     {
+       "name": "সিরাজগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "দিনাজপুর",
+       "short": null
+     },
+     {
+       "name": "গাইবান্ধা",
+       "short": null
+     },
+     {
+       "name": "কুড়িগ্রাম",
+       "short": null
+     },
+     {
+       "name": "লালমনিরহাট",
+       "short": null
+     },
+     {
+       "name": "নীলফামারী",
+       "short": null
+     },
+     {
+       "name": "পঞ্চগড়",
+       "short": null
+     },
+     {
+       "name": "রংপুর",
+       "short": null
+     },
+     {
+       "name": "ঠাকুরগাঁ",
+       "short": null
+     },
+     {
+       "name": "হবিগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "মৌলভীবাজার",
+       "short": null
+     },
+     {
+       "name": "সুনামগঞ্জ",
+       "short": null
+     },
+     {
+       "name": "সিলেট",
+       "short": null
+     }
+   ],
+   "PK": [
+     {
+       "name": "Azad Kashmir",
+       "short": null
+     },
+     {
+       "name": "Bahawalpur",
+       "short": null
+     },
+     {
+       "name": "Bannu",
+       "short": null
+     },
+     {
+       "name": "Dera Ghazi Khan",
+       "short": null
+     },
+     {
+       "name": "Dera Ismail Khan",
+       "short": null
+     },
+     {
+       "name": "Faisalabad",
+       "short": null
+     },
+     {
+       "name": "F.A.T.A.",
+       "short": null
+     },
+     {
+       "name": "Gujranwala",
+       "short": null
+     },
+     {
+       "name": "Hazara",
+       "short": null
+     },
+     {
+       "name": "Hyderabad",
+       "short": null
+     },
+     {
+       "name": "Islamabad",
+       "short": null
+     },
+     {
+       "name": "Kalat",
+       "short": null
+     },
+     {
+       "name": "Karachi",
+       "short": null
+     },
+     {
+       "name": "Kohat",
+       "short": null
+     },
+     {
+       "name": "Lahore",
+       "short": null
+     },
+     {
+       "name": "Larkana",
+       "short": null
+     },
+     {
+       "name": "Makran",
+       "short": null
+     },
+     {
+       "name": "Malakand",
+       "short": null
+     },
+     {
+       "name": "Mardan",
+       "short": null
+     },
+     {
+       "name": "Mirpur Khas",
+       "short": null
+     },
+     {
+       "name": "Multan",
+       "short": null
+     },
+     {
+       "name": "Nasirabad",
+       "short": null
+     },
+     {
+       "name": "Northern Areas",
+       "short": null
+     },
+     {
+       "name": "Peshawar",
+       "short": null
+     },
+     {
+       "name": "Quetta",
+       "short": null
+     },
+     {
+       "name": "Rawalpindi",
+       "short": null
+     },
+     {
+       "name": "Sargodha",
+       "short": null
+     },
+     {
+       "name": "Sahiwal",
+       "short": null
+     },
+     {
+       "name": "Sibi",
+       "short": null
+     },
+     {
+       "name": "Sukkur",
+       "short": null
+     },
+     {
+       "name": "Zhob",
+       "short": null
+     }
+   ],
+   "NG": [
+     {
+       "name": "Abia",
+       "short": "AB"
+     },
+     {
+       "name": "Abuja",
+       "short": "FC"
+     },
+     {
+       "name": "Adamawa",
+       "short": "AD"
+     },
+     {
+       "name": "Akwa Ibom",
+       "short": "AK"
+     },
+     {
+       "name": "Anambra",
+       "short": "AN"
+     },
+     {
+       "name": "Bauchi",
+       "short": "BA"
+     },
+     {
+       "name": "Bayelsa",
+       "short": "BY"
+     },
+     {
+       "name": "Benue",
+       "short": "BE"
+     },
+     {
+       "name": "Borno",
+       "short": "BO"
+     },
+     {
+       "name": "Cross River",
+       "short": "CR"
+     },
+     {
+       "name": "Delta",
+       "short": "DE"
+     },
+     {
+       "name": "Ebonyi",
+       "short": "EB"
+     },
+     {
+       "name": "Edo",
+       "short": "ED"
+     },
+     {
+       "name": "Ekiti",
+       "short": "EK"
+     },
+     {
+       "name": "Enugu",
+       "short": "EN"
+     },
+     {
+       "name": "Gombe",
+       "short": "GO"
+     },
+     {
+       "name": "Imo",
+       "short": "IM"
+     },
+     {
+       "name": "Jigawa",
+       "short": "JI"
+     },
+     {
+       "name": "Kaduna",
+       "short": "KD"
+     },
+     {
+       "name": "Kano",
+       "short": "KN"
+     },
+     {
+       "name": "Katsina",
+       "short": "KT"
+     },
+     {
+       "name": "Kebbi",
+       "short": "KE"
+     },
+     {
+       "name": "Kogi",
+       "short": "KO"
+     },
+     {
+       "name": "Kwara",
+       "short": "KW"
+     },
+     {
+       "name": "Lagos",
+       "short": "LA"
+     },
+     {
+       "name": "Nasarawa",
+       "short": "NA"
+     },
+     {
+       "name": "Niger",
+       "short": "NI"
+     },
+     {
+       "name": "Ogun",
+       "short": "OG"
+     },
+     {
+       "name": "Ondo",
+       "short": "ON"
+     },
+     {
+       "name": "Osun",
+       "short": "OS"
+     },
+     {
+       "name": "Oyo",
+       "short": "OY"
+     },
+     {
+       "name": "Plateau",
+       "short": "PL"
+     },
+     {
+       "name": "Rivers",
+       "short": "RI"
+     },
+     {
+       "name": "Sokoto",
+       "short": "SO"
+     },
+     {
+       "name": "Taraba",
+       "short": "TA"
+     },
+     {
+       "name": "Yobe",
+       "short": "YO"
+     },
+     {
+       "name": "Zamfara",
+       "short": "ZA"
+     }
+   ],
+   "JP": [
+     {
+       "name": "愛知県",
+       "short": null
+     },
+     {
+       "name": "秋田県",
+       "short": null
+     },
+     {
+       "name": "青森県",
+       "short": null
+     },
+     {
+       "name": "千葉県",
+       "short": null
+     },
+     {
+       "name": "愛媛県",
+       "short": null
+     },
+     {
+       "name": "福井県",
+       "short": null
+     },
+     {
+       "name": "福岡県",
+       "short": null
+     },
+     {
+       "name": "福島県",
+       "short": null
+     },
+     {
+       "name": "岐阜県",
+       "short": null
+     },
+     {
+       "name": "群馬県",
+       "short": null
+     },
+     {
+       "name": "広島県",
+       "short": null
+     },
+     {
+       "name": "北海道",
+       "short": null
+     },
+     {
+       "name": "兵庫県",
+       "short": null
+     },
+     {
+       "name": "茨城県",
+       "short": null
+     },
+     {
+       "name": "石川県",
+       "short": null
+     },
+     {
+       "name": "岩手県",
+       "short": null
+     },
+     {
+       "name": "香川県",
+       "short": null
+     },
+     {
+       "name": "鹿児島県",
+       "short": null
+     },
+     {
+       "name": "神奈川県",
+       "short": null
+     },
+     {
+       "name": "高知県",
+       "short": null
+     },
+     {
+       "name": "熊本県",
+       "short": null
+     },
+     {
+       "name": "京都府",
+       "short": null
+     },
+     {
+       "name": "三重県",
+       "short": null
+     },
+     {
+       "name": "宮城県",
+       "short": null
+     },
+     {
+       "name": "宮崎県",
+       "short": null
+     },
+     {
+       "name": "長野県",
+       "short": null
+     },
+     {
+       "name": "長崎県",
+       "short": null
+     },
+     {
+       "name": "奈良県",
+       "short": null
+     },
+     {
+       "name": "新潟県",
+       "short": null
+     },
+     {
+       "name": "大分県",
+       "short": null
+     },
+     {
+       "name": "岡山県",
+       "short": null
+     },
+     {
+       "name": "沖縄県",
+       "short": null
+     },
+     {
+       "name": "大阪府",
+       "short": null
+     },
+     {
+       "name": "佐賀県",
+       "short": null
+     },
+     {
+       "name": "埼玉県",
+       "short": null
+     },
+     {
+       "name": "滋賀県",
+       "short": null
+     },
+     {
+       "name": "島根県",
+       "short": null
+     },
+     {
+       "name": "静岡県",
+       "short": null
+     },
+     {
+       "name": "栃木県",
+       "short": null
+     },
+     {
+       "name": "徳島県",
+       "short": null
+     },
+     {
+       "name": "東京都",
+       "short": null
+     },
+     {
+       "name": "鳥取県",
+       "short": null
+     },
+     {
+       "name": "富山県",
+       "short": null
+     },
+     {
+       "name": "和歌山県",
+       "short": null
+     },
+     {
+       "name": "山形県",
+       "short": null
+     },
+     {
+       "name": "山口県",
+       "short": null
+     },
+     {
+       "name": "山梨県",
+       "short": null
+     }
+   ],
+   "AT": [
+     {
+       "name": "Burgenland",
+       "short": "B"
+     },
+     {
+       "name": "Kärnten",
+       "short": "K"
+     },
+     {
+       "name": "Niederösterreich",
+       "short": "NÖ"
+     },
+     {
+       "name": "Oberösterreich",
+       "short": "OÖ"
+     },
+     {
+       "name": "Salzburg",
+       "short": "S"
+     },
+     {
+       "name": "Steiermark",
+       "short": "ST"
+     },
+     {
+       "name": "Tirol",
+       "short": "T"
+     },
+     {
+       "name": "Vorarlberg",
+       "short": "V"
+     },
+     {
+       "name": "Wien",
+       "short": "W"
+     }
+   ],
+   "BR": [
+     {
+       "name": "Acre",
+       "short": "AC"
+     },
+     {
+       "name": "Alagoas",
+       "short": "AL"
+     },
+     {
+       "name": "Amapá",
+       "short": "AP"
+     },
+     {
+       "name": "Amazonas",
+       "short": "AM"
+     },
+     {
+       "name": "Bahia",
+       "short": "BA"
+     },
+     {
+       "name": "Ceará",
+       "short": "CE"
+     },
+     {
+       "name": "Distrito Federal",
+       "short": "DF"
+     },
+     {
+       "name": "Espírito Santo",
+       "short": "ES"
+     },
+     {
+       "name": "Goiás",
+       "short": "GO"
+     },
+     {
+       "name": "Maranhão",
+       "short": "MA"
+     },
+     {
+       "name": "Mato Grosso",
+       "short": "MT"
+     },
+     {
+       "name": "Mato Grosso do Sul",
+       "short": "MS"
+     },
+     {
+       "name": "Minas Gerais",
+       "short": "MG"
+     },
+     {
+       "name": "Pará",
+       "short": "PA"
+     },
+     {
+       "name": "Paraíba",
+       "short": "PB"
+     },
+     {
+       "name": "Paraná",
+       "short": "PR"
+     },
+     {
+       "name": "Pernambuco",
+       "short": "PE"
+     },
+     {
+       "name": "Piauí",
+       "short": "PI"
+     },
+     {
+       "name": "Rio de Janeiro",
+       "short": "RJ"
+     },
+     {
+       "name": "Rio Grande do Norte",
+       "short": "RN"
+     },
+     {
+       "name": "Rio Grande do Sul",
+       "short": "RS"
+     },
+     {
+       "name": "Rondônia",
+       "short": "RO"
+     },
+     {
+       "name": "Roraima",
+       "short": "RR"
+     },
+     {
+       "name": "Santa Catarina",
+       "short": "SC"
+     },
+     {
+       "name": "São Paulo",
+       "short": "SP"
+     },
+     {
+       "name": "Sergipe",
+       "short": "SE"
+     },
+     {
+       "name": "Tocantins",
+       "short": "TO"
+     }
+   ],
+   "PH": [
+     {
+       "name": "Abra",
+       "short": null
+     },
+     {
+       "name": "Agusan del Norte",
+       "short": null
+     },
+     {
+       "name": "Agusan del Sur",
+       "short": null
+     },
+     {
+       "name": "Aklan",
+       "short": null
+     },
+     {
+       "name": "Albay",
+       "short": null
+     },
+     {
+       "name": "Antique",
+       "short": null
+     },
+     {
+       "name": "Apayao",
+       "short": null
+     },
+     {
+       "name": "Aurora",
+       "short": null
+     },
+     {
+       "name": "Basilan",
+       "short": null
+     },
+     {
+       "name": "Bataan",
+       "short": null
+     },
+     {
+       "name": "Batanes",
+       "short": null
+     },
+     {
+       "name": "Batangas",
+       "short": null
+     },
+     {
+       "name": "Benguet",
+       "short": null
+     },
+     {
+       "name": "Biliran",
+       "short": null
+     },
+     {
+       "name": "Bohol",
+       "short": null
+     },
+     {
+       "name": "Bukidnon",
+       "short": null
+     },
+     {
+       "name": "Bulacan",
+       "short": null
+     },
+     {
+       "name": "Cagayan",
+       "short": null
+     },
+     {
+       "name": "Camarines Norte",
+       "short": null
+     },
+     {
+       "name": "Camarines Sur",
+       "short": null
+     },
+     {
+       "name": "Camiguin",
+       "short": null
+     },
+     {
+       "name": "Capiz",
+       "short": null
+     },
+     {
+       "name": "Catanduanes",
+       "short": null
+     },
+     {
+       "name": "Cavite",
+       "short": null
+     },
+     {
+       "name": "Cebu",
+       "short": null
+     },
+     {
+       "name": "Compostela Valley",
+       "short": null
+     },
+     {
+       "name": "Cotabato",
+       "short": null
+     },
+     {
+       "name": "Davao del Norte",
+       "short": null
+     },
+     {
+       "name": "Davao del Sur",
+       "short": null
+     },
+     {
+       "name": "Davao Occidental",
+       "short": null
+     },
+     {
+       "name": "Davao Oriental",
+       "short": null
+     },
+     {
+       "name": "Dinagat Islands",
+       "short": null
+     },
+     {
+       "name": "Eastern Samar",
+       "short": null
+     },
+     {
+       "name": "Guimaras",
+       "short": null
+     },
+     {
+       "name": "Ifugao",
+       "short": null
+     },
+     {
+       "name": "Ilocos Norte",
+       "short": null
+     },
+     {
+       "name": "Ilocos Sur",
+       "short": null
+     },
+     {
+       "name": "Iloilo",
+       "short": null
+     },
+     {
+       "name": "Isabela",
+       "short": null
+     },
+     {
+       "name": "Kalinga",
+       "short": null
+     },
+     {
+       "name": "La Union",
+       "short": null
+     },
+     {
+       "name": "Laguna",
+       "short": null
+     },
+     {
+       "name": "Lanao del Norte",
+       "short": null
+     },
+     {
+       "name": "Lanao del Sur",
+       "short": null
+     },
+     {
+       "name": "Leyte",
+       "short": null
+     },
+     {
+       "name": "Maguindanao",
+       "short": null
+     },
+     {
+       "name": "Marinduque",
+       "short": null
+     },
+     {
+       "name": "Masbate",
+       "short": null
+     },
+     {
+       "name": "Misamis Occidental",
+       "short": null
+     },
+     {
+       "name": "Misamis Oriental",
+       "short": null
+     },
+     {
+       "name": "Mountain Province",
+       "short": null
+     },
+     {
+       "name": "Negros Occidental",
+       "short": null
+     },
+     {
+       "name": "Negros Oriental",
+       "short": null
+     },
+     {
+       "name": "Northern Samar",
+       "short": null
+     },
+     {
+       "name": "Nueva Ecija",
+       "short": null
+     },
+     {
+       "name": "Nueva Vizcaya",
+       "short": null
+     },
+     {
+       "name": "Occidental Mindoro",
+       "short": null
+     },
+     {
+       "name": "Oriental Mindoro",
+       "short": null
+     },
+     {
+       "name": "Palawan",
+       "short": null
+     },
+     {
+       "name": "Pampanga",
+       "short": null
+     },
+     {
+       "name": "Pangasinan",
+       "short": null
+     },
+     {
+       "name": "Quezon",
+       "short": null
+     },
+     {
+       "name": "Quirino",
+       "short": null
+     },
+     {
+       "name": "Rizal",
+       "short": null
+     },
+     {
+       "name": "Romblon",
+       "short": null
+     },
+     {
+       "name": "Samar",
+       "short": null
+     },
+     {
+       "name": "Sarangani",
+       "short": null
+     },
+     {
+       "name": "Siquijor",
+       "short": null
+     },
+     {
+       "name": "Sorsogon",
+       "short": null
+     },
+     {
+       "name": "South Cotabato",
+       "short": null
+     },
+     {
+       "name": "Southern Leyte",
+       "short": null
+     },
+     {
+       "name": "Sultan Kudarat",
+       "short": null
+     },
+     {
+       "name": "Sulu",
+       "short": null
+     },
+     {
+       "name": "Surigao del Norte",
+       "short": null
+     },
+     {
+       "name": "Surigao del Sur",
+       "short": null
+     },
+     {
+       "name": "Tarlac",
+       "short": null
+     },
+     {
+       "name": "Tawi-Tawi",
+       "short": null
+     },
+     {
+       "name": "Zambales",
+       "short": null
+     },
+     {
+       "name": "Zamboanga del Norte",
+       "short": null
+     },
+     {
+       "name": "Zamboanga del Sur",
+       "short": null
+     },
+     {
+       "name": "Zamboanga Sibugay",
+       "short": null
+     },
+     {
+       "name": "Metro Manila",
+       "short": null
+     }
+   ],
+   "VN": [
+     {
+       "name": "Hà Nội",
+       "short": null
+     },
+     {
+       "name": "Hà Giang",
+       "short": null
+     },
+     {
+       "name": "Cao Bằng",
+       "short": null
+     },
+     {
+       "name": "Bắc Kạn",
+       "short": null
+     },
+     {
+       "name": "Tuyên Quang",
+       "short": null
+     },
+     {
+       "name": "Lào Cai",
+       "short": null
+     },
+     {
+       "name": "Điện Biên",
+       "short": null
+     },
+     {
+       "name": "Lai Châu",
+       "short": null
+     },
+     {
+       "name": "Sơn La",
+       "short": null
+     },
+     {
+       "name": "Yên Bái",
+       "short": null
+     },
+     {
+       "name": "Hòa Bình",
+       "short": null
+     },
+     {
+       "name": "Thái Nguyên",
+       "short": null
+     },
+     {
+       "name": "Lạng Sơn",
+       "short": null
+     },
+     {
+       "name": "Quảng Ninh",
+       "short": null
+     },
+     {
+       "name": "Bắc Giang",
+       "short": null
+     },
+     {
+       "name": "Phú Thọ",
+       "short": null
+     },
+     {
+       "name": "Vĩnh Phúc",
+       "short": null
+     },
+     {
+       "name": "Bắc Ninh",
+       "short": null
+     },
+     {
+       "name": "Hải Dương",
+       "short": null
+     },
+     {
+       "name": "Hải Phòng",
+       "short": null
+     },
+     {
+       "name": "Hưng Yên",
+       "short": null
+     },
+     {
+       "name": "Thái Bình",
+       "short": null
+     },
+     {
+       "name": "Hà Nam",
+       "short": null
+     },
+     {
+       "name": "Nam Định",
+       "short": null
+     },
+     {
+       "name": "Ninh Bình",
+       "short": null
+     },
+     {
+       "name": "Thanh Hóa",
+       "short": null
+     },
+     {
+       "name": "Nghệ An",
+       "short": null
+     },
+     {
+       "name": "Hà Tĩnh",
+       "short": null
+     },
+     {
+       "name": "Quảng Bình",
+       "short": null
+     },
+     {
+       "name": "Quảng Trị",
+       "short": null
+     },
+     {
+       "name": "Thừa Thiên–Huế",
+       "short": null
+     },
+     {
+       "name": "Đà Nẵng",
+       "short": null
+     },
+     {
+       "name": "Quảng Nam",
+       "short": null
+     },
+     {
+       "name": "Quảng Ngãi",
+       "short": null
+     },
+     {
+       "name": "Bình Định",
+       "short": null
+     },
+     {
+       "name": "Phú Yên",
+       "short": null
+     },
+     {
+       "name": "Khánh Hòa",
+       "short": null
+     },
+     {
+       "name": "Ninh Thuận",
+       "short": null
+     },
+     {
+       "name": "Bình Thuận",
+       "short": null
+     },
+     {
+       "name": "Kon Tum",
+       "short": null
+     },
+     {
+       "name": "Gia Lai",
+       "short": null
+     },
+     {
+       "name": "Đắk Lắk",
+       "short": null
+     },
+     {
+       "name": "Đắk Nông",
+       "short": null
+     },
+     {
+       "name": "Lâm Đồng",
+       "short": null
+     },
+     {
+       "name": "Bình Phước",
+       "short": null
+     },
+     {
+       "name": "Tây Ninh",
+       "short": null
+     },
+     {
+       "name": "Bình Dương",
+       "short": null
+     },
+     {
+       "name": "Đồng Nai",
+       "short": null
+     },
+     {
+       "name": "Bà Rịa–Vũng Tàu",
+       "short": null
+     },
+     {
+       "name": "Thành phố Hồ Chí Minh",
+       "short": null
+     },
+     {
+       "name": "Long An",
+       "short": null
+     },
+     {
+       "name": "Tiền Giang",
+       "short": null
+     },
+     {
+       "name": "Bến Tre",
+       "short": null
+     },
+     {
+       "name": "Trà Vinh",
+       "short": null
+     },
+     {
+       "name": "Vĩnh Long",
+       "short": null
+     },
+     {
+       "name": "Đồng Tháp",
+       "short": null
+     },
+     {
+       "name": "An Giang",
+       "short": null
+     },
+     {
+       "name": "Kiên Giang",
+       "short": null
+     },
+     {
+       "name": "Cần Thơ",
+       "short": null
+     },
+     {
+       "name": "Hậu Giang",
+       "short": null
+     },
+     {
+       "name": "Sóc Trăng",
+       "short": null
+     },
+     {
+       "name": "Bạc Liêu",
+       "short": null
+     },
+     {
+       "name": "Cà Mau",
+       "short": null
+     }
+   ],
+   "CR": [
+     {
+       "name": "San José",
+       "short": null
+     },
+     {
+       "name": "Alajuela",
+       "short": null
+     },
+     {
+       "name": "Cartago",
+       "short": null
+     },
+     {
+       "name": "Heredia",
+       "short": null
+     },
+     {
+       "name": "Guanacaste",
+       "short": null
+     },
+     {
+       "name": "Puntarenas",
+       "short": null
+     },
+     {
+       "name": "Limón",
+       "short": null
+     }
+   ],
+   "NZ": [
+     {
+       "name": "Auckland",
+       "short": null
+     },
+     {
+       "name": "New Plymouth",
+       "short": null
+     },
+     {
+       "name": "Hawke's Bay",
+       "short": null
+     },
+     {
+       "name": "Wellington",
+       "short": null
+     },
+     {
+       "name": "Nelson",
+       "short": null
+     },
+     {
+       "name": "Marlborough",
+       "short": null
+     },
+     {
+       "name": "Westland",
+       "short": null
+     },
+     {
+       "name": "Canterbury",
+       "short": null
+     },
+     {
+       "name": "Otago",
+       "short": null
+     },
+     {
+       "name": "Southland",
+       "short": null
+     }
+   ]
+ }]

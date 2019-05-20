@@ -1,11 +1,11 @@
 import React, { lazy } from 'react'
-import { Route } from 'react-router-dom'
+import { PrivateRoute } from '@auth'
 
 const Users = lazy(() => import('@pages/Manage/Users'))
 
 export default ({ match }) => (
   <>
-    <Route path={`${match.url}/users`} component={Users} />
+    <PrivateRoute path={`${match.url}/users`} component={Users} />
   </>
 )
 

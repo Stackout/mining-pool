@@ -13,6 +13,9 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         $models = [
           'users',
+          'security',
+          'roles',
+          'permissions',
         ];
 
         $roles = [
@@ -23,21 +26,20 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // create permissions
         foreach($models as $model) {
-          Permission::create(['name' => "view {$model}"]);
           Permission::create(['name' => "create {$model}"]);
           Permission::create(['name' => "update {$model}"]);
           Permission::create(['name' => "delete {$model}"]);
+          Permission::create(['name' => "restore {$model}"]);
           Permission::create(['name' => "force-delete {$model}"]);
+          Permission::create(['name' => "view {$model}"]);
         }
-
 
         $role = Role::create(['name' => 'admin']);
         $role->givePermissionTo(Permission::all());
 
-        // Create Default Admin with all Roles and Permissions
-        $user = \App\Models\User::find(1);
-        $user->givePermissionTo(Permission::all());
-        $user->assignRole('admin');
+        Role::create(['name' => 'moderator']);
+        Role::create(['name' => 'user']);
+        Role::create(['name' => 'guest']);
     }
 }
 

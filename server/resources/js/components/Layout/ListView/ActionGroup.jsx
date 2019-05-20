@@ -1,6 +1,9 @@
 import React from 'react'
 import { Button, Icon } from 'antd'
 import { injectIntl, defineMessages } from 'react-intl'
+import { Link } from 'react-router-dom'
+import { injectModalConsumer, DeleteConfirmation } from '@modals'
+import { compose } from 'recompose'
 
 const ButtonGroup = Button.Group
 
@@ -10,22 +13,42 @@ const messages = defineMessages({
     defaultMessage: 'Edit',
   },
   actionsDelete: {
-    id: 'actions.delete',
-    defaultMessage: 'Delete',
+    id: 'actions.trash',
+    defaultMessage: 'Trash',
   },
 })
 
-const Actions = ({ intl: { formatMessage }, resource }) => (
-  <ButtonGroup>
+const Actions = ({
+  intl: { formatMessage },
+  resource,
+  deleteMutation,
+  showModal,
+  refetchListView,
+}) => (
+  <ButtonGroup style={{ float: 'right' }}>
     <Button type="primary">
-      <Icon type="edit" />
-      {formatMessage(messages.actionsEdit)}
+      <Link to={`/manage/users/${resource.id}`}>
+        <Icon type="edit" />
+        {formatMessage(messages.actionsEdit)}
+      </Link>
     </Button>
-    <Button type="danger">
+    <Button
+      type="danger"
+      onClick={event => {
+        showModal(DeleteConfirmation, {
+          resource,
+          deleteMutation,
+          refetchListView,
+        })
+      }}
+    >
       <Icon type="delete" />
       {formatMessage(messages.actionsDelete)}
     </Button>
   </ButtonGroup>
 )
 
-export default injectIntl(Actions)
+export default compose(
+  injectIntl,
+  injectModalConsumer
+)(Actions)

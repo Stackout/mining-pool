@@ -1,0 +1,6 @@
+
+fragment RoleFields on Role {
+  id
+  name
+  guard
+}

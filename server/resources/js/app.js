@@ -13,3 +13,9 @@ require('./bootstrap')
  */
 
 require('./components/App')
+
+/**
+ * Set Environment to Window
+ */
+
+window.node_environment = process.env.NODE_ENV

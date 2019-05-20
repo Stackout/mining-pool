@@ -1,16 +1,52 @@
 import React, { createContext, Component } from 'react'
-import { Route } from 'react-router-dom'
-import { Query, compose } from 'react-apollo'
-import { login } from '@graphql/Auth.graphql'
+import { Route, Redirect } from 'react-router-dom'
+import { compose, withApollo } from 'react-apollo'
+import { login, logout } from '@graphql/Auth.graphql'
 import { withCookies } from 'react-cookie'
 
 export const AdminRoute = ({ component: Component, ...rest }) => (
+  <AuthContext.Consumer>
+    {({ hasRole }) => (
+      <Route
+        {...rest}
+        render={props =>
+          hasRole('admin') ? (
+            <Component {...props} auth={auth} />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+    )}
+  </AuthContext.Consumer>
+)
+
+export const ManageRoute = ({ component: Component, ...rest }) => (
   <AuthContext.Consumer>
     {auth => (
       <Route
         {...rest}
         render={props =>
-          auth.isAdmin ? (
+          auth.hasRole('admin') || auth.hasRole('moderator') ? (
+            <Component {...props} auth={auth} />
+          ) : (
+            <Redirect to="/login" />
+          )
+        }
+      />
+    )}
+  </AuthContext.Consumer>
+)
+
+export const PrivateRoute = ({ component: Component, ...rest }) => (
+  <AuthContext.Consumer>
+    {auth => (
+      <Route
+        {...rest}
+        render={props =>
+          auth.hasRole('user') ||
+          auth.hasRole('admin') ||
+          auth.hasRole('moderator') ? (
             <Component {...props} auth={auth} />
           ) : (
             <Redirect to="/login" />
@@ -25,9 +61,12 @@ export const AuthContext = createContext({
   token: null,
   user: null,
   isAuthenticated: false,
+  logout: () => {},
   setToken: () => {},
   setUser: () => {},
   setIsAuthenticated: () => {},
+  can: () => {},
+  hasRole: () => {},
 })
 
 export class AuthProvider extends Component {
@@ -60,12 +99,35 @@ export class AuthProvider extends Component {
     })
   }
 
+  logout = () => {
+    const { cookies, client } = this.props
+
+    client
+      .mutate({
+        mutation: logout,
+      })
+      .then(response => {
+        cookies.remove('isAuthenticated')
+        cookies.remove('token')
+        cookies.remove('roles')
+        cookies.remove('permissions')
+
+        this.setState({
+          isAuthenticated: false,
+          token: null,
+          roles: [],
+          permissions: [],
+        })
+      })
+  }
+
   setAuthentication = payload => {
+    const { cookies } = this.props
     const { isAuthenticated, token, roles, permissions } = payload
-    this.props.cookies.set('isAuthenticated', isAuthenticated)
-    this.props.cookies.set('token', token)
-    this.props.cookies.set('roles', JSON.stringify(roles))
-    this.props.cookies.set('permissions', JSON.stringify(permissions))
+    cookies.set('isAuthenticated', isAuthenticated)
+    cookies.set('token', token)
+    cookies.set('roles', JSON.stringify(roles))
+    cookies.set('permissions', JSON.stringify(permissions))
     this.setState({
       isAuthenticated,
       token,
@@ -78,6 +140,7 @@ export class AuthProvider extends Component {
     token: null,
     isAuthenticated: false,
     user: null,
+    logout: this.logout,
     setToken: this.setToken,
     setUser: this.setUser,
     setIsAuthenticated: this.setIsAuthenticated,
@@ -95,9 +158,6 @@ export class AuthProvider extends Component {
         roles: cookies.get('roles'),
         permissions: cookies.get('permissions'),
       })
-    }
-
-    if (cookies.get('roles')) {
     }
   }
 
@@ -119,4 +179,7 @@ export function withAuth(Component) {
 
 export { default as AuthRoutes } from './Routes'
 export const AuthConsumer = AuthContext.Consumer
-export default compose(withCookies)(AuthProvider)
+export default compose(
+  withCookies,
+  withApollo
+)(AuthProvider)

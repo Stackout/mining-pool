@@ -36,7 +36,10 @@ export const BaseSider = ({ collapsed, onCollapse, can }) => (
         <span>Wallet</span>
         <Link to="/wallet" />
       </Menu.Item>
-      {can('update users') && (
+      {(can('update users') ||
+        can('view users') ||
+        can('create users') ||
+        can('delete users')) && (
         <SubMenu
           key="users"
           title={
@@ -54,12 +57,24 @@ export const BaseSider = ({ collapsed, onCollapse, can }) => (
             Create User
             <Link to="/manage/users/create" />
           </Menu.Item>
-          <Menu.Item key="userRoles">
-            Roles
+        </SubMenu>
+      )}
+      {(can('edit security') ||
+        can('view security') ||
+        can('create security') ||
+        can('delete security')) && (
+        <SubMenu
+          key="security"
+          title={
+            <span>
+              <Icon type="lock" />
+              <span>Security</span>
+            </span>
+          }
+        >
+          <Menu.Item key="security">
+            {'Roles & Permissions'}
             <Link to="/manage/roles" />
-          </Menu.Item>
-          <Menu.Item key="userPermissions">
-            Permissions <Link to="/manage/permissions" />
           </Menu.Item>
         </SubMenu>
       )}

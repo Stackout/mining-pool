@@ -1,0 +1,15 @@
+type Role {
+    id: ID!
+    name: String
+    guard: String @rename(attribute: "guard_name")
+    createdAt: DateTime! @rename(attribute: "created_at")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
+}
+
+# extend type Query @group(middleware: ["auth:api"]) {
+extend type Query {
+  roles(count: Int, page: Int): [Role!]! @paginate(type: "paginator" model: "Spatie\\Permission\\Models\\Role")
+  allRoles: [Role!]! @all(model: "Spatie\\Permission\\Models\\Role")
+  searchRoles(term: String @search): [Role!]! @all(model: "Spatie\\Permission\\Models\\Role")
+  role(id: ID @eq): Role @find(model: "Spatie\\Permission\\Models\\Role")
+}

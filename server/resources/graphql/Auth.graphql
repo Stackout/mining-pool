@@ -29,10 +29,8 @@ mutation forgotPassword($data: ForgotPasswordInput!) {
 
 mutation updatePassword($data: NewPasswordWithCodeInput!) {
   updateForgottenPassword(data: $data) {
-    email
-    token
-    password
-    password_confirmation
+    status
+    message
   }
 }
 
@@ -40,7 +38,6 @@ mutation register($data: RegisterInput!) {
   register(data: $data) {
     status
     message
-    redirect
   }
 }
 

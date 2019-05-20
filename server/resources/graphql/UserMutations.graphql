@@ -1,0 +1,23 @@
+#import "./UserFields.graphql"
+
+mutation createUser($data: UserCreateInput) {
+  createUser(data: $data) {
+    user {
+      ...UserFields
+    }
+  }
+}
+
+mutation updateUser($id: ID, $data: UserUpdateInput) {
+  updateUser(id: $id, data: $data) {
+    user {
+      ...UserFields
+    }
+  }
+}
+
+mutation deleteUser($id: ID!) {
+  deleteUser(id: $id) {
+    ...UserFields
+  }
+}

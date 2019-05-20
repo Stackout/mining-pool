@@ -213,14 +213,47 @@ export const getGravatar = (email, size) => {
   return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?s=' + size
 }
 
-export const transformResource = (data, properties) =>
-  data.reduce((carry, resource, index) => {
-    carry.push({
-      key: index,
-      ...properties.reduce((o, p) => {
-        o[p] = resource[p]
-        return o
-      }, {}),
+export const transformResource = (resourceName, data, properties) => {
+  const resources = data[resourceName]
+  if (!resources) {
+    return {
+      paginatorInfo: {},
+      [resourceName]: null,
+    }
+  }
+  return {
+    paginatorInfo: resources.paginatorInfo,
+    [resourceName]: resources.data.reduce((carry, resource, index) => {
+      carry.push({
+        key: index,
+        ...properties.reduce((o, p) => {
+          o[p] = resource[p]
+          return o
+        }, {}),
+      })
+      return carry
+    }, []),
+  }
+}
+
+export const toTitleCase = str => {
+  return str.replace(/\w\S*/g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  })
+}
+
+export const showErrorMessages = (errors, alert, type) => {
+  console.log(errors)
+
+  Object.values(errors).map(field => {
+    field.errors.map(error => {
+      alert.error(error.message)
     })
-    return carry
-  }, [])
+  })
+}
+
+export const isEmail = email => {
+  return /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/.test(
+    email
+  )
+}

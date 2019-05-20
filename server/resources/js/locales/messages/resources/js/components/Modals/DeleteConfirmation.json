@@ -1,0 +1,10 @@
+[
+  {
+    "id": "app.modal.deleteConfirmationTitle",
+    "defaultMessage": "Delete Resource"
+  },
+  {
+    "id": "app.modal.deleteConfirmationDescription",
+    "defaultMessage": "Force deleting removes all data and files associated with this resource. There is no going back, so please be certain. Not checking this box will soft delete this resource."
+  }
+]

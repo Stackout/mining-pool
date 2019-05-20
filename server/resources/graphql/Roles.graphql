@@ -1,0 +1,30 @@
+#import "./RoleFields.graphql"
+
+query Roles($count: Int!, $page: Int) {
+  roles(count: $count, page: $page) {
+    data {
+      ...RoleFields
+    }
+    paginatorInfo {
+      currentPage
+      count
+      hasMorePages
+      lastItem
+      lastPage
+      perPage
+      total
+    }
+  }
+}
+
+query allRoles {
+  allRoles {
+    ...RoleFields
+  }
+}
+
+query searchRoles($term: String) {
+  searchRoles(term: $term) {
+    ...RoleFields
+  }
+}

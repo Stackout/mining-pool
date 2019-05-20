@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fields.email.label",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "fields.email.placeholder",
+    "defaultMessage": "Enter your email."
+  },
+  {
+    "id": "fields.email.invalid",
+    "defaultMessage": "The email you entered is not a valid email."
+  },
+  {
+    "id": "fields.email.required",
+    "defaultMessage": "Please enter your email."
+  },
+  {
+    "id": "fields.email.exists",
+    "defaultMessage": "This email is already taken."
+  }
+]

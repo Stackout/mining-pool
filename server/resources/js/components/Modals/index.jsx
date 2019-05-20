@@ -1,6 +1,8 @@
 export { default as QuickStartModal } from './QuickStart'
 export { default as ProductDocModal } from './ProductDoc'
 export { default as ProductInfoModal } from './ProductInfo'
+export { default as DeleteConfirmation } from './DeleteConfirmation'
+
 export {
   ModalRoot,
   ModalContext,
@@ -8,4 +10,5 @@ export {
   ModalConsumer,
   withModalProvider,
   withModalConsumer,
+  injectModalConsumer,
 } from './Context'

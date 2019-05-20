@@ -18,12 +18,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Passport::withoutCookieSerialization();
-        
-        // $env = $this->app->make(\Hyn\Tenancy\Environment::class);
-        // //Force tenant connection for hostname if identified
-        // if ($fqdn = optional($env->hostname())->fqdn) {
-        //     config(['database.default' => 'tenant']);
-        // }
     }
 
     /**

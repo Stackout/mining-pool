@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Concerns\HasRolesAndPermissions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -20,9 +21,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $updated_at
  * @property Wallet[] $wallets
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasApiTokens, HasRoles;
+    use Notifiable, HasApiTokens, HasRolesAndPermissions, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +52,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -59,4 +59,5 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Wallet', 'wallet_id');
     }
+
 }

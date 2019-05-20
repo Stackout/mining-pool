@@ -1,11 +1,12 @@
 import React from 'react'
-import { Table, Button } from 'antd'
-import { Query } from 'react-apollo'
-import GET_USERS from '@graphql/Users.graphql'
+import { Table, Tabs, Icon } from 'antd'
 import { injectIntl, defineMessages } from 'react-intl'
 import ActionGroup from '@layout/ListView/ActionGroup'
-
+import { withListViewConsumer } from '@layout/ListView'
+import { compose } from 'recompose'
 import { transformResource } from '@helpers/utils'
+
+const TabPane = Tabs.TabPane
 
 const message = defineMessages({
   name: {
@@ -26,7 +27,7 @@ const message = defineMessages({
   },
 })
 
-const columns = formatMessage => {
+const columns = ({ formatMessage, deleteMutation, refetchListView }) => {
   return [
     {
       title: formatMessage(message.name),
@@ -44,65 +45,71 @@ const columns = formatMessage => {
       title: 'Action',
       dataIndex: '',
       key: 'x',
-      width: '250px',
+      width: '200px',
       render: (text, record) => (
-        <ActionGroup record={record} path="/manage/users" />
+        <ActionGroup
+          resource={record}
+          deleteMutation={deleteMutation}
+          refetchListView={refetchListView}
+        />
       ),
     },
   ]
 }
 
-class UsersListView extends React.Component {
-  state = {
-    page: 1,
-    count: 10,
-    term: undefined,
-  }
+const ListView = ({
+  intl: { formatMessage },
+  count,
+  handlePageChange,
+  data,
+  loading,
+  deleteMutation,
+  refetch: refetchListView,
+}) => {
+  const { users, paginatorInfo } = transformResource('users', data, [
+    'name',
+    'email',
+    'id',
+  ])
 
-  render() {
-    const {
-      intl: { formatMessage },
-    } = this.props
-    return (
-      <Query
-        query={GET_USERS}
-        variables={{
-          page: this.state.page,
-          count: this.state.count,
-        }}
-      >
-        {({ data, loading, error }) => {
-          const paginatorInfo =
-            !loading && !error ? data.users.paginatorInfo : {}
-          const users =
-            !loading && !error
-              ? transformResource(data.users.data, ['name', 'email'])
-              : []
-          return (
-            <>
-              <Table
-                columns={columns(formatMessage)}
-                dataSource={users}
-                loading={loading}
-                onChange={(pagination, filters, sorter) => {
-                  this.setState({
-                    count: pagination.pageSize,
-                    page: pagination.current,
-                  })
-                }}
-                pagination={{
-                  total: paginatorInfo.total,
-                  pageSize: this.state.count,
-                  showSizeChanger: true,
-                  pageSizeOptions: ['10', '20', '30', '50', '100'],
-                }}
-              />
-            </>
-          )
-        }}
-      </Query>
-    )
-  }
+  return (
+    <div className="card-container">
+      <Tabs type="card">
+        <TabPane tab="List View" key="1">
+          <Table
+            columns={columns({
+              formatMessage,
+              deleteMutation,
+              refetchListView,
+            })}
+            dataSource={users}
+            loading={loading}
+            onChange={handlePageChange}
+            pagination={{
+              total: paginatorInfo.total,
+              pageSize: count,
+              showSizeChanger: true,
+              pageSizeOptions: ['10', '20', '30', '50', '100'],
+            }}
+          />
+        </TabPane>
+        <TabPane
+          tab={
+            <span>
+              <Icon type="delete" />
+              Trash (5)
+            </span>
+          }
+          key="2"
+        >
+          Deleted Items here in the Trash
+        </TabPane>
+      </Tabs>
+    </div>
+  )
 }
 
-export default injectIntl(UsersListView)
+export default compose(
+  injectIntl,
+  withListViewConsumer
+)(ListView)

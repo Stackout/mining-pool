@@ -3,4 +3,12 @@ fragment UserFields on User {
   id
   name
   email
+  roles { 
+    id
+    name
+  }
+  permissions {
+    id
+    name
+  }
 }

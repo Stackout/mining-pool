@@ -31,15 +31,28 @@ mix.react('resources/js/app.js', 'public/js')
                ["emotion", { "sourceMap": true }]
             ]
          }
-       }
+       },
+       "presets": [
+          ["@babel/preset-env", {
+            "modules": false,
+            "useBuiltIns": "entry",
+            "targets": {
+              "browsers": ["> 1%"]
+            }
+          }],
+          "@babel/preset-react",
+      ]
    }).webpackConfig({
       resolve: {
         alias: {
           '@': __dirname + '/resources/js',
           '@app': __dirname + '/resources/js',
           '@auth': __dirname + '/resources/js/components/Auth',
+          '@context': __dirname + '/resources/js/components/Context',
           '@layout': __dirname + '/resources/js/components/Layout',
           '@content': __dirname + '/resources/content',
+          '@fields': __dirname + '/resources/js/components/Fields',
+          '@form': __dirname + '/resources/js/components/Form',
           '@graphql': __dirname + '/resources/graphql',
           '@helpers': __dirname + '/resources/js/helpers',
           '@locales': __dirname + '/resources/js/locales',
@@ -59,7 +72,7 @@ mix.react('resources/js/app.js', 'public/js')
             test: /\.(graphql|gql)$/,
             exclude: /node_modules/,
             loader: 'graphql-tag/loader',
-          },
+          }
         ],
       }
     }).sourceMaps()

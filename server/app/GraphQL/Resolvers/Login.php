@@ -38,12 +38,18 @@ class LoginResolver
             ];
 
             $permissions = $user->permissions->reduce(function($array, $permission) {
-                $array[]['name'] = $permission->name;
+                $array[] = [
+                    'name' => $permission->name,
+                    'id' => $permission->id
+                ];
                 return $array;
             }, []);
 
             $roles = $user->roles->reduce(function($array, $role) {
-                $array[]['name'] = $role->name;
+                $array[] = [
+                    'name' => $role->name,
+                    'id' => $role->id
+                ];
                 return $array;
             }, []);
         }

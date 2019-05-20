@@ -4,6 +4,8 @@ import { withRouter, Redirect } from 'react-router'
 import { compose } from 'recompose'
 import withSuspense from '@helpers/withSuspense'
 import Manage from './Manage'
+import Account from './Account'
+import { PrivateRoute, ManageRoute } from '@auth'
 
 // Base Routes
 const Dashboard = lazy(() => import('@pages/Dashboard'))
@@ -13,11 +15,14 @@ const Exception = lazy(() => import('@/components/Exceptions'))
 export const Root = () => (
   <Switch>
     {/* Base Routes */}
-    <Route exact path="/" component={Dashboard} />
-    <Route path="/wallet" component={Wallet} />
+    <PrivateRoute exact path="/" component={Dashboard} />
+    <PrivateRoute path="/wallet" component={Wallet} />
+
+    {/* Account Routes */}
+    <PrivateRoute path="/account" component={Account} />
 
     {/* Manage Routes */}
-    <Route path="/manage" component={Manage} />
+    <ManageRoute path="/manage" component={Manage} />
 
     {/* Exception Page */}
     <Route component={Exception} />
