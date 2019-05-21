@@ -15,4 +15,7 @@ COPY ./.docker/app /tmp
 COPY ./.docker/app/docker-entrypoint.sh /usr/local/bin/
 COPY --chown=www-data:www-data server/public /var/www/html
 
+RUN mkdir /var/www/storage && \
+    chmod -R 777 /var/www/storage
+
 ENTRYPOINT [ "docker-entrypoint.sh" ]

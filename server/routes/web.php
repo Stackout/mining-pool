@@ -27,3 +27,4 @@ Auth::routes(['verify' => true]);
 
 Route::get('/password/reset/{token}', 'Home@index')->name('password.reset');
 
+Route::post('/upload/avatar', 'Uploads@uploadAvatar')->name('upload.avatar')->middleware('auth:api');

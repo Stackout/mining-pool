@@ -60,4 +60,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany('App\Models\Wallet', 'wallet_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function getAvatarAttribute()
+    {
+        return $this->avatar_url;
+    }
+
+
 }

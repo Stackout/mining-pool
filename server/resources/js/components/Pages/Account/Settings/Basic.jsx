@@ -7,6 +7,7 @@ import { Button, Upload, Form, Input } from 'antd'
 import Email from '@fields/Email'
 import { withFormProvider } from '@context/Form'
 import Address from '@fields/Address'
+import { withCookies } from 'react-cookie'
 
 const messages = defineMessages({
   title: {
@@ -39,12 +40,12 @@ const Avatar = styled.img`
   width: 100%;
 `
 
-const avatarUploadProps = {
+const avatarUploadProps = token => ({
   name: 'file',
-  action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   headers: {
-    authorization: 'authorization-text',
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
   },
+  action: '/upload/avatar',
   onChange(info) {
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList)
@@ -55,7 +56,7 @@ const avatarUploadProps = {
       message.error(`${info.file.name} avatar upload failed.`)
     }
   },
-}
+})
 
 const RightContent = styled.div`
   width: 30%;
@@ -77,6 +78,7 @@ class BasicSettings extends React.Component {
     const {
       intl: { formatMessage },
       form,
+      cookies,
     } = this.props
     return (
       <BasicContent>
@@ -98,7 +100,7 @@ class BasicSettings extends React.Component {
             <AvatarWrapper>
               <Avatar src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
             </AvatarWrapper>
-            <Upload {...avatarUploadProps}>
+            <Upload {...avatarUploadProps(cookies.get('token'))}>
               <Button icon="upload" type="primary">
                 {formatMessage(messages.avatarButton)}
               </Button>
@@ -112,5 +114,6 @@ class BasicSettings extends React.Component {
 
 export default compose(
   injectIntl,
-  withFormProvider
+  withFormProvider,
+  withCookies
 )(BasicSettings)

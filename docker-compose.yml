@@ -19,7 +19,7 @@ services:
     ports:
       - '8081:80'
     volumes:
-      - ./server/storage/app/public:/var/www/storage:delegated
+      - ./server/storage/app:/var/www/storage:delegated
       - ./server/public:/var/www/html:delegated
     networks:
       default:

@@ -9,4 +9,7 @@ ENV APP_LOG errorlog
 
 COPY --chown=www-data:www-data . /var/www/html/
 
+RUN chmod -R 777 /var/www/html/storage && \
+    chown -R www-data:www-data /var/www
+
 RUN composer install --no-interaction --no-progress --no-suggest

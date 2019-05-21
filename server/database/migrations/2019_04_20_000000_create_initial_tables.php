@@ -18,6 +18,7 @@ class CreateInitialTables extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar_url')->nullable();
             $table->string('phone',    32)->nullable();
             $table->string('website', 100)->nullable();
             $table->string('street_1',    60)->nullable();
