@@ -5,6 +5,7 @@ import Basic from './Basic'
 import Binding from './Binding'
 import Notifications from './Notifications'
 import Security from './Security'
+import Addresses from './Addresses'
 import { Menu, Icon, Layout } from 'antd'
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
@@ -23,10 +24,19 @@ const ContentWrapper = styled.div`
 export const Title = styled.div`
   margin-bottom: 12px;
   color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
   line-height: 28px;
 `
+
+export const SubTitle = styled.div`
+  margin-bottom: 6px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+`
+
 
 const LeftContent = styled.div`
   width: 25%;
@@ -47,19 +57,22 @@ class Account extends Component {
             <Menu
               theme="light"
               mode="inline"
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={['profile']}
               style={{ height: '100%' }}
             >
-              <Menu.Item key="1">
-                <Link to="/account/settings">Basic Settings</Link>
+              <Menu.Item key="profile">
+                <Link to="/account/settings">Profile</Link>
               </Menu.Item>
-              <Menu.Item key="2">
+              <Menu.Item key="addresses">
+                <Link to="/account/settings/addresses">Addresses</Link>
+              </Menu.Item>
+              <Menu.Item key="security">
                 <Link to="/account/settings/security">Security Settings</Link>
               </Menu.Item>
-              <Menu.Item key="3">
+              <Menu.Item key="bindings">
                 <Link to="/account/settings/bindings">Account Bindings</Link>
               </Menu.Item>
-              <Menu.Item key="5">
+              <Menu.Item key="notifications">
                 <Link to="/account/settings/notifications">
                   Notification Settings
                 </Link>
@@ -73,6 +86,7 @@ class Account extends Component {
               binding={Binding}
               security={Security}
               notifications={Notifications}
+              addresses={Addresses}
             />
           </RightContent>
         </ContentWrapper>

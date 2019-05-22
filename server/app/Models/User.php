@@ -65,8 +65,22 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getAvatarAttribute()
     {
-        return $this->avatar_url;
+        return $this->profile()->avatar_url;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

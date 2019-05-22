@@ -18,16 +18,6 @@ class CreateInitialTables extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('avatar_url')->nullable();
-            $table->string('phone',    32)->nullable();
-            $table->string('website', 100)->nullable();
-            $table->string('street_1',    60)->nullable();
-            $table->string('street_2',    60)->nullable();
-            $table->string('city',      60)->nullable();
-            $table->string('state',     60)->nullable();
-            $table->string('postal_code', 10)->nullable();
-            $table->integer('country')->nullable()->unsigned()->index();
-            $table->string('bio')->nullable();
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
@@ -41,6 +31,42 @@ class CreateInitialTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('addresses', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('label')->nullable();
+            $table->string('street_1',    60)->nullable();
+            $table->string('street_2',    60)->nullable();
+            $table->string('city',      60)->nullable();
+            $table->string('state',     60)->nullable();
+            $table->string('postal_code', 10)->nullable();
+            $table->integer('country')->nullable()->unsigned()->index();
+            $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('RESTRICT')
+                ->onDelete('CASCADE');
+        });
+
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->string('avatar_url')->nullable();
+            $table->string('phone',    32)->nullable();
+            $table->string('website', 100)->nullable();
+            $table->string('bio')->nullable();
+            $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onUpdate('RESTRICT')
+                ->onDelete('CASCADE');
+
+        });
+
     }
 
     /**
@@ -52,6 +78,7 @@ class CreateInitialTables extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('addresses');
 
     }
 }

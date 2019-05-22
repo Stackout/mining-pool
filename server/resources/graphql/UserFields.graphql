@@ -11,4 +11,22 @@ fragment UserFields on User {
     id
     name
   }
+  profile {
+    phone
+    website
+    bio
+    avatar
+  }
+  addresses {
+    id
+    label
+    addressLine1
+    addressLine2
+    city
+    state
+    postalCode
+    country
+    updatedAt
+    createdAt
+  }
 }

@@ -3,16 +3,18 @@ import { Title } from './index'
 import { compose } from 'recompose'
 import { injectIntl, defineMessages } from 'react-intl'
 import styled from '@emotion/styled'
-import { Button, Upload, Form, Input } from 'antd'
+import { Button, Upload, Form, Input, Spin } from 'antd'
 import Email from '@fields/Email'
 import { withFormProvider } from '@context/Form'
+import { withApollo, Query } from 'react-apollo'
 import Address from '@fields/Address'
 import { withCookies } from 'react-cookie'
+import ME from '@graphql/Me.graphql'
 
 const messages = defineMessages({
   title: {
     id: 'accounts.settings.title',
-    defaultMessage: 'Basic Settings',
+    defaultMessage: 'Profile',
   },
   avatarButton: {
     id: 'accounts.settings.avatarButton',
@@ -40,7 +42,7 @@ const Avatar = styled.img`
   width: 100%;
 `
 
-const avatarUploadProps = token => ({
+const avatarUploadProps = client => ({
   name: 'file',
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -48,7 +50,7 @@ const avatarUploadProps = token => ({
   action: '/upload/avatar',
   onChange(info) {
     if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList)
+      client && client()
     }
     if (info.file.status === 'done') {
       message.success(`${info.file.name} avatar uploaded successfully`)
@@ -81,33 +83,51 @@ class BasicSettings extends React.Component {
       cookies,
     } = this.props
     return (
-      <BasicContent>
-        <LeftContent>
-          <Title>{formatMessage(messages.title)}</Title>
-          <Form layout={'vertical'}>
-            <Email label="Email" />
-            <Form.Item label="Name">
-              {form.getFieldDecorator('Name')(<Input />)}
-            </Form.Item>
-            <Form.Item label="Phone">
-              {form.getFieldDecorator('phone')(<Input />)}
-            </Form.Item>
-            <Address />
-          </Form>
-        </LeftContent>
-        <RightContent>
-          <AvatarContent>
-            <AvatarWrapper>
-              <Avatar src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
-            </AvatarWrapper>
-            <Upload {...avatarUploadProps(cookies.get('token'))}>
-              <Button icon="upload" type="primary">
-                {formatMessage(messages.avatarButton)}
-              </Button>
-            </Upload>
-          </AvatarContent>
-        </RightContent>
-      </BasicContent>
+      <Query
+        query={ME}
+      >
+      {({ data, loading, error }) => (
+      <Spin spinning={loading}>
+        <BasicContent>
+          <LeftContent>
+            {( () => {console.log(data)})()}
+            <Title>{formatMessage(messages.title)}</Title>
+            <Form layout={'vertical'}>
+              <Form.Item label="Name">
+                {form.getFieldDecorator('Name', {
+                  initialValue: data.me && data.me.name,
+                  rules: [{
+                    required: true,
+                    message: "Please enter your full name."
+                  }]
+                })(<Input disabled/>)}
+              </Form.Item>
+              <Form.Item label="Phone">
+                {form.getFieldDecorator('phone')(<Input />)}
+              </Form.Item>
+              <Form.Item label="Biography">
+                {form.getFieldDecorator('bio')(<Input />)}
+              </Form.Item>
+              <Form.Item label="Website">
+                {form.getFieldDecorator('website')(<Input />)}
+              </Form.Item>
+            </Form>
+          </LeftContent>
+          <RightContent>
+            <AvatarContent>
+              <AvatarWrapper>
+                <Avatar src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
+              </AvatarWrapper>
+              <Upload {...avatarUploadProps()}>
+                <Button icon="upload" type="primary">
+                  {formatMessage(messages.avatarButton)}
+                </Button>
+              </Upload>
+            </AvatarContent>
+          </RightContent>
+        </BasicContent>
+      </Spin>)}
+      </Query>
     )
   }
 }
@@ -115,5 +135,6 @@ class BasicSettings extends React.Component {
 export default compose(
   injectIntl,
   withFormProvider,
-  withCookies
+  withCookies,
+  withApollo
 )(BasicSettings)

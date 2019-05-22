@@ -7,12 +7,14 @@ export default ({
   binding: Binding,
   security: Security,
   notifications: Notifications,
+  addresses: Addresses,
 }) => (
   <Switch>
     <Route exact path={`${match.url}`} component={Basic} />
     <Route exact path={`${match.url}/basic`} component={Basic} />
     <Route exact path={`${match.url}/security`} component={Security} />
     <Route exact path={`${match.url}/binding`} component={Binding} />
+    <Route exact path={`${match.url}/addresses`} component={Addresses} />
     <Route
       exact
       path={`${match.url}/notifications`}

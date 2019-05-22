@@ -10,16 +10,18 @@ class Uploads extends Controller
 
     public function uploadAvatar(Request $request)
     {
-
-      $uploadedFile = $request->file('file');
+      $uploaded_file = $request->file('file');
       $user = auth()->user();
-      $user->avatar_url = Storage::put("/files/avatar", $uploadedFile);
+      $user->avatar_url = Storage::put("/files/avatar", $uploaded_file);
       $user->save();
 
-      $file = Storage::url($user->avatar_url);
+      $storage_path = Storage::url($user->avatar_url);
 
       return response()->json([
-        'avatar_url' => $file
+        "name" => basename($storage_path),
+        "status" => "done",
+        'url' => $storage_path,
+        "thumbUrl" => $storage_path,
       ]);
     }
 }

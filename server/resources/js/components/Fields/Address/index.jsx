@@ -35,14 +35,30 @@ class Countries extends Component {
   }
 
   render() {
-    const { form } = this.props
+    const { form, index, name } = this.props
     const { provinceList } = this.state
 
     const hasProvince = provinceList && provinceList.length > 0
+
+    let country = 'country'
+    let addressLine1 = 'street_1'
+    let addressLine2 = 'street_2'
+    let city = 'city'
+    let state = 'state'
+    let postalCode = 'postal_code'
+    if(index !== undefined || index !== null) {
+      country = `addresses[${index}].${country}`
+      addressLine1 = `addresses[${index}].${addressLine1}`
+      addressLine2 = `addresses[${index}].${addressLine2}`
+      city = `addresses[${index}].${city}`
+      state = `addresses[${index}].${state}`
+      postalCode = `addresses[${index}].${postalCode}`
+    }
+
     return (
       <>
         <Form.Item label="Country / Region">
-          {form.getFieldDecorator('country', {
+          {form.getFieldDecorator(country, {
             initialValue: 'US',
           })(
             <Select
@@ -67,10 +83,10 @@ class Countries extends Component {
           )}
         </Form.Item>
         <Form.Item label="Address Line 1">
-          {form.getFieldDecorator('address_1')(<Input />)}
+          {form.getFieldDecorator(addressLine1)(<Input />)}
         </Form.Item>
         <Form.Item label="Address Line 2">
-          {form.getFieldDecorator('address_2')(<Input />)}
+          {form.getFieldDecorator(addressLine2)(<Input />)}
         </Form.Item>
         <Form.Item>
           <Form.Item
@@ -80,7 +96,7 @@ class Countries extends Component {
               width: 'calc(50% - 12px)',
             }}
           >
-            {form.getFieldDecorator('city')(<Input />)}
+            {form.getFieldDecorator(city)(<Input />)}
           </Form.Item>
           <span
             style={{
@@ -95,7 +111,7 @@ class Countries extends Component {
                 label="State / Province"
                 style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
               >
-                {form.getFieldDecorator('state')(
+                {form.getFieldDecorator(state)(
                   <Select
                     showSearch
                     allowClear
@@ -124,7 +140,7 @@ class Countries extends Component {
               width: 'calc(50% - 12px)',
             }}
           >
-            {form.getFieldDecorator('postal_code')(<Input />)}
+            {form.getFieldDecorator(postalCode)(<Input />)}
           </Form.Item>
         </Form.Item>
       </>

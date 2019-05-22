@@ -1,0 +1,14 @@
+type Profile {
+    id: ID!
+    phone: String
+    website: String
+    bio: String
+    avatar: String @rename(attribute: "avatar_url")
+    createdAt: DateTime! @rename(attribute: "created_at")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
+}
+
+# extend type Query @group(middleware: ["auth:api"]) {
+extend type Query {
+  profile(id: ID @eq): Profile @find(model: "App\\Models\\Profile")
+}

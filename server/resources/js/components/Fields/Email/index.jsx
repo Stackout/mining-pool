@@ -78,10 +78,12 @@ class Email extends Component {
       form,
       intl: { formatMessage },
       label,
+      initialValue
     } = this.props
     return (
       <Form.Item label={label}>
         {form.getFieldDecorator('email', {
+          initialValue: initialValue || '',
           rules: [
             {
               type: 'email',

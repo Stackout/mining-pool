@@ -5,6 +5,8 @@ type User {
     wallets: Wallet @hasMany
     roles: [Role] @rename(attribute: "modelRoles")
     permissions: [Permission] @rename(attribute: "modelPermissions")
+    profile: Profile @hasOne
+    addresses: [Address] @hasMany
     createdAt: DateTime! @rename(attribute: "created_at")
     updatedAt: DateTime! @rename(attribute: "updated_at")
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "accounts.addresses.title",
+    "defaultMessage": "Addresses"
+  },
+  {
+    "id": "accounts.addresses.billing",
+    "defaultMessage": "Billing Address"
+  },
+  {
+    "id": "accounts.addresses.home",
+    "defaultMessage": "Home Address"
+  }
+]
