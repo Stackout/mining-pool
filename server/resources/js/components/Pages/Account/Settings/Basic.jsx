@@ -13,7 +13,6 @@ import { withCookies } from 'react-cookie'
 import ME from '@graphql/Me.graphql'
 import { formatPhoneNumber } from '@helpers/utils'
 
-
 const messages = defineMessages({
   title: {
     id: 'accounts.settings.title',
@@ -92,9 +91,12 @@ class BasicSettings extends React.Component {
             <BasicContent>
               <LeftContent>
                 <Title>{formatMessage(messages.title)}</Title>
-                <Form layout={'vertical'}  onSubmit={(event) => {
-                  event.preventDefault()
-                }}>
+                <Form
+                  layout={'vertical'}
+                  onSubmit={event => {
+                    event.preventDefault()
+                  }}
+                >
                   <Form.Item label="Name">
                     {form.getFieldDecorator('Name', {
                       initialValue: data.me && data.me.name,

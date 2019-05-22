@@ -24,7 +24,6 @@ const messages = defineMessages({
 })
 
 class Phone extends Component {
-
   state = {
     number: false,
   }
@@ -35,32 +34,48 @@ class Phone extends Component {
       intl: { formatMessage },
       label,
       initialValue,
-      name
+      name,
     } = this.props
     return (
       <Form.Item label={label}>
         <MaskedInput
-          mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+          mask={[
+            '(',
+            /[1-9]/,
+            /\d/,
+            /\d/,
+            ')',
+            ' ',
+            /\d/,
+            /\d/,
+            /\d/,
+            '-',
+            /\d/,
+            /\d/,
+            /\d/,
+            /\d/,
+          ]}
           guide={false}
           value={initialValue}
           showMask
           render={(ref, props) => {
             const { value } = getFieldProps(name)
             return (
-            <Input
-              name={name}
-              prefix={<Icon type="phone" />}
-              value={value}
-              ref={(input) => ref(input && input.input)}
-              {...props}
-              onChange={(event) => {
-                props.onChange(event)
-                setFieldsValue({
-                  [name]: event.target.value
-                })
-              }}
-            />
-          )}}
+              <Input
+                name={name}
+                prefix={<Icon type="phone" />}
+                value={value}
+                ref={input => ref(input && input.input)}
+                {...props}
+                onChange={event => {
+                  props.onChange(event)
+                  setFieldsValue({
+                    [name]: event.target.value,
+                  })
+                }}
+              />
+            )
+          }}
         />
       </Form.Item>
     )
