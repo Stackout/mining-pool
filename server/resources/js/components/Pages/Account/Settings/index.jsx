@@ -37,7 +37,6 @@ export const SubTitle = styled.div`
   line-height: 28px;
 `
 
-
 const LeftContent = styled.div`
   width: 25%;
 `

@@ -3,13 +3,16 @@ import { Title } from './index'
 import { compose } from 'recompose'
 import { injectIntl, defineMessages } from 'react-intl'
 import styled from '@emotion/styled'
-import { Button, Upload, Form, Input, Spin } from 'antd'
+import { Button, Upload, Form, Input, Spin, InputNumber } from 'antd'
 import Email from '@fields/Email'
+import Phone from '@fields/Phone'
 import { withFormProvider } from '@context/Form'
 import { withApollo, Query } from 'react-apollo'
 import Address from '@fields/Address'
 import { withCookies } from 'react-cookie'
 import ME from '@graphql/Me.graphql'
+import { formatPhoneNumber } from '@helpers/utils'
+
 
 const messages = defineMessages({
   title: {
@@ -83,50 +86,55 @@ class BasicSettings extends React.Component {
       cookies,
     } = this.props
     return (
-      <Query
-        query={ME}
-      >
-      {({ data, loading, error }) => (
-      <Spin spinning={loading}>
-        <BasicContent>
-          <LeftContent>
-            {( () => {console.log(data)})()}
-            <Title>{formatMessage(messages.title)}</Title>
-            <Form layout={'vertical'}>
-              <Form.Item label="Name">
-                {form.getFieldDecorator('Name', {
-                  initialValue: data.me && data.me.name,
-                  rules: [{
-                    required: true,
-                    message: "Please enter your full name."
-                  }]
-                })(<Input disabled/>)}
-              </Form.Item>
-              <Form.Item label="Phone">
-                {form.getFieldDecorator('phone')(<Input />)}
-              </Form.Item>
-              <Form.Item label="Biography">
-                {form.getFieldDecorator('bio')(<Input />)}
-              </Form.Item>
-              <Form.Item label="Website">
-                {form.getFieldDecorator('website')(<Input />)}
-              </Form.Item>
-            </Form>
-          </LeftContent>
-          <RightContent>
-            <AvatarContent>
-              <AvatarWrapper>
-                <Avatar src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
-              </AvatarWrapper>
-              <Upload {...avatarUploadProps()}>
-                <Button icon="upload" type="primary">
-                  {formatMessage(messages.avatarButton)}
-                </Button>
-              </Upload>
-            </AvatarContent>
-          </RightContent>
-        </BasicContent>
-      </Spin>)}
+      <Query query={ME}>
+        {({ data, loading, error }) => (
+          <Spin spinning={loading}>
+            <BasicContent>
+              <LeftContent>
+                <Title>{formatMessage(messages.title)}</Title>
+                <Form layout={'vertical'}  onSubmit={(event) => {
+                  event.preventDefault()
+                }}>
+                  <Form.Item label="Name">
+                    {form.getFieldDecorator('Name', {
+                      initialValue: data.me && data.me.name,
+                      rules: [
+                        {
+                          required: true,
+                          message: 'Please enter your full name.',
+                        },
+                      ],
+                    })(<Input disabled />)}
+                  </Form.Item>
+                  <Phone label="Phone Number" name="phone" />
+                  <Form.Item label="Biography">
+                    {form.getFieldDecorator('bio')(<Input />)}
+                  </Form.Item>
+                  <Form.Item label="Website">
+                    {form.getFieldDecorator('website')(<Input />)}
+                  </Form.Item>
+                  <Form.Item>
+                    <Button block type="primary" htmlType="submit">
+                      Save Profile
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </LeftContent>
+              <RightContent>
+                <AvatarContent>
+                  <AvatarWrapper>
+                    <Avatar src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png" />
+                  </AvatarWrapper>
+                  <Upload {...avatarUploadProps()}>
+                    <Button icon="upload" type="primary">
+                      {formatMessage(messages.avatarButton)}
+                    </Button>
+                  </Upload>
+                </AvatarContent>
+              </RightContent>
+            </BasicContent>
+          </Spin>
+        )}
       </Query>
     )
   }

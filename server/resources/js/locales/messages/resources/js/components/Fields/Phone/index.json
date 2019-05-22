@@ -1,0 +1,14 @@
+[
+  {
+    "id": "fields.phone.label",
+    "defaultMessage": "Phone"
+  },
+  {
+    "id": "fields.phone.required",
+    "defaultMessage": "Phone number is required."
+  },
+  {
+    "id": "fields.phone.placeholder",
+    "defaultMessage": "Enter a Phone number"
+  }
+]

@@ -46,14 +46,13 @@ class Countries extends Component {
     let city = 'city'
     let state = 'state'
     let postalCode = 'postal_code'
-    if(index !== undefined || index !== null) {
-      country = `addresses[${index}].${country}`
-      addressLine1 = `addresses[${index}].${addressLine1}`
-      addressLine2 = `addresses[${index}].${addressLine2}`
-      city = `addresses[${index}].${city}`
-      state = `addresses[${index}].${state}`
-      postalCode = `addresses[${index}].${postalCode}`
-    }
+
+    country = `${name}.${country}`
+    addressLine1 = `${name}.${addressLine1}`
+    addressLine2 = `${name}.${addressLine2}`
+    city = `${name}.${city}`
+    state = `${name}.${state}`
+    postalCode = `${name}.${postalCode}`
 
     return (
       <>

@@ -3,7 +3,7 @@ import { Title, SubTitle } from './index'
 import { compose } from 'recompose'
 import { injectIntl, defineMessages } from 'react-intl'
 import styled from '@emotion/styled'
-import { Button, Upload, Form, Input, Spin } from 'antd'
+import { Button, Upload, Form, Input, Spin, Checkbox } from 'antd'
 import { withFormProvider } from '@context/Form'
 import { withApollo, Query } from 'react-apollo'
 import Address from '@fields/Address'
@@ -49,6 +49,17 @@ const BasicContent = styled.div`
 `
 
 class Addresses extends Component {
+  setSameAsBilling = event => {
+    const { form } = this.props
+    if (event.target.checked) {
+      const billing = form.getFieldValue('billing')
+      Object.entries(billing).map((entry, index) => {
+        const [key, value] = entry
+        form.setFieldsValue({ [`address.${key}`]: value })
+      })
+    }
+  }
+
   render() {
     const {
       intl: { formatMessage },
@@ -56,21 +67,30 @@ class Addresses extends Component {
       cookies,
     } = this.props
     return (
-      <Query
-        query={ME}
-      >
-      {({ data, loading, error }) => (
-      <Spin spinning={loading}>
-        <BasicContent>
-          <Form>
-            <Title>{formatMessage(messages.title)}</Title>
-              <SubTitle>{formatMessage(messages.homeAddress)}</SubTitle>
-              <Address index={0} name="addresses" />
-              <SubTitle>{formatMessage(messages.billingAddress)}</SubTitle>
-              <Address index={1} name="addresses" />
-            </Form>
-        </BasicContent>
-      </Spin>)}
+      <Query query={ME}>
+        {({ data, loading, error }) => (
+          <Spin spinning={loading}>
+            <BasicContent>
+              <Form>
+                <Title>{formatMessage(messages.title)}</Title>
+                <SubTitle>{formatMessage(messages.billingAddress)}</SubTitle>
+                <Address name="billing" />
+                <SubTitle>{formatMessage(messages.homeAddress)}</SubTitle>
+                <Form.Item>
+                  <Checkbox onChange={this.setSameAsBilling}>
+                    Same as Billing
+                  </Checkbox>
+                </Form.Item>
+                <Address name="address" />
+                <Form.Item>
+                  <Button block type="primary" htmlType="submit">
+                    Save Addresses
+                  </Button>
+                </Form.Item>
+              </Form>
+            </BasicContent>
+          </Spin>
+        )}
       </Query>
     )
   }

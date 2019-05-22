@@ -78,7 +78,7 @@ class Email extends Component {
       form,
       intl: { formatMessage },
       label,
-      initialValue
+      initialValue,
     } = this.props
     return (
       <Form.Item label={label}>
