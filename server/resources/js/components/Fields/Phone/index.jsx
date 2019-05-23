@@ -10,6 +10,7 @@ import countries from '@helpers/locale/countries.json'
 import libphonenumber from 'google-libphonenumber'
 
 const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance()
+const PNF = libphonenumber.PhoneNumberFormat
 
 const Option = Select.Option
 
@@ -26,6 +27,10 @@ const messages = defineMessages({
     id: 'fields.phone.placeholder',
     defaultMessage: 'Enter a Phone number',
   },
+  invalidPhoneNumber: {
+    id: 'fields.phone.invalid',
+    defaultMessage: 'Enter a valid phone number.',
+  },
 })
 
 class Phone extends Component {
@@ -33,7 +38,46 @@ class Phone extends Component {
     number: false,
     dialCode: '+1',
     defaultCountry: 'US',
-    visualFieldValue: this.props.initialValue,
+    value: this.props.initialValue,
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.initialValue !== this.props.initialValue){
+      const { name, initialValue, form: { setFieldsValue } } = this.props
+      const { formattedNumber } = this.parsePhoneNumber(initialValue)
+      setFieldsValue({
+        [name]: formattedNumber,
+      })
+    }
+  }
+
+  componentDidMount() {
+    const { name, initialValue, form: { setFieldsValue } } = this.props
+    const { formattedNumber } = this.parsePhoneNumber(initialValue)
+    setFieldsValue({
+      [name]: formattedNumber,
+    })
+    
+  }
+
+  parsePhoneNumber = (number) => {
+    if(number){
+      const phoneNumber = phoneUtil.parse(number, "")
+      if(phoneUtil.isPossibleNumber(phoneNumber)){
+        const parsedNumber = {
+          dialCode: '+' + phoneNumber.getCountryCode(),
+          value: phoneNumber.getNationalNumber(),
+          countryCode: phoneUtil.getRegionCodeForNumber(phoneNumber),
+          formattedNumber: phoneUtil.format(phoneNumber, PNF.E164)
+        }
+        this.setState({
+          ...parsedNumber
+        })
+        return parsedNumber
+      }
+    }
+
+    return {}
   }
 
   handleDialCodeSet = code => {
@@ -56,49 +100,39 @@ class Phone extends Component {
     )
   }
 
-  handleInitialValue = () => {
-    const {
-      form: { setFieldsValue },
-      name,
-      initialValue,
-    } = this.props
-    const { visualFieldValue } = this.state
-    console.log(this.props.initialValue)
-    const dialCode = phoneUtil
-      .parse(`+${this.props.initialValue}`)
-      .getCountryCode()
-    const country = countries.find(
-      country => country.dial_code === `+${dialCode}`
-    )
-    this.setState(
-      {
-        dialCode: '+' + dialCode,
-        countryCode: country.code,
-      },
-      () => {
+  setField = (value) => {
+    const { form: { setFieldsValue, setFields }, name, intl: { formatMessage } } = this.props
+    const { dialCode, countryCode } = this.state
+
+    this.setState({
+      value: value,
+    })
+
+    const number = dialCode + value
+    if(value === ''){
+      return
+    }
+    try {
+      const phoneNumber = phoneUtil.parse(number, countryCode)
+      if(phoneUtil.isPossibleNumber(phoneNumber)){
         setFieldsValue({
-          [name]: initialValue,
+          [name]: phoneUtil.format(phoneNumber, PNF.E164),
         })
       }
-    )
-  }
-
-  componentDidMount() {
-    this.handleInitialValue()
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.initialValue !== prevProps.initialValue) {
-      // console.log('initial calue changed')
-      // const dialCode = phoneUtil.parse(`+${this.props.initialValue}`).getCountryCode()
-      // const countryCode = countries.find(country => country.dial_code === `+${dialCode}`)
-      // console.log(this.props.initialValue)
+    } catch(error) {
+      setFields({
+        [name]: {
+          value: number,
+          errors: [new Error(formatMessage(messages.invalidPhoneNumber))]
+        },
+      })
     }
+
   }
 
   render() {
     const {
-      form: { setFieldsValue, getFieldProps, getFieldValue, c },
+      form: { getFieldProps, getFieldValue, getFieldError },
       intl: { formatMessage },
       label,
       initialValue,
@@ -108,14 +142,11 @@ class Phone extends Component {
     const {
       dialCode,
       defaultCountry,
-      visualFieldValue,
+      value,
       countryCode,
     } = this.state
 
-    console.log(dialCode, initialValue)
-    // const country = phoneUtil.parse('+' + initialValue).getCountryCode()
-    // phoneUtil.parse('+76877987978979').getCountryCode()
-    // console.log()
+    const errors = getFieldError(name)
 
     const selectBefore = (
       <>
@@ -131,7 +162,7 @@ class Phone extends Component {
             }
             return (
               <Option value={country.code} key={index}>
-                <Flag code={country.code} svg /> {country.code}
+                <Flag code={country.code} /> {country.code}
               </Option>
             )
           })}
@@ -165,31 +196,31 @@ class Phone extends Component {
         : [/\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]
 
     return (
-      <Form.Item label={label}>
+      <Form.Item
+        label={label}
+        validateStatus={errors && 'error'}
+        help={errors && errors}
+      >
         <MaskedInput
           mask={mask}
           guide={false}
-          value={initialValue}
+          defaultValue={initialValue}
           showMask
           render={(ref, props) => {
-            const { value } = getFieldProps(name)
             return (
               <Input
+                {...getFieldProps(name)}
                 addonBefore={selectBefore}
                 name={name}
                 prefix={<Icon type="phone" />}
-                value={visualFieldValue}
+                value={value}
                 ref={input => ref(input && input.input)}
                 {...props}
                 onChange={event => {
                   props.onChange(event)
-                  this.setState({
-                    visualFieldValue: event.target.value,
-                  })
-                  setFieldsValue({
-                    [name]: (dialCode + event.target.value).replace(/\D+/g, ''),
-                  })
+                  this.setField(event.target.value)
                 }}
+                placeholder={formatMessage(messages.placeholder)}
               />
             )
           }}
@@ -204,3 +235,53 @@ export default compose(
   withFormContext,
   withApollo
 )(Phone)
+
+
+
+
+    // console.log(dialCode, initialValue)
+    // // const country = phoneUtil.parse('+' + initialValue).getCountryCode()
+    // // phoneUtil.parse('+76877987978979').getCountryCode()
+    // // console.log()
+  // componentDidMount() {
+  //   this.handleInitialValue()
+  // }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.initialValue !== prevProps.initialValue) {
+  //     // console.log('initial calue changed')
+  //     // const dialCode = phoneUtil.parse(`+${this.props.initialValue}`).getCountryCode()
+  //     // const countryCode = countries.find(country => country.dial_code === `+${dialCode}`)
+  //     // console.log(this.props.initialValue)
+  //   }
+  // // }
+
+
+
+
+  // handleInitialValue = () => {
+  //   const {
+  //     form: { setFieldsValue },
+  //     name,
+  //     initialValue,
+  //   } = this.props
+  //   const { value } = this.state
+  //   console.log(this.props.initialValue)
+  //   const dialCode = phoneUtil
+  //     .parse(`+${this.props.initialValue}`)
+  //     .getCountryCode()
+  //   const country = countries.find(
+  //     country => country.dial_code === `+${dialCode}`
+  //   )
+  //   this.setState(
+  //     {
+  //       dialCode: '+' + dialCode,
+  //       countryCode: country.code,
+  //     },
+  //     () => {
+  //       setFieldsValue({
+  //         [name]: initialValue,
+  //       })
+  //     }
+  //   )
+  // }

@@ -6,5 +6,13 @@
   {
     "id": "accounts.settings.avatarButton",
     "defaultMessage": "Change Avatar"
+  },
+  {
+    "id": "accounts.profile.success",
+    "defaultMessage": "You have successfully updated your profile."
+  },
+  {
+    "id": "accounts.profile.error",
+    "defaultMessage": "There was an error updating your profile. Please try again."
   }
 ]

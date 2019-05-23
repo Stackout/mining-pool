@@ -3,7 +3,7 @@ import { Title } from './index'
 import { compose } from 'recompose'
 import { injectIntl, defineMessages } from 'react-intl'
 import styled from '@emotion/styled'
-import { Button, Upload, Form, Input, Spin, InputNumber } from 'antd'
+import { Button, Upload, Form, Input, Spin, message } from 'antd'
 import Email from '@fields/Email'
 import Phone from '@fields/Phone'
 import { withFormProvider } from '@context/Form'
@@ -23,6 +23,14 @@ const messages = defineMessages({
     id: 'accounts.settings.avatarButton',
     defaultMessage: 'Change Avatar',
   },
+  success: {
+    id: 'accounts.profile.success',
+    defaultMessage: 'You have successfully updated your profile.',
+  },
+  error: {
+    id: 'accounts.profile.error',
+    defaultMessage: 'There was an error updating your profile. Please try again.'
+  }
 })
 
 const AvatarContent = styled.div`
@@ -79,6 +87,11 @@ const BasicContent = styled.div`
 `
 
 class BasicSettings extends React.Component {
+
+  state = {
+    isSubmitting: false,
+  }
+
   handleSaveProfile = () => {
     const {
       form,
@@ -99,9 +112,20 @@ class BasicSettings extends React.Component {
             variables: {
               data: values,
             },
+            refetchQueries: [{
+              query: ME
+            }]
           })
           .then(response => {
-            console.log(response)
+            message.success(formatMessage(messages.success))
+            
+          }).catch((error) => {
+            message.error(messages.error)
+
+          }).then(() => {
+            this.setState({
+              isSubmitting: false,
+            })
           })
       }
     })
@@ -113,14 +137,12 @@ class BasicSettings extends React.Component {
       form,
       cookies,
     } = this.props
+    const { isSubmitting } = this.state
     return (
       <Query query={ME}>
-        {({ data, loading, error }) => (
+        {({ data, loading, error, refetch }) => (
           <Spin spinning={loading}>
             <BasicContent>
-              {(() => {
-                console.log(data)
-              })()}
               <LeftContent>
                 <Title>{formatMessage(messages.title)}</Title>
                 <Form
@@ -136,16 +158,20 @@ class BasicSettings extends React.Component {
                   <Phone
                     label="Phone Number"
                     name="phone"
-                    initialValue={data.me ? data.me.profile.phone : 'none'}
+                    initialValue={(data.me && data.me.profile) ? data.me.profile.phone : ''}
                   />
-                  <Form.Item label="Biography">
-                    {form.getFieldDecorator('bio')(<Input />)}
-                  </Form.Item>
                   <Form.Item label="Website">
-                    {form.getFieldDecorator('website')(<Input />)}
+                    {form.getFieldDecorator('website', {
+                      initialValue: (data.me && data.me.profile) ? data.me.profile.website : ''
+                    })(<Input />)}
+                  </Form.Item>
+                  <Form.Item label="Biography">
+                    {form.getFieldDecorator('bio', {
+                      initialValue: (data.me && data.me.profile) ? data.me.profile.bio : ''
+                    })(<Input.TextArea />)}
                   </Form.Item>
                   <Form.Item>
-                    <Button block type="primary" htmlType="submit">
+                    <Button block type="primary" loading={isSubmitting} htmlType="submit">
                       Save Profile
                     </Button>
                   </Form.Item>

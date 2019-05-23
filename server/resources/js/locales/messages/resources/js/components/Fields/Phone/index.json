@@ -10,5 +10,9 @@
   {
     "id": "fields.phone.placeholder",
     "defaultMessage": "Enter a Phone number"
+  },
+  {
+    "id": "fields.phone.invalid",
+    "defaultMessage": "Enter a valid phone number."
   }
 ]
