@@ -46,6 +46,17 @@ input NewPasswordWithCodeInput {
     password_confirmation: String!
 }
 
+input UpdateProfileInput {
+    phone: String
+    bio: String
+    website: String
+}
+
+type UpdateProfileResponse {
+    status: String!
+    message: String
+}
+
 extend type Query {
     me: User @auth(guard: "api")
 }
@@ -66,6 +77,7 @@ extend type Mutation {
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
     logout: LogoutResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Resolvers\\Logout@resolve")
     forgotPassword(data: ForgotPasswordInput!): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ForgotPassword@resolve")
+    updateProfile(data: UpdateProfileInput!): UpdateProfileResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@updateProfile")
     updateForgottenPassword(data: NewPasswordWithCodeInput): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ResetPassword@resolve")
     register(data: RegisterInput!): RegisterResponse! @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@registerUser")
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")

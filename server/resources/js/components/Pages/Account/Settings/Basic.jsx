@@ -11,6 +11,7 @@ import { withApollo, Query } from 'react-apollo'
 import Address from '@fields/Address'
 import { withCookies } from 'react-cookie'
 import ME from '@graphql/Me.graphql'
+import { updateProfile } from '@graphql/Auth.graphql'
 import { formatPhoneNumber } from '@helpers/utils'
 
 const messages = defineMessages({
@@ -78,6 +79,33 @@ const BasicContent = styled.div`
 `
 
 class BasicSettings extends React.Component {
+
+  handleSaveProfile = () => {
+    const {
+      form,
+      client,
+      history,
+      intl: { formatMessage },
+    } = this.props
+
+    this.setState({
+      isSubmitting: true,
+    })
+
+    form.validateFields((errors, values) => {
+      if (!errors) {
+        client.mutate({
+          mutation: updateProfile,
+          variables: {
+            data: values
+          }
+        }).then(response => {
+          console.log(response)
+        })
+      }
+    })
+  }
+
   render() {
     const {
       intl: { formatMessage },
@@ -89,26 +117,22 @@ class BasicSettings extends React.Component {
         {({ data, loading, error }) => (
           <Spin spinning={loading}>
             <BasicContent>
+              {( () => {
+                console.log(data)
+              } )()}
               <LeftContent>
                 <Title>{formatMessage(messages.title)}</Title>
                 <Form
                   layout={'vertical'}
                   onSubmit={event => {
                     event.preventDefault()
+                    this.handleSaveProfile()
                   }}
                 >
                   <Form.Item label="Name">
-                    {form.getFieldDecorator('Name', {
-                      initialValue: data.me && data.me.name,
-                      rules: [
-                        {
-                          required: true,
-                          message: 'Please enter your full name.',
-                        },
-                      ],
-                    })(<Input disabled />)}
+                    <Input value={data.me && data.me.name} disabled />
                   </Form.Item>
-                  <Phone label="Phone Number" name="phone" />
+                  <Phone label="Phone Number" name="phone" initialValue={data.me ? data.me.profile.phone : 'none'}/>
                   <Form.Item label="Biography">
                     {form.getFieldDecorator('bio')(<Input />)}
                   </Form.Item>

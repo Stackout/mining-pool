@@ -34,6 +34,13 @@ mutation updatePassword($data: NewPasswordWithCodeInput!) {
   }
 }
 
+mutation updateProfile($data: UpdateProfileInput!) {
+  updateProfile(data: $data) {
+    status
+    message
+  }
+}
+
 mutation register($data: RegisterInput!) {
   register(data: $data) {
     status

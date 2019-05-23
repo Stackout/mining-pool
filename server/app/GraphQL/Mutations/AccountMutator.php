@@ -4,6 +4,7 @@ namespace App\GraphQL\Mutations;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Profile;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -82,6 +83,33 @@ class AccountMutator
         return [
             'status' => 'USER_REGISTERED',
             'message' => 'You have successfully registered. Before you can login, you must active your account with the code sent to your email address.'
+        ];
+    }
+
+    public function updateProfile($root, array $args, $contex)
+    {
+        $data = $args['data'];
+        $user = auth()->user();
+        // Check if profile exists for this user, if not create it, if it does update it.
+        $profile = $user->profile;
+        if ($profile === null) {
+            $profile = new Profile;
+            $profile->phone = $data['phone'];
+            $profile->bio = $data['bio'];
+            $profile->website = $data['website'];
+            $profile->user()->associate($user);
+        } else {
+            $profile->update([
+                'phone' => $data['phone'],
+                'bio' => $data['bio'],
+                'website' => $data['website']
+            ]);
+        }
+        $profile->save();
+
+        return [
+            'status' => 'PROFILE_UPDATED',
+            'message' => 'User\'s profile was successfully updated.'
         ];
     }
 }

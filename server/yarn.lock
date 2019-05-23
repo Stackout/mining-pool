@@ -4642,6 +4642,11 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
+google-libphonenumber@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.2.tgz#3d9d7ba727e99a50812f21b0ed313723b76c5c54"
+  integrity sha512-ubjGeosYPeusjYbUHy76lCniGTTI0k1rIFc+uKBX+jHQLDmWOSUtlFUxaeoLJ+Y+PAMM6dWp+C1HjHx5BI8kEw==
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
@@ -7899,6 +7904,11 @@ react-cookie@^3.1.2:
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^3.1.0"
 
+react-country-flag@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-1.0.2.tgz#c15390c7a032ecc595dd89754b523c81a60c595f"
+  integrity sha512-VaH8vYGe27pLd4xIcWN+KLSs7W6Dm7hwNzXyisPzg+FFfX+q/vChE5J5fT0PEmIcjCxuRIBuVQL4DPuuMvRrvA==
+
 react-dom@^16.2.0:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
@@ -9020,6 +9030,11 @@ supports-color@^6.1.0:
   integrity sha512-qe1jfm1Mg7Nq/NSh6XE24gPXROEVsWHxC1LIx//XNlD9iw7YZQGjZNjYN7xGaEG6iKdA8EtNFW6R0gjnVXp+wQ==
   dependencies:
     has-flag "^3.0.0"
+
+svg-country-flags@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/svg-country-flags/-/svg-country-flags-1.2.6.tgz#d979895dc50245e025e1298af4e4472565645207"
+  integrity sha512-loHSF5qIEXoUgcXxLBlGG2eczDvqjzhyjdu2cIxcuHbJDGPUFBIsKnlp3N/+KBhaIZWbpksoczghkJsyJxbSGQ==
 
 svgo@^1.0.0:
   version "1.2.2"

@@ -55,12 +55,14 @@
         "babel-plugin-import": "^1.11.0",
         "babel-plugin-react-intl": "^3.0.1",
         "formik": "^1.5.4",
+        "google-libphonenumber": "^3.2.2",
         "graphql": "^14.2.1",
         "graphql-tag": "^2.10.1",
         "immutable": "^4.0.0-rc.12",
         "raw-loader": "^2.0.0",
         "react-apollo": "^2.5.5",
         "react-cookie": "^3.1.2",
+        "react-country-flag": "^1.0.2",
         "react-fa": "^5.0.0",
         "react-icons": "^3.6.1",
         "react-intl": "^2.8.0",
@@ -69,6 +71,7 @@
         "react-router-dom": "^5.0.0",
         "react-syntax-highlighter": "^10.2.1",
         "react-text-mask": "^5.4.3",
-        "recompose": "^0.30.0"
+        "recompose": "^0.30.0",
+        "svg-country-flags": "^1.2.6"
     }
 }
