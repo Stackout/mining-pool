@@ -79,7 +79,6 @@ const BasicContent = styled.div`
 `
 
 class BasicSettings extends React.Component {
-
   handleSaveProfile = () => {
     const {
       form,
@@ -94,14 +93,16 @@ class BasicSettings extends React.Component {
 
     form.validateFields((errors, values) => {
       if (!errors) {
-        client.mutate({
-          mutation: updateProfile,
-          variables: {
-            data: values
-          }
-        }).then(response => {
-          console.log(response)
-        })
+        client
+          .mutate({
+            mutation: updateProfile,
+            variables: {
+              data: values,
+            },
+          })
+          .then(response => {
+            console.log(response)
+          })
       }
     })
   }
@@ -117,9 +118,9 @@ class BasicSettings extends React.Component {
         {({ data, loading, error }) => (
           <Spin spinning={loading}>
             <BasicContent>
-              {( () => {
+              {(() => {
                 console.log(data)
-              } )()}
+              })()}
               <LeftContent>
                 <Title>{formatMessage(messages.title)}</Title>
                 <Form
@@ -132,7 +133,11 @@ class BasicSettings extends React.Component {
                   <Form.Item label="Name">
                     <Input value={data.me && data.me.name} disabled />
                   </Form.Item>
-                  <Phone label="Phone Number" name="phone" initialValue={data.me ? data.me.profile.phone : 'none'}/>
+                  <Phone
+                    label="Phone Number"
+                    name="phone"
+                    initialValue={data.me ? data.me.profile.phone : 'none'}
+                  />
                   <Form.Item label="Biography">
                     {form.getFieldDecorator('bio')(<Input />)}
                   </Form.Item>

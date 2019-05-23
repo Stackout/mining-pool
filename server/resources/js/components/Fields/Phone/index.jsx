@@ -9,8 +9,7 @@ import Flag from 'react-country-flag'
 import countries from '@helpers/locale/countries.json'
 import libphonenumber from 'google-libphonenumber'
 
-const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
-
+const phoneUtil = libphonenumber.PhoneNumberUtil.getInstance()
 
 const Option = Select.Option
 
@@ -34,37 +33,54 @@ class Phone extends Component {
     number: false,
     dialCode: '+1',
     defaultCountry: 'US',
-    visualFieldValue: this.props.initialValue
+    visualFieldValue: this.props.initialValue,
   }
 
   handleDialCodeSet = code => {
-    const { form: { setFieldsValue }, name } = this.props
+    const {
+      form: { setFieldsValue },
+      name,
+    } = this.props
     const { visualFieldValue } = this.state
     const country = countries.find(country => country.code === code)
-    this.setState({
-      dialCode: country.dial_code,
-      countryCode: country.code
-    }, () => {
-      setFieldsValue({
-        [name]: (country.dial_code + visualFieldValue).replace(/\D+/g, "")
-      })
-    })
+    this.setState(
+      {
+        dialCode: country.dial_code,
+        countryCode: country.code,
+      },
+      () => {
+        setFieldsValue({
+          [name]: (country.dial_code + visualFieldValue).replace(/\D+/g, ''),
+        })
+      }
+    )
   }
 
   handleInitialValue = () => {
-    const { form: { setFieldsValue }, name, initialValue } = this.props
+    const {
+      form: { setFieldsValue },
+      name,
+      initialValue,
+    } = this.props
     const { visualFieldValue } = this.state
     console.log(this.props.initialValue)
-    const dialCode = phoneUtil.parse(`+${this.props.initialValue}`).getCountryCode()
-    const country = countries.find(country => country.dial_code === `+${dialCode}`)
-    this.setState({
-      dialCode: '+' + dialCode,
-      countryCode: country.code,
-    }, () => {
-      setFieldsValue({
-        [name]: initialValue
-      })
-    })
+    const dialCode = phoneUtil
+      .parse(`+${this.props.initialValue}`)
+      .getCountryCode()
+    const country = countries.find(
+      country => country.dial_code === `+${dialCode}`
+    )
+    this.setState(
+      {
+        dialCode: '+' + dialCode,
+        countryCode: country.code,
+      },
+      () => {
+        setFieldsValue({
+          [name]: initialValue,
+        })
+      }
+    )
   }
 
   componentDidMount() {
@@ -72,7 +88,7 @@ class Phone extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.initialValue !== prevProps.initialValue){
+    if (this.props.initialValue !== prevProps.initialValue) {
       // console.log('initial calue changed')
       // const dialCode = phoneUtil.parse(`+${this.props.initialValue}`).getCountryCode()
       // const countryCode = countries.find(country => country.dial_code === `+${dialCode}`)
@@ -82,14 +98,19 @@ class Phone extends Component {
 
   render() {
     const {
-      form: { setFieldsValue, getFieldProps, getFieldValue,c },
+      form: { setFieldsValue, getFieldProps, getFieldValue, c },
       intl: { formatMessage },
       label,
       initialValue,
       name,
     } = this.props
 
-    const { dialCode, defaultCountry, visualFieldValue, countryCode } = this.state
+    const {
+      dialCode,
+      defaultCountry,
+      visualFieldValue,
+      countryCode,
+    } = this.state
 
     console.log(dialCode, initialValue)
     // const country = phoneUtil.parse('+' + initialValue).getCountryCode()
@@ -105,7 +126,7 @@ class Phone extends Component {
           value={countryCode}
         >
           {countries.map((country, index) => {
-            if(country.code === 'AN' || country.code === 'MH'){
+            if (country.code === 'AN' || country.code === 'MH') {
               return null
             }
             return (
@@ -163,10 +184,10 @@ class Phone extends Component {
                 onChange={event => {
                   props.onChange(event)
                   this.setState({
-                    visualFieldValue: event.target.value
+                    visualFieldValue: event.target.value,
                   })
                   setFieldsValue({
-                    [name]: (dialCode + event.target.value).replace(/\D+/g, ""),
+                    [name]: (dialCode + event.target.value).replace(/\D+/g, ''),
                   })
                 }}
               />
