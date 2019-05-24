@@ -3,6 +3,7 @@ type User {
     name: String
     email: String
     wallets: Wallet @hasMany
+    securityPhone: String @rename(attribute: "security_phone")
     roles: [Role] @rename(attribute: "modelRoles")
     permissions: [Permission] @rename(attribute: "modelPermissions")
     profile: Profile @hasOne

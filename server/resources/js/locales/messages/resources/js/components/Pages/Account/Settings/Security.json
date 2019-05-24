@@ -1,0 +1,26 @@
+[
+  {
+    "id": "accounts.security-settings.title",
+    "defaultMessage": "Security Settings"
+  },
+  {
+    "id": "accounts.security-settings.security-phone.title",
+    "defaultMessage": "Security Mobile Phone"
+  },
+  {
+    "id": "accounts.security-settings.security-phone.no-phone",
+    "defaultMessage": "Your account does not have a security mobile device. Consider adding one for better account security."
+  },
+  {
+    "id": "accounts.security-settings.security-phone.has-phone",
+    "defaultMessage": "Bound mobile number: {security_phone}"
+  },
+  {
+    "id": "accounts.security-settings.security-phone.change-number",
+    "defaultMessage": "Change Phone Number"
+  },
+  {
+    "id": "accounts.security-settings.security-phone.add-number",
+    "defaultMessage": "Add Phone Number"
+  }
+]

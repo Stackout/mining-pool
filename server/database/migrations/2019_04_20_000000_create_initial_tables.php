@@ -17,7 +17,11 @@ class CreateInitialTables extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('secondary_email')->nullable();
             $table->string('password');
+            $table->string('security_phone', 32)->nullable();
+            $table->string('token_2fa')->nullable();
+            $table->datetime('token_2fa_expiry')->nullable();
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));

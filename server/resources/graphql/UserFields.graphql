@@ -3,6 +3,7 @@ fragment UserFields on User {
   id
   name
   email
+  securityPhone
   roles { 
     id
     name

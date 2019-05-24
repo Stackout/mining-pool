@@ -78,6 +78,17 @@ input ChangePasswordInput {
     password_confirmation: String @rules(apply: ["required"])
 }
 
+input ChangeSecurityPhoneInput {
+    old_password: String @rules(apply: ["required"])
+    password: String @rules(apply: ["required", "min:6", "confirmed"]) @bcrypt
+    password_confirmation: String @rules(apply: ["required"])
+}
+
+type BasicResponse { 
+    status: String!
+    message: String
+}
+
 extend type Mutation {
     login(data: LoginInput): LoginResponse!
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
@@ -88,4 +99,9 @@ extend type Mutation {
     register(data: RegisterInput!): RegisterResponse! @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@registerUser")
     changePassword(data: ChangePasswordInput!): RegisterResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@changePassword")
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")
+    
+    # Two Factor Authentication System
+    textMessageSecurityCode(email: String!): BasicResponse! @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@textMessageSecurityCode")
+    emailSecurityCode: BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@emailSecurityCode")
+    changeSecurityPhone(data: ChangeSecurityPhoneInput!): BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@changeSecurityPhone")
 }
