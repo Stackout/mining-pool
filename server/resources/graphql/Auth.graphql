@@ -54,3 +54,10 @@ mutation checkDomain($fqdn: String!) {
     message
   }
 }
+
+mutation changePassword($data: ChangePasswordInput!) {
+  changePassword(data: $data) {
+    status
+    message
+  }
+}

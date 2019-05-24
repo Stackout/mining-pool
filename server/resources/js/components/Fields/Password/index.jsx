@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { PasswordInput } from 'antd-password-input-strength'
-import { Icon } from 'antd'
+import { Icon, Input } from 'antd'
 import { compose } from 'recompose'
 import { withFormContext } from '@context/Form'
 import { Form } from 'antd'
@@ -18,21 +18,32 @@ class Password extends Component {
     const {
       form: { getFieldDecorator },
       required,
+      nostrength,
+      placeholder,
+      name,
     } = this.props
-
+    const icon = <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
     return (
       <Form.Item>
         {' '}
-        {getFieldDecorator('password', {
+        {getFieldDecorator(name ? name : 'password', {
           rules: [
             { required: required || true, message: 'Please enter a password.' },
             { validator: this.checkConfirm },
           ],
         })(
-          <PasswordInput
-            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            placeholder="Enter your password."
-          />
+          !nostrength ? (
+            <PasswordInput
+              prefix={icon}
+              placeholder={placeholder ? placeholder : 'Enter your password.'}
+            />
+          ) : (
+            <Input
+              type="password"
+              prefix={icon}
+              placeholder={placeholder ? placeholder : 'Enter your password.'}
+            />
+          )
         )}
       </Form.Item>
     )

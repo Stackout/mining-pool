@@ -29,8 +29,9 @@ const messages = defineMessages({
   },
   error: {
     id: 'accounts.profile.error',
-    defaultMessage: 'There was an error updating your profile. Please try again.'
-  }
+    defaultMessage:
+      'There was an error updating your profile. Please try again.',
+  },
 })
 
 const AvatarContent = styled.div`
@@ -87,7 +88,6 @@ const BasicContent = styled.div`
 `
 
 class BasicSettings extends React.Component {
-
   state = {
     isSubmitting: false,
   }
@@ -112,17 +112,19 @@ class BasicSettings extends React.Component {
             variables: {
               data: values,
             },
-            refetchQueries: [{
-              query: ME
-            }]
+            refetchQueries: [
+              {
+                query: ME,
+              },
+            ],
           })
           .then(response => {
             message.success(formatMessage(messages.success))
-            
-          }).catch((error) => {
+          })
+          .catch(error => {
             message.error(messages.error)
-
-          }).then(() => {
+          })
+          .then(() => {
             this.setState({
               isSubmitting: false,
             })
@@ -158,20 +160,31 @@ class BasicSettings extends React.Component {
                   <Phone
                     label="Phone Number"
                     name="phone"
-                    initialValue={(data.me && data.me.profile) ? data.me.profile.phone : ''}
+                    initialValue={
+                      data.me && data.me.profile ? data.me.profile.phone : ''
+                    }
                   />
                   <Form.Item label="Website">
                     {form.getFieldDecorator('website', {
-                      initialValue: (data.me && data.me.profile) ? data.me.profile.website : ''
+                      initialValue:
+                        data.me && data.me.profile
+                          ? data.me.profile.website
+                          : '',
                     })(<Input />)}
                   </Form.Item>
                   <Form.Item label="Biography">
                     {form.getFieldDecorator('bio', {
-                      initialValue: (data.me && data.me.profile) ? data.me.profile.bio : ''
+                      initialValue:
+                        data.me && data.me.profile ? data.me.profile.bio : '',
                     })(<Input.TextArea />)}
                   </Form.Item>
                   <Form.Item>
-                    <Button block type="primary" loading={isSubmitting} htmlType="submit">
+                    <Button
+                      block
+                      type="primary"
+                      loading={isSubmitting}
+                      htmlType="submit"
+                    >
                       Save Profile
                     </Button>
                   </Form.Item>

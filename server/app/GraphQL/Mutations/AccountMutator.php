@@ -8,6 +8,7 @@ use App\Models\Profile;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Support\Facades\Hash;
 
 class AccountMutator
 {
@@ -90,7 +91,6 @@ class AccountMutator
     {
         $data = $args['data'];
         $user = auth()->user();
-        // Check if profile exists for this user, if not create it, if it does update it.
         $profile = $user->profile;
         if ($profile === null) {
             $profile = new Profile;
@@ -111,5 +111,31 @@ class AccountMutator
             'status' => 'PROFILE_UPDATED',
             'message' => 'User\'s profile was successfully updated.'
         ];
+    }
+
+    public function changePassword($root, array $args, $contex)
+    {
+        $data = $args['data'];
+        $user = auth()->user();
+
+        if (Hash::check($data['old_password'], $user->password)) { 
+           $user->fill([
+                'password' => $data['password']
+            ])->save();
+
+            return [
+                'status' => 'PASSWORD_CHANGED',
+                'message' => 'Password changed.'
+            ];
+
+        } else {
+            return [
+                'status' => 'PASSWORD_CHANGE_FAILED',
+                'message' => 'Passwords do not match.'
+            ];
+        }
+
+
+
     }
 }

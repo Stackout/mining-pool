@@ -72,6 +72,12 @@ type Permission {
     name: String
 }
 
+input ChangePasswordInput {
+    old_password: String @rules(apply: ["required"])
+    password: String @rules(apply: ["required", "min:6", "confirmed"]) @bcrypt
+    password_confirmation: String @rules(apply: ["required"])
+}
+
 extend type Mutation {
     login(data: LoginInput): LoginResponse!
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
@@ -80,5 +86,6 @@ extend type Mutation {
     updateProfile(data: UpdateProfileInput!): UpdateProfileResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@updateProfile")
     updateForgottenPassword(data: NewPasswordWithCodeInput): ForgotPasswordResponse! @field(resolver: "Joselfonseca\\LighthouseGraphQLPassport\\GraphQL\\Mutations\\ResetPassword@resolve")
     register(data: RegisterInput!): RegisterResponse! @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@registerUser")
+    changePassword(data: ChangePasswordInput!): RegisterResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\AccountMutator@changePassword")
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")
 }

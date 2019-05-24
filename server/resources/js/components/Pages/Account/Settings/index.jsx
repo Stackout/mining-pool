@@ -57,7 +57,10 @@ class Account extends Component {
               theme="light"
               mode="inline"
               defaultSelectedKeys={['profile']}
-              style={{ height: '100%' }}
+              style={{
+                height: '100%',
+                borderRight: '1px solid rgb(232, 232, 232)',
+              }}
             >
               <Menu.Item key="profile">
                 <Link to="/account/settings">Profile</Link>
