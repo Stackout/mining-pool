@@ -1,0 +1,21 @@
+#import "./ProviderFields.graphql"
+
+mutation updateProvider($id: ID!, $data: ProviderInput!) {
+  updateProvider(id: $id, data: $data) {
+    status
+    message
+  }
+}
+
+mutation createProvider($data: ProviderInput!) {
+  createProvider(data: $data) {
+    status
+    message
+  }
+}
+
+mutation deleteProvider($id: ID!) {
+  deleteProvider(id: $id) {
+    ...ProviderFields
+  }
+}

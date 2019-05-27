@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ServicesTableSeeder extends Seeder
+class MiningServicesTableSeeder extends Seeder
 {
 
     /**
@@ -14,9 +14,9 @@ class ServicesTableSeeder extends Seeder
     {
         
 
-        \DB::table('services')->delete();
+        \DB::table('mining_services')->delete();
         
-        \DB::table('services')->insert(array (
+        \DB::table('mining_services')->insert(array (
             0 => 
             array (
                 'id' => 1,

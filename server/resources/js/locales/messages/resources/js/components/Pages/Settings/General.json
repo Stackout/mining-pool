@@ -1,0 +1,22 @@
+[
+  {
+    "id": "app.settings.title",
+    "defaultMessage": "Settings"
+  },
+  {
+    "id": "app.settings.description",
+    "defaultMessage": "None"
+  },
+  {
+    "id": "app.settings.modal.title",
+    "defaultMessage": "Settings"
+  },
+  {
+    "id": "app.settings.modal.description",
+    "defaultMessage": "None"
+  },
+  {
+    "id": "app.settings.modal.encryption.documentation",
+    "defaultMessage": "When *Encrypt Value* is enabled, this specific setting value will be encrpyted by a password. The password file location is defined in the environment variables of your server, and is located by default at `/usr/local/keyfile.priv`. For more information please read the [HelixAlpha documentation](https://docs.helixalpha.dev)."
+  }
+]

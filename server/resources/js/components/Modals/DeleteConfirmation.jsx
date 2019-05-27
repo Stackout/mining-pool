@@ -96,7 +96,7 @@ class DeleteConfirmation extends Component {
       intl: { formatMessage },
     } = this.props
 
-    const { name, isDeleting } = this.state
+    const { isDeleting } = this.state
 
     return (
       <Modal

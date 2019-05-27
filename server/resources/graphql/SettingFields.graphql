@@ -1,0 +1,10 @@
+
+fragment SettingFields on Setting {
+  id
+  key
+  value
+  field
+  description
+  active
+  isEncrypted
+}

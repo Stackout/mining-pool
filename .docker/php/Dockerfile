@@ -32,3 +32,5 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_VERSION_SHA1 cb19f2aa3aeaa2006c0cd69a7ef011eb31463067
 RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/$COMPOSER_VERSION_SHA1/web/installer -O - -q | php -- --quiet \
   && mv composer.phar /usr/local/bin/composer
+
+COPY php.ini /usr/local/etc/php/php.ini

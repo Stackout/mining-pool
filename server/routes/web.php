@@ -21,7 +21,11 @@ Route::get('/manage/{path?}/{id}', 'Home@index')->name('manage.resources.edit');
 
 // Account Routes
 Route::get('/account/{path?}', 'Home@index')->name('accounts.index');
-Route::get('/account/settings/{path?}', 'Home@index')->name('accounts.settings');
+Route::get('/account/settings/{path?}', 'Home@index')->name('accounts.page');
+
+// Settings Routes
+Route::get('/settings', 'Home@index')->name('settings');
+Route::get('/settings/{path?}', 'Home@index')->name('settings.page');
 
 Auth::routes(['verify' => true]);
 

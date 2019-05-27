@@ -2,7 +2,7 @@ import React, { Component, Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloClient } from 'apollo-client'
-import { Modal } from 'antd'
+import { Modal, Spin } from 'antd'
 import { ModalRoot, withModalProvider } from '@modals'
 import 'antd/dist/antd.css'
 import { ApolloLink } from 'apollo-link'
@@ -126,18 +126,20 @@ export class App extends Component {
               <DevRibbon />
               <Global styles={global} />
               <AuthConsumer>
-                {auth =>
-                  auth.isAuthenticated ? (
-                    <>
-                      <Layout>
-                        <Routes />
-                      </Layout>
-                      <ModalRoot />
-                    </>
-                  ) : (
-                    <AuthRoutes />
-                  )
-                }
+                {({ isAuthenticated, isAuthenticating }) => (
+                  <Spin spinning={isAuthenticating}>
+                    {isAuthenticated ? (
+                      <>
+                        <Layout>
+                          <Routes />
+                        </Layout>
+                        <ModalRoot />
+                      </>
+                    ) : (
+                      <AuthRoutes />
+                    )}
+                  </Spin>
+                )}
               </AuthConsumer>
             </AuthProvider>
           </ApolloProvider>

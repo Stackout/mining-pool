@@ -1,0 +1,7 @@
+#import "./SettingFields.graphql"
+
+query Setting($id: ID!) {
+  setting(id: $id) {
+    ...SettingFields
+  }
+}

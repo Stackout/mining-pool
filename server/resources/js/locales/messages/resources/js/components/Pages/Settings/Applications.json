@@ -1,0 +1,10 @@
+[
+  {
+    "id": "app.settings.applications.title",
+    "defaultMessage": "Applications"
+  },
+  {
+    "id": "app.settings.applications.description",
+    "defaultMessage": "None"
+  }
+]

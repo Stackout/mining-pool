@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MarketsTableSeeder::class);
         $this->call(NicehashTableSeeder::class);
         $this->call(RawcoinsTableSeeder::class);
-        $this->call(ServicesTableSeeder::class);
+        $this->call(MiningServicesTableSeeder::class);
+        $this->call(ProvidersTableSeeder::class);
         $this->call(SettingsTableSeeder::class);
         $this->call(StatsTableSeeder::class);
         $this->call(BlocksTableSeeder::class);

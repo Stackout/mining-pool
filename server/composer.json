@@ -20,7 +20,8 @@
         "mll-lab/laravel-graphql-playground": "^1.0",
         "nuwave/lighthouse": "^3.4",
         "orangehill/iseed": "^2.6",
-        "spatie/laravel-permission": "^2.37"
+        "spatie/laravel-permission": "^2.37",
+        "twilio/sdk": "^5.32"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

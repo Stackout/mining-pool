@@ -16,6 +16,7 @@ class RolesAndPermissionsSeeder extends Seeder
           'security',
           'roles',
           'permissions',
+          'settings',
         ];
 
         $roles = [

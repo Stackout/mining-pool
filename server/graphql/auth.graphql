@@ -101,7 +101,7 @@ extend type Mutation {
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")
     
     # Two Factor Authentication System
-    textMessageSecurityCode(email: String!): BasicResponse! @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@textMessageSecurityCode")
-    emailSecurityCode: BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@emailSecurityCode")
-    changeSecurityPhone(data: ChangeSecurityPhoneInput!): BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\TwoFactorAuth@changeSecurityPhone")
+    textMessageSecurityCode(email: String!): BasicResponse! @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@textMessageSecurityCode")
+    emailSecurityCode: BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@emailSecurityCode")
+    changeSecurityPhone(data: ChangeSecurityPhoneInput!): BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@changeSecurityPhone")
 }

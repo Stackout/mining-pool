@@ -83,4 +83,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Profile::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function deviceUser()
+    {
+        return $this->hasMany(DeviceUser::class);
+    }
 }

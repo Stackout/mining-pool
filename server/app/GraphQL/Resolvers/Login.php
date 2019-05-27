@@ -30,6 +30,7 @@ class LoginResolver
         if (!$context->request->hasCookie('_token')) {
             $user = Auth::user();
             $token = $user->createToken('Access Token');
+
             Cookie::queue('_token', $token->accessToken, 1800, '/', $context->request->getHost(), false, true);
 
             $token = [

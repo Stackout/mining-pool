@@ -1,0 +1,42 @@
+#import "./SettingFields.graphql"
+
+mutation updateSetting($id: ID!, $data: SettingInput!) {
+  updateSetting(id: $id, data: $data) {
+    status
+    message
+  }
+}
+
+mutation createSetting($data: SettingInput!) {
+  createSetting(data: $data) {
+    status
+    message
+  }
+}
+
+mutation deleteSetting($id: ID!) {
+  deleteSetting(id: $id) {
+    ...SettingFields
+  }
+}
+
+mutation putSetting($data: SettingKeyValueInput!) {
+  putSetting(data: $data) {
+    status
+    message
+  }
+}
+
+mutation putSettings($data: [SettingKeyValueInput!]!) {
+  putSettings(data: $data) {
+    status
+    message
+  }
+}
+
+mutation getSetting($key: String!) {
+  getSetting(key: $key) {
+    status
+    message
+  }
+}

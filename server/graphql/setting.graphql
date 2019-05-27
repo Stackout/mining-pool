@@ -1,0 +1,84 @@
+type Setting {
+    id: ID!
+    key: String!
+    value: String
+    field: String!
+    description: String
+    active: Boolean
+    isEncrypted: Boolean @rename(attribute: "is_encrypted")
+    provider: Provider @belongsTo
+    createdAt: DateTime! @rename(attribute: "created_at")
+    updatedAt: DateTime! @rename(attribute: "updated_at")
+}
+
+extend type Query @group(middleware: ["auth:api"]) {
+    settings: [Setting!]! @all(model: "App\\Models\\Setting")
+    setting(id: ID @eq): Setting @find(model: "App\\Models\\Setting")
+}
+
+input SettingInput {
+    provider_id: ID
+    key: String!
+    field_name: String!
+    field_type: String!
+    field_label: String!
+    description: String
+    active: Boolean
+    is_encrypted: Boolean
+}
+
+input SettingKeyValueInput {
+    key: String!
+    value: String
+}
+
+input SettingKeyInput {
+    key: String!
+}
+
+type SettingResponse { 
+    message: String
+    status: String
+}
+
+extend type Mutation @group(middleware: ["auth:api"]) {
+    "Update the all the setting's attributes."
+    updateSetting(
+        id: ID @rules(apply: ["required"])
+        data: SettingInput
+      ): SettingResponse! 
+        @can(ability: "update settings", model: "App\\Models\\Setting")
+        @field(resolver: "App\\GraphQL\\Mutations\\SettingsMutator@updateSetting")
+      
+    "Update and recache a setting's key-value pairs in the application's configuration and database."
+    putSetting(
+        data: SettingKeyValueInput!
+      ): SettingResponse! 
+        @can(ability: "update settings", model: "App\\Models\\Setting")
+        @field(resolver: "App\\GraphQL\\Mutations\\SettingsMutator@putSetting")
+
+    "Batch update a list of speicified key value pairs."
+    putSettings(
+        data: [SettingKeyValueInput!]!
+      ): SettingResponse! 
+        @can(ability: "update settings", model: "App\\Models\\Setting")
+        @field(resolver: "App\\GraphQL\\Mutations\\SettingsMutator@putSettings")
+
+    "Update and recache a setting's key-value pairs in the application's configuration and database."
+    getSetting(
+        key: String!
+      ): SettingResponse! 
+        @can(ability: "update settings", model: "App\\Models\\Setting")
+        @field(resolver: "App\\GraphQL\\Mutations\\SettingsMutator@getSetting")
+
+    "Deletes a provider's setting resource from the database."
+    deleteSetting(id: ID!): Setting
+        @delete(model: "App\\Models\\Setting")
+        @can(ability: "delete settings", model: "App\\Models\\Setting")
+
+    "Create a new key-value pair settin to access at the application level via configuration."
+    createSetting(data: SettingInput): SettingResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\SettingsMutator@createSetting")
+        @can(ability: "create settings", model: "App\\Models\\Setting")
+        
+}

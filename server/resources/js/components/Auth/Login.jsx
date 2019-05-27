@@ -15,6 +15,7 @@ import {
   Title,
   CenteredActionText,
 } from '@layout/Auth'
+import { transformRolesAndPermissions } from '@helpers/utils'
 
 class LoginForm extends React.Component {
   handleSubmit = (event, login) => {
@@ -30,26 +31,15 @@ class LoginForm extends React.Component {
             const {
               data: { login },
             } = response
-
-            let permissions = login.permissions.reduce((carry, permission) => {
-              carry.push(permission.name)
-              return carry
-            }, [])
-
-            let roles = login.roles.reduce((carry, role) => {
-              carry.push(role.name)
-              return carry
-            }, [])
-
-            if (roles) {
-              this.props.setAuthentication({
-                isAuthenticated: true,
-                token: login.token,
-                permissions,
-                roles,
-              })
-            }
-            history.push('/')
+              const [ roles, permissions ] = transformRolesAndPermissions(login)
+              if (roles.length) {
+                this.props.setAuthentication({
+                  isAuthenticated: true,
+                  permissions,
+                  roles,
+                })
+                history.push('/')
+              }
           })
           .catch(error => {
             this.error = 'Username and/or password is incorrect'

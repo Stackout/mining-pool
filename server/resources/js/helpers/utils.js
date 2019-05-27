@@ -266,3 +266,46 @@ export const formatPhoneNumber = phoneNumberString => {
   }
   return undefined
 }
+
+export const transformKeyValueSettings = entries =>
+  Object.keys(entries).reduce((carry, key) => {
+    let value = entries[key]
+    if (value instanceof Array) {
+      value = value.join(',')
+    }
+    carry.push({ key, value })
+    return carry
+  }, [])
+
+export const brandCDNLogo = brand => {
+  const brands = {
+    twilio:
+      'https://www.twilio.com/marketing/bundles/company/img/logos/red/twilio-mark-red.svg',
+    facebook:
+      'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-facebook.svg',
+    twitter:
+      'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-twitter.svg',
+    google:
+      'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-google.svg',
+    github:
+      'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-github.svg',
+    bitbucket:
+      'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-bitbucket.svg',
+  }
+
+  return brands[brand]
+}
+
+export const transformRolesAndPermissions = data => {
+  let permissions = data.permissions.reduce((carry, permission) => {
+    carry.push(permission.name)
+    return carry
+  }, [])
+
+  let roles = data.roles.reduce((carry, role) => {
+    carry.push(role.name)
+    return carry
+  }, [])
+
+  return [roles, permissions]
+}

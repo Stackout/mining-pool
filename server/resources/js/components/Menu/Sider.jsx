@@ -78,6 +78,33 @@ export const BaseSider = ({ collapsed, onCollapse, can }) => (
           </Menu.Item>
         </SubMenu>
       )}
+      {(can('edit settings') ||
+        can('view settings') ||
+        can('create settings') ||
+        can('delete settings')) && (
+        <SubMenu
+          key="settings"
+          title={
+            <span>
+              <Icon type="setting" />
+              <span>Settings</span>
+            </span>
+          }
+        >
+          <Menu.Item key="general_settings">
+            {'General'}
+            <Link to="/settings" />
+          </Menu.Item>
+          <Menu.Item key="applications">
+            {'Applications'}
+            <Link to="/settings/applications" />
+          </Menu.Item>
+          <Menu.Item key="oauth_settings">
+            {'OAuth'}
+            <Link to="/settings/oauth" />
+          </Menu.Item>
+        </SubMenu>
+      )}
     </Menu>
   </Sider>
 )

@@ -5,6 +5,7 @@ import { compose } from 'recompose'
 import withSuspense from '@helpers/withSuspense'
 import Manage from './Manage'
 import Account from './Account'
+import Settings from './Settings'
 import { PrivateRoute, ManageRoute } from '@auth'
 
 // Base Routes
@@ -23,6 +24,9 @@ export const Root = () => (
 
     {/* Manage Routes */}
     <ManageRoute path="/manage" component={Manage} />
+
+    {/* Setting Routes */}
+    <PrivateRoute path="/settings" component={Settings} />
 
     {/* Exception Page */}
     <Route component={Exception} />

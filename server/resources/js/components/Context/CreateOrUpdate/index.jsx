@@ -1,23 +1,12 @@
 import React, { Component, createContext } from 'react'
-import { Form, message, Input, Button, Spin } from 'antd'
+import { Form, message, Button, Spin } from 'antd'
 import { Mutation, Query } from 'react-apollo'
 import { compose } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import { toTitleCase } from '@helpers/utils'
-import styled from '@emotion/styled'
+import { withFormProvider } from '@context/Form'
 
 const CreateOrUpdateContext = createContext()
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-}
 
 const tailFormItemLayout = {
   wrapperCol: {
@@ -36,7 +25,7 @@ export class CreateOrUpdateProvider extends Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
-    resourceId: null,
+    resourceId: this.props.resourceId,
     resourceName: this.props.resourceName,
     mutations: this.props.mutations,
     query: this.props.query,
@@ -54,17 +43,16 @@ export class CreateOrUpdateProvider extends Component {
 export class CreateOrUpdate extends Component {
   handleSubmit = (event, mutate, successMessage) => {
     event.preventDefault()
-    const { match, form } = this.props
-
+    const { match, form, resourceId, onRequestClose } = this.props
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.setState({
           isSubmitting: true,
         })
-
+        console.log(resourceId)
         mutate({
           variables: {
-            id: match.params.resourceId,
+            id: resourceId ? resourceId : match.params.resourceId,
             data: values,
           },
         })
@@ -75,6 +63,9 @@ export class CreateOrUpdate extends Component {
             this.setState({
               isSubmitting: false,
             })
+
+            // Close modal if modal manager.
+            onRequestClose && onRequestClose()
           })
           .catch(error => {
             this.setState({
@@ -98,11 +89,16 @@ export class CreateOrUpdate extends Component {
   }
 
   state = {
-    resourceId: this.props.match.params.resourceId,
+    resourceId: this.props.resourceId
+      ? this.props.resourceId
+      : this.props.match.params.resourceId,
     confirmDirty: false,
     autoCompleteResult: [],
     formLoading: false,
-    isEditing: this.props.match.params.resourceId ? true : false,
+    isEditing:
+      this.props.match.params.resourceId || this.props.resourceId
+        ? true
+        : false,
   }
 
   componentDidUpdate(nextProps, nextState) {
@@ -112,15 +108,11 @@ export class CreateOrUpdate extends Component {
       this.setState({
         isEditing: false,
       })
-      console.log('Setting editing to false')
     }
   }
 
   render() {
-    const {
-      form: { getFieldDecorator },
-      match,
-    } = this.props
+    const { form, match, disableDefaultFormSubmit, layout } = this.props
     const {
       resourceId,
       confirmDirty,
@@ -128,6 +120,22 @@ export class CreateOrUpdate extends Component {
       isEditing,
       isSubmitting,
     } = this.state
+
+    const formItemLayout =
+      layout === 'horizontal'
+        ? {
+            labelCol: { span: 4 },
+            wrapperCol: { span: 14 },
+          }
+        : null
+
+    const buttonItemLayout =
+      layout === 'horizontal'
+        ? {
+            wrapperCol: { span: 14, offset: 4 },
+          }
+        : null
+
     return (
       <CreateOrUpdateContext.Consumer>
         {({ mutations, query, resourceName }) => (
@@ -140,6 +148,14 @@ export class CreateOrUpdate extends Component {
               <Spin spinning={isEditing && (formLoading || isFetchingResource)}>
                 <Mutation
                   mutation={isEditing ? mutations.update : mutations.create}
+                  refetchQueries={[
+                    {
+                      query,
+                      variables: {
+                        id: resourceId,
+                      },
+                    },
+                  ]}
                 >
                   {(mutate, { data }) => (
                     <Form
@@ -157,19 +173,21 @@ export class CreateOrUpdate extends Component {
                       {this.props.children({
                         resource,
                         match,
+                        mutate,
                         isEditing,
+                        isSubmitting,
                         loading: isFetchingResource,
+                        form: form,
+                        fieldDecorator: form.getFieldDecorator,
                         fetchError,
-                        fieldDecorator: getFieldDecorator,
-                        tailFormItemLayout,
-                        formItemLayout,
-                        confirmDirty,
-                        checkPassword: this.checkPassword,
-                        checkConfirm: this.checkConfirm,
+                        confirmDirty, // TODO: Deprecate
+                        checkPassword: this.checkPassword, // TODO: Deprecate
+                        checkConfirm: this.checkConfirm, // TODO: Deprecate
                         handleConfirmBlur: this.handleConfirmBlur,
                         handleLoadingCallback: this.handleLoadingCallback,
+                        handleSubmit: this.handleSubmit,
                       })}
-                      <Form.Item {...tailFormItemLayout}>
+                      <Form.Item {...buttonItemLayout}>
                         <Button
                           type="primary"
                           htmlType="submit"
@@ -190,9 +208,9 @@ export class CreateOrUpdate extends Component {
   }
 }
 
-class FetchResource extends Component {
+export class FetchResource extends Component {
   render() {
-    const { id, query, children, mutations } = this.props
+    const { id, query, children } = this.props
     if (!id) {
       const data = { data: { data: {} }, loading: {}, error: {} }
       return <div>{children(data)}</div>
@@ -212,6 +230,6 @@ class FetchResource extends Component {
 }
 
 export default compose(
-  Form.create({ name: 'resource' }),
-  withRouter
+  withRouter,
+  withFormProvider
 )(CreateOrUpdate)

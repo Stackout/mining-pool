@@ -1,0 +1,20 @@
+#import "./ProviderFields.graphql"
+#import "./SettingFields.graphql"
+
+query Providers($keys: [String]!) {
+  providers(keys: $keys) {
+    ...ProviderFields
+    settings {
+      ...SettingFields
+    }
+  }
+}
+
+query Provider($id: ID!) {
+  provider(id: $id) {
+    ...ProviderFields
+    settings {
+      ...SettingFields
+    }
+  }
+}

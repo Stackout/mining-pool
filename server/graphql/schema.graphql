@@ -19,7 +19,9 @@ type Mutation
 #import notification.graphql
 #import payout.graphql
 #import profile.graphql
+#import provider.graphql
 #import roles.graphql
+#import setting.graphql
 #import user.graphql
 #import wallet.graphql
 #import worker.graphql

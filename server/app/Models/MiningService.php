@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $custom_accept
  * @property float $custom_reject
  */
-class Service extends Model
+class MiningService extends Model
 {
     /**
      * @var array

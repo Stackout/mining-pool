@@ -8,6 +8,7 @@ services:
     volumes:
       - ./server:/var/www/html:delegated
       - ./.docker/.cache:/var/www/.cache:delegated
+      - ${HOME}/keys/keyfile.priv:/usr/local/keyfile.priv
     networks:
       default:
         aliases:

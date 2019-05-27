@@ -3,6 +3,8 @@ import { Route, Redirect } from 'react-router-dom'
 import { compose, withApollo } from 'react-apollo'
 import { login, logout } from '@graphql/Auth.graphql'
 import { withCookies } from 'react-cookie'
+import ME from '@graphql/Me.graphql'
+import { transformRolesAndPermissions } from '@helpers/utils';
 
 export const AdminRoute = ({ component: Component, ...rest }) => (
   <AuthContext.Consumer>
@@ -58,27 +60,20 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 export const AuthContext = createContext({
-  token: null,
-  user: null,
   isAuthenticated: false,
   logout: () => {},
-  setToken: () => {},
-  setUser: () => {},
-  setIsAuthenticated: () => {},
   can: () => {},
   hasRole: () => {},
 })
 
 export class AuthProvider extends Component {
-  setToken = token => {
-    this.setState({
-      token,
-    })
-  }
 
-  setUser = user => {
+  setAuthentication = payload => {
+    const { isAuthenticated, roles, permissions } = payload
     this.setState({
-      user,
+      isAuthenticated,
+      roles,
+      permissions,
     })
   }
 
@@ -92,73 +87,61 @@ export class AuthProvider extends Component {
     return roles.includes(role)
   }
 
-  setIsAuthenticated = isAuthenticated => {
-    this.props.cookies.set('isAuthenticated', isAuthenticated)
-    this.setState({
-      isAuthenticated,
-    })
-  }
-
   logout = () => {
-    const { cookies, client } = this.props
+    const { client } = this.props
 
     client
       .mutate({
         mutation: logout,
       })
       .then(response => {
-        cookies.remove('isAuthenticated')
-        cookies.remove('token')
-        cookies.remove('roles')
-        cookies.remove('permissions')
-
         this.setState({
           isAuthenticated: false,
-          token: null,
           roles: [],
           permissions: [],
         })
       })
   }
 
-  setAuthentication = payload => {
-    const { cookies } = this.props
-    const { isAuthenticated, token, roles, permissions } = payload
-    cookies.set('isAuthenticated', isAuthenticated)
-    cookies.set('token', token)
-    cookies.set('roles', JSON.stringify(roles))
-    cookies.set('permissions', JSON.stringify(permissions))
-    this.setState({
-      isAuthenticated,
-      token,
-      roles,
-      permissions,
-    })
-  }
-
   state = {
-    token: null,
-    isAuthenticated: false,
-    user: null,
     logout: this.logout,
-    setToken: this.setToken,
-    setUser: this.setUser,
-    setIsAuthenticated: this.setIsAuthenticated,
     setAuthentication: this.setAuthentication,
     can: this.can,
     hasRole: this.hasRole,
   }
 
   componentDidMount() {
-    const { cookies } = this.props
-    if (cookies.get('isAuthenticated')) {
-      this.setAuthentication({
-        isAuthenticated: true,
-        token: cookies.get('token'),
-        roles: cookies.get('roles'),
-        permissions: cookies.get('permissions'),
+    const { client } = this.props
+
+    this.setState({
+      isAuthenticated: false,
+      isAuthenticating: true,
+    })
+
+    client
+      .query({
+        query: ME,
       })
-    }
+      .then(response => {
+        if (response.data.me) {
+          const [ roles, permissions ] = transformRolesAndPermissions(response.data.me)  
+          this.setState({
+            isAuthenticated: true,
+            isAuthenticating: false,
+            roles: roles,
+            permissions: permissions,
+          })
+        } else {
+          this.setState({
+            isAuthenticated: false,
+            isAuthenticating: false,
+          })
+        }
+      }).catch(error => {
+        this.setState({
+          isAuthenticating: false,
+        })
+      })
   }
 
   render() {

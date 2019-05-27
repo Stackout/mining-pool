@@ -1,0 +1,10 @@
+[
+  {
+    "id": "app.modals.manage.application-settings.title",
+    "defaultMessage": "Application Settings"
+  },
+  {
+    "id": "app.modals.manage.application-settings.description",
+    "defaultMessage": "Application setting description."
+  }
+]

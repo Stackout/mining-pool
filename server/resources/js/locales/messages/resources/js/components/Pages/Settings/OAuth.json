@@ -1,0 +1,10 @@
+[
+  {
+    "id": "app.settings.oauth.title",
+    "defaultMessage": "OAuth"
+  },
+  {
+    "id": "app.settings.oauth.description",
+    "defaultMessage": "None"
+  }
+]
