@@ -31,15 +31,15 @@ class LoginForm extends React.Component {
             const {
               data: { login },
             } = response
-              const [ roles, permissions ] = transformRolesAndPermissions(login)
-              if (roles.length) {
-                this.props.setAuthentication({
-                  isAuthenticated: true,
-                  permissions,
-                  roles,
-                })
-                history.push('/')
-              }
+            const [roles, permissions] = transformRolesAndPermissions(login)
+            if (roles.length) {
+              this.props.setAuthentication({
+                isAuthenticated: true,
+                permissions,
+                roles,
+              })
+              history.push('/')
+            }
           })
           .catch(error => {
             this.error = 'Username and/or password is incorrect'

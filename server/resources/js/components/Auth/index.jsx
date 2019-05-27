@@ -4,7 +4,7 @@ import { compose, withApollo } from 'react-apollo'
 import { login, logout } from '@graphql/Auth.graphql'
 import { withCookies } from 'react-cookie'
 import ME from '@graphql/Me.graphql'
-import { transformRolesAndPermissions } from '@helpers/utils';
+import { transformRolesAndPermissions } from '@helpers/utils'
 
 export const AdminRoute = ({ component: Component, ...rest }) => (
   <AuthContext.Consumer>
@@ -67,7 +67,6 @@ export const AuthContext = createContext({
 })
 
 export class AuthProvider extends Component {
-
   setAuthentication = payload => {
     const { isAuthenticated, roles, permissions } = payload
     this.setState({
@@ -124,7 +123,9 @@ export class AuthProvider extends Component {
       })
       .then(response => {
         if (response.data.me) {
-          const [ roles, permissions ] = transformRolesAndPermissions(response.data.me)  
+          const [roles, permissions] = transformRolesAndPermissions(
+            response.data.me
+          )
           this.setState({
             isAuthenticated: true,
             isAuthenticating: false,
@@ -137,7 +138,8 @@ export class AuthProvider extends Component {
             isAuthenticating: false,
           })
         }
-      }).catch(error => {
+      })
+      .catch(error => {
         this.setState({
           isAuthenticating: false,
         })
