@@ -3,25 +3,31 @@ import { withApollo } from 'react-apollo'
 import { withFormProvider } from '@context/Form'
 import { compose } from 'recompose'
 import { Modal, Form, Input, Icon, Button } from 'antd'
-import { withReauthenticateUser, ReauthenticateUser } from '@auth/ReauthenticateUser';
+import {
+  withReauthenticateUser,
+  ReauthenticateUser,
+} from '@auth/ReauthenticateUser'
 import Phone from '@fields/Phone'
 
 class ChangeSecurityPhoneModal extends Component {
-
-  handlePasswordChange = () => {
-
-  }
+  handlePasswordChange = () => {}
 
   state = {
-    isSubmitting: false
+    isSubmitting: false,
   }
 
   render() {
-    const { form: { getFieldDecorator }, onRequestClose, isAuthenticated, isAuthenticating, handleAuthentication } = this.props
+    const {
+      form: { getFieldDecorator },
+      onRequestClose,
+      isAuthenticated,
+      isAuthenticating,
+      handleAuthentication,
+    } = this.props
     const { isSubmitting } = this.state
 
     return (
-      <Modal 
+      <Modal
         title={[
           <div key="title">
             <Icon type="warning-circle" /> Change Security Phone
@@ -35,10 +41,10 @@ class ChangeSecurityPhoneModal extends Component {
             key="saveButton"
             type="primary"
             loading={isAuthenticating || isSubmitting}
-            onClick={(event) => {
-              if(!isAuthenticated){
+            onClick={event => {
+              if (!isAuthenticated) {
                 handleAuthentication(event)
-              } else { 
+              } else {
                 this.handlePasswordChange(event)
               }
             }}
@@ -51,9 +57,9 @@ class ChangeSecurityPhoneModal extends Component {
         onCancel={onRequestClose}
       >
         <ReauthenticateUser>
-          {(props) => {
+          {props => {
             return (
-            <>
+              <>
                 <Phone name="phone" />
               </>
             )

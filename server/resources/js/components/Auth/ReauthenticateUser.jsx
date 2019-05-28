@@ -12,7 +12,7 @@ export function withReauthenticateUser(Component) {
   function WrapperComponent(props) {
     return (
       <ReauthenticateUserProvider {...props}>
-        {(rest) => <Component {...props} {...rest}/>}
+        {rest => <Component {...props} {...rest} />}
       </ReauthenticateUserProvider>
     )
   }
@@ -24,17 +24,14 @@ export function withReauthenticateUser(Component) {
 }
 
 class ReauthenticateUserProvider extends Component {
-
-  handleAuthentication = (event) => {
+  handleAuthentication = event => {
     const { client, form, onUserAuthenticated } = this.props
 
     form.validateFields((errors, values) => {
-
       this.setState({
         isAuthenticated: true,
-        password: values.password
+        password: values.password,
       })
-
     })
   }
 
@@ -43,7 +40,7 @@ class ReauthenticateUserProvider extends Component {
     isAuthenticated: false,
     password: null,
     handleAuthentication: this.handleAuthentication,
-    form: this.props.form
+    form: this.props.form,
   }
 
   render() {
@@ -56,25 +53,27 @@ class ReauthenticateUserProvider extends Component {
   }
 }
 
-export const ReauthenticateUser = ({children}) => {
+export const ReauthenticateUser = ({ children }) => {
   return (
     <ReauthenticateUserContext.Consumer>
-        {(props) => (<Form>
-          {!props.isAuthenticated ? 
-          <>
-            <Title level={4}>Enter your password to continue</Title>
-              The setting you are trying to change requires that you re-enter your password.
+      {props => (
+        <Form>
+          {!props.isAuthenticated ? (
+            <>
+              <Title level={4}>Enter your password to continue</Title>
+              The setting you are trying to change requires that you re-enter
+              your password.
               <Form.Item>
                 {props.form.getFieldDecorator('password', {
-                  rules: [
-                    {required: true, message: 'Password is required.'}
-                  ]
+                  rules: [{ required: true, message: 'Password is required.' }],
                 })(<Input.Password placeholder="Enter your password." />)}
               </Form.Item>
             </>
-            : children(props)
-          }
-        </Form>)}
+          ) : (
+            children(props)
+          )}
+        </Form>
+      )}
     </ReauthenticateUserContext.Consumer>
   )
 }

@@ -34,16 +34,18 @@ class LoginForm extends React.Component {
               data: { login },
             } = response
 
-            if(login.status === 'DEVICE_NOT_TRUSTED'){
+            if (login.status === 'DEVICE_NOT_TRUSTED') {
               this.setState({
                 step: 'deviceNotTrusted',
                 phone: login.meta.phone,
                 remember: values.remember,
-                username: values.username
+                username: values.username,
               })
             }
 
-            const [ roles, permissions ] = transformRolesAndPermissions(login.meta)
+            const [roles, permissions] = transformRolesAndPermissions(
+              login.meta
+            )
             if (roles.length) {
               this.props.setAuthentication({
                 isAuthenticated: true,
@@ -76,78 +78,87 @@ class LoginForm extends React.Component {
         {(login, { data, loading, error }) => (
           <>
             {/* BASIC LOGIN STEP */}
-            {!step && <>
-            <Title>Login</Title>
-            <Form onSubmit={event => this.handleSubmit(event, login)}>
-              <Form.Item>
-                {getFieldDecorator('username', {
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Please enter your email!',
-                    },
-                  ],
-                })(
-                  <Input
-                    css={css`
-                      animation: ${SlideIn} 0.5s ease;
-                    `}
-                    prefix={
-                      <Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />
-                    }
-                    placeholder="Email"
-                  />
-                )}
-              </Form.Item>
-              <Form.Item>
-                {getFieldDecorator('password', {
-                  rules: [
-                    {
-                      required: true,
-                      message: 'Please enter your Password!',
-                    },
-                  ],
-                })(
-                  <Input
-                    css={css`
-                      animation: ${SlideIn} 0.7s ease;
-                    `}
-                    prefix={
-                      <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
-              </Form.Item>
-              <Form.Item>
-                {getFieldDecorator('remember', {
-                  valuePropName: 'checked',
-                  initialValue: true,
-                })(<Checkbox>Remember me</Checkbox>)}
-                <LoginFormForgot>
-                  <Link to="/forgot-password">Forgot Password</Link>
-                </LoginFormForgot>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  style={{
-                    width: '100%',
-                  }}
-                  loading={loading}
-                >
-                  Login
-                </Button>
-                <CenteredActionText>
-                  <span>Don't have an account?</span>
-                  <span style={{ marginLeft: '8px' }}>
-                    <Link to="/register">Sign up</Link>
-                  </span>
-                </CenteredActionText>
-              </Form.Item>
-            </Form></>}
+            {!step && (
+              <>
+                <Title>Login</Title>
+                <Form onSubmit={event => this.handleSubmit(event, login)}>
+                  <Form.Item>
+                    {getFieldDecorator('username', {
+                      rules: [
+                        {
+                          required: true,
+                          message: 'Please enter your email!',
+                        },
+                      ],
+                    })(
+                      <Input
+                        css={css`
+                          animation: ${SlideIn} 0.5s ease;
+                        `}
+                        prefix={
+                          <Icon
+                            type="mail"
+                            style={{ color: 'rgba(0,0,0,.25)' }}
+                          />
+                        }
+                        placeholder="Email"
+                      />
+                    )}
+                  </Form.Item>
+                  <Form.Item>
+                    {getFieldDecorator('password', {
+                      rules: [
+                        {
+                          required: true,
+                          message: 'Please enter your Password!',
+                        },
+                      ],
+                    })(
+                      <Input
+                        css={css`
+                          animation: ${SlideIn} 0.7s ease;
+                        `}
+                        prefix={
+                          <Icon
+                            type="lock"
+                            style={{ color: 'rgba(0,0,0,.25)' }}
+                          />
+                        }
+                        type="password"
+                        placeholder="Password"
+                      />
+                    )}
+                  </Form.Item>
+                  <Form.Item>
+                    {getFieldDecorator('remember', {
+                      valuePropName: 'checked',
+                      initialValue: true,
+                    })(<Checkbox>Remember me</Checkbox>)}
+                    <LoginFormForgot>
+                      <Link to="/forgot-password">Forgot Password</Link>
+                    </LoginFormForgot>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{
+                        width: '100%',
+                      }}
+                      loading={loading}
+                    >
+                      Login
+                    </Button>
+                    <CenteredActionText>
+                      <span>Don't have an account?</span>
+                      <span style={{ marginLeft: '8px' }}>
+                        <Link to="/register">Sign up</Link>
+                      </span>
+                    </CenteredActionText>
+                  </Form.Item>
+                </Form>
+              </>
+            )}
             {/* MULTIFACTOR AUTH STEP DEVICE_NOT_TRUSTED */}
-            {step === 'deviceNotTrusted' && 
+            {step === 'deviceNotTrusted' && (
               <>
                 <MultiFactorAuth
                   phone={phone}
@@ -155,7 +166,7 @@ class LoginForm extends React.Component {
                   remember={remember}
                 />
               </>
-            }
+            )}
           </>
         )}
       </Mutation>
