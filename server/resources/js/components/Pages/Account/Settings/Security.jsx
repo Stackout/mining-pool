@@ -3,7 +3,7 @@ import { List, Skeleton } from 'antd'
 import { Title } from './index'
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
-import { ChangePassword, withModalConsumer } from '@modals'
+import { ChangePassword, withModalConsumer, ChangeSecurityPhone } from '@modals'
 import { compose } from 'recompose'
 import { Query } from 'react-apollo'
 import ME from '@graphql/Me.graphql'
@@ -84,7 +84,7 @@ const Security = ({ showModal, intl: { formatMessage } }) => {
                   href="javascript:void(0)"
                   onClick={event => {
                     event.preventDefault()
-                    showModal && showModal(ChangePhoneNumber)
+                    showModal && showModal(ChangeSecurityPhone)
                   }}
                 >
                   {data.me && data.me.securityPhone

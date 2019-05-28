@@ -37,7 +37,7 @@ class Phone extends Component {
   state = {
     number: false,
     dialCode: '+1',
-    defaultCountry: 'US',
+    countryCode: "US",
     value: this.props.initialValue,
   }
 

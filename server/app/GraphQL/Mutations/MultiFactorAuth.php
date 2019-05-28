@@ -11,6 +11,7 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Hash;
 use Twilio\Rest\Client;
 use App\Models\Setting;
+use Twilio;
 
 class MultiFactorAuth
 {
@@ -18,24 +19,7 @@ class MultiFactorAuth
     {
         // $data = $args['data'];
 
-        $account_sid = Setting::get('twilio_sid');
-        $auth_token  = Setting::get('twilio_auth_token');
-        $phone_number = Setting::get('twilio_phone_number');
-        $client = new Client($account_sid, $auth_token);
-
-        try {
-            $client->messages->create(
-                // the number you'd like to send the message to
-                '+13036566491',
-                [
-                    // A Twilio phone number you purchased at twilio.com/console
-                    'from' => $phone_number,
-                    // the body of the text message you'd like to send
-                    'body' => 'Hey Ryan! Glad to see this is working. From PHP!'
-            ]);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
+        Twilio::message('+13036566491', 'What an awesome librariy! I got it to work!');
 
         return [
             'status' => 'SMS_VERIFICATION_CODE_SENT',

@@ -13,3 +13,11 @@ fastcgi_buffer_size		32k;
 # fastcgi params
 fastcgi_param SCRIPT_FILENAME   /var/www/html/public/index.php;
 fastcgi_param PHP_ADMIN_VALUE	"open_basedir=$base/:/usr/lib/php/:/tmp/:/usr/local";
+
+fastcgi_param  SERVER_SOFTWARE    nginx;
+
+fastcgi_param  REMOTE_ADDR        $remote_addr;
+fastcgi_param  REMOTE_PORT        $remote_port;
+fastcgi_param  SERVER_ADDR        $server_addr;
+fastcgi_param  SERVER_PORT        $server_port;
+fastcgi_param  SERVER_NAME        $server_name;

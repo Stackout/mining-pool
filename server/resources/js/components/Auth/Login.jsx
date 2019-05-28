@@ -16,6 +16,8 @@ import {
   CenteredActionText,
 } from '@layout/Auth'
 import { transformRolesAndPermissions } from '@helpers/utils'
+import MultiFactorAuth from './MultiFactorAuth'
+import { withFormProvider } from '@context/Form'
 
 class LoginForm extends React.Component {
   handleSubmit = (event, login) => {
@@ -31,7 +33,17 @@ class LoginForm extends React.Component {
             const {
               data: { login },
             } = response
-            const [roles, permissions] = transformRolesAndPermissions(login)
+
+            if(login.status === 'DEVICE_NOT_TRUSTED'){
+              this.setState({
+                step: 'deviceNotTrusted',
+                phone: login.meta.phone,
+                remember: values.remember,
+                username: values.username
+              })
+            }
+
+            const [ roles, permissions ] = transformRolesAndPermissions(login.meta)
             if (roles.length) {
               this.props.setAuthentication({
                 isAuthenticated: true,
@@ -49,15 +61,22 @@ class LoginForm extends React.Component {
     })
   }
 
+  state = {
+    step: null,
+  }
+
   render() {
     const {
       form: { getFieldDecorator },
       cookies,
     } = this.props
+    const { step, phone, username, remember } = this.state
     return (
       <Mutation mutation={login}>
         {(login, { data, loading, error }) => (
           <>
+            {/* BASIC LOGIN STEP */}
+            {!step && <>
             <Title>Login</Title>
             <Form onSubmit={event => this.handleSubmit(event, login)}>
               <Form.Item>
@@ -126,7 +145,17 @@ class LoginForm extends React.Component {
                   </span>
                 </CenteredActionText>
               </Form.Item>
-            </Form>
+            </Form></>}
+            {/* MULTIFACTOR AUTH STEP DEVICE_NOT_TRUSTED */}
+            {step === 'deviceNotTrusted' && 
+              <>
+                <MultiFactorAuth
+                  phone={phone}
+                  username={username}
+                  remember={remember}
+                />
+              </>
+            }
           </>
         )}
       </Mutation>
@@ -134,9 +163,8 @@ class LoginForm extends React.Component {
   }
 }
 
-const WrappedLoginForm = Form.create({ name: 'login' })(LoginForm)
-
 export default compose(
   withCookies,
-  withAuth
-)(WrappedLoginForm)
+  withAuth,
+  withFormProvider
+)(LoginForm)

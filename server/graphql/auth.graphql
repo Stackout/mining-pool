@@ -8,9 +8,10 @@ input RefreshTokenInput {
     refresh_token: String
 }
 
-type AuthPayload {
-    access_token: String
-    expires_in: DateTime
+type AuthMetaPayload {
+    permissions: [Permission]
+    roles: [Role]
+    phone: String
 }
 
 type LogoutResponse {
@@ -62,9 +63,9 @@ extend type Query {
 }
 
 type LoginResponse {
-    permissions: [Permission]
-    roles: [Role]
-    token: AuthPayload
+    status: String!
+    message: String
+    meta: AuthMetaPayload
 }
 
 type Permission {
@@ -89,6 +90,13 @@ type BasicResponse {
     message: String
 }
 
+input ValidateCodeInput {
+    username: String!
+    code: String!
+    remember: Boolean
+    remember_device: Boolean
+}
+
 extend type Mutation {
     login(data: LoginInput): LoginResponse!
       @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@resolve")
@@ -101,6 +109,8 @@ extend type Mutation {
     # checkDomain(fqdn: String!) : CheckDomainResponse! @field(resolver: "App\\GraphQL\\Resolvers\\CheckDomainResolver@resolve")
     
     # Two Factor Authentication System
+    validateCode(data: ValidateCodeInput!): LoginResponse!
+      @field(resolver: "App\\GraphQL\\Resolvers\\LoginResolver@validateCode")
     textMessageSecurityCode(email: String!): BasicResponse! @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@textMessageSecurityCode")
     emailSecurityCode: BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@emailSecurityCode")
     changeSecurityPhone(data: ChangeSecurityPhoneInput!): BasicResponse! @protect(guards: ["api"]) @field(resolver: "App\\GraphQL\\Mutations\\MultiFactorAuth@changeSecurityPhone")

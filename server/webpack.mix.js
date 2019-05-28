@@ -20,7 +20,7 @@ mix.react('resources/js/app.js', 'public/js')
          "@babel/plugin-syntax-dynamic-import",
          ["react-intl", {
             "messagesDir": "resources/js/locales/messages/"
-        }]
+         }]
       ],
       "env": {
          "production": {
@@ -46,6 +46,7 @@ mix.react('resources/js/app.js', 'public/js')
       resolve: {
         alias: {
           '@': __dirname + '/resources/js',
+          '@assets': __dirname + '/resources/assets',
           '@app': __dirname + '/resources/js',
           '@auth': __dirname + '/resources/js/components/Auth',
           '@context': __dirname + '/resources/js/components/Context',
@@ -73,6 +74,6 @@ mix.react('resources/js/app.js', 'public/js')
             exclude: /node_modules/,
             loader: 'graphql-tag/loader',
           }
-        ],
+        ]
       }
     }).sourceMaps()

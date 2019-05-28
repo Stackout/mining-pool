@@ -1,14 +1,15 @@
 mutation login($data: LoginInput) {
   login(data: $data) {
-    roles {
-      name
-    }
-    permissions {
-      name
-    }
-    token {
-      access_token
-      expires_in
+    status
+    message
+    meta {
+      roles {
+        name
+      }
+      permissions {
+        name
+      }
+      phone
     }
   }
 }
@@ -59,5 +60,20 @@ mutation changePassword($data: ChangePasswordInput!) {
   changePassword(data: $data) {
     status
     message
+  }
+}
+
+mutation validateCode($data: ValidateCodeInput!) {
+  validateCode(data: $data) {
+    status
+    message
+    meta {
+      roles {
+        name
+      }
+      permissions {
+        name
+      }
+    }
   }
 }
